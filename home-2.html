@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VALENCE | Executive Financial Control Room (Home 2)</title>
+  <meta name="description" content="Know Your Numbers. Grow With Confidence. Premium bookkeeping, cash-flow management, and fractional CFO intelligence for modern founders.">
+  
+  <!-- CSS Frameworks & Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .panel-dark-h2 {
+      background: #17191B;
+      color: #F4F0E8;
+      border-radius: 12px;
+      border: 1px solid #2B3037;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+    .hud-card-h2 {
+      padding: 1.5rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .font-editorial-h2 {
+      font-family: Georgia, 'Playfair Display', serif;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body style="background-color: #F4F0E8;">
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION (WITH HOME, HOME 2, DASHBOARD, LOGIN, REGISTER)
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container-custom">
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo-bench">
+          <div class="brand-logo-main">VALENCE<span>®</span></div>
+          <div class="brand-logo-sub">CONTROL ROOM</div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <ul class="desktop-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="home-2.html" class="active text-bench-green">Home 2</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li class="dropdown">
+            <a href="services.html" class="dropdown-toggle" data-bs-toggle="dropdown">
+              Services <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+            </a>
+            <ul class="dropdown-menu shadow-md" style="border-radius: 10px; border: 1px solid var(--bench-border);">
+              <li><a class="dropdown-item py-2" href="services.html">Bookkeeping & Monthly Close</a></li>
+              <li><a class="dropdown-item py-2" href="services.html">Fractional CFO Advisory</a></li>
+              <li><a class="dropdown-item py-2" href="services.html">Cash-Flow Management</a></li>
+            </ul>
+          </li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="desktop-nav-actions">
+          <button type="button" class="quick-toggle-btn rtl-toggle-btn" title="Toggle RTL / LTR Layout" aria-label="Toggle RTL">
+            <i data-lucide="arrow-left-right" style="width: 17px; height: 17px;"></i>
+          </button>
+          <button type="button" class="quick-toggle-btn theme-toggle-btn" title="Toggle Dark Black Theme" aria-label="Toggle Theme">
+            <i data-lucide="moon" style="width: 17px; height: 17px;"></i>
+          </button>
+          <a href="login.html" class="btn-bench-outline">
+            <i data-lucide="log-in" style="width: 15px; height: 15px;"></i> Log in
+          </a>
+          <a href="register.html" class="btn-bench-primary">
+            Get Started Free
+          </a>
+        </div>
+
+        <!-- Hamburger Button (<= 1180px) -->
+        <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu">
+          <i data-lucide="menu" style="width: 24px; height: 24px;"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div>
+      <div class="d-flex align-items-center justify-content-between pb-3 border-bottom">
+        <div class="brand-logo-bench">
+          <div class="brand-logo-main">VALENCE<span>®</span></div>
+          <div class="brand-logo-sub">CONTROL ROOM</div>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <button type="button" class="quick-toggle-btn rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
+            <i data-lucide="arrow-left-right" style="width: 15px; height: 15px;"></i>
+          </button>
+          <button type="button" class="quick-toggle-btn theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme">
+            <i data-lucide="moon" style="width: 15px; height: 15px;"></i>
+          </button>
+          <button type="button" class="btn btn-sm" id="drawerCloseBtn"><i data-lucide="x" style="width: 20px; height: 20px;"></i></button>
+        </div>
+      </div>
+      <ul class="drawer-nav">
+        <li><a href="index.html">Home <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="home-2.html" class="active text-bench-green">Home 2 (Control Room) <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="dashboard.html" class="text-bench-green">Dashboard <i data-lucide="layout-dashboard"></i></a></li>
+        <li><a href="services.html">Services <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="pricing.html">Pricing <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="resources.html">Resources <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="how-it-works.html">How It Works <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="contact.html">Contact <i data-lucide="mail"></i></a></li>
+        <li><a href="login.html">Log in <i data-lucide="log-in"></i></a></li>
+        <li><a href="register.html">Register <i data-lucide="user-plus"></i></a></li>
+      </ul>
+    </div>
+    <div class="d-flex flex-column gap-2 pt-3 border-top">
+      <a href="login.html" class="btn-bench-outline w-100"><i data-lucide="log-in" style="width: 16px; height: 16px;"></i> Log in</a>
+      <a href="register.html" class="btn-bench-primary w-100">Get Started Free</a>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HERO: YOUR NUMBERS. FINALLY CLEAR.
+       ========================================================================== -->
+  <section class="py-5" style="padding: 4.5rem 0 5rem !important;">
+    <div class="container-custom">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="badge bg-bench-green-subtle text-bench-green px-3 py-2 rounded-pill font-mono mb-3 fw-bold">
+            Executive Financial Intelligence
+          </div>
+
+          <h1 style="font-size: clamp(2.5rem, 5.2vw, 4.2rem); font-weight: 800; line-height: 1.06; letter-spacing: -0.04em; color: #17191B; margin-bottom: 1.5rem;">
+            YOUR NUMBERS.<br>
+            <span class="font-editorial-h2" style="font-weight: 400; color: #B66A45;">FINALLY CLEAR.</span>
+          </h1>
+
+          <p style="font-size: 1.15rem; color: #4A5157; line-height: 1.65; max-width: 520px; margin-bottom: 2rem;">
+            Bookkeeping and fractional CFO expertise designed to give growing businesses a clearer view of cash flow, profitability and what's next.
+          </p>
+
+          <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
+            <a href="register.html" class="btn-bench-primary" style="padding: 1rem 2rem;">
+              Explore CFO Partnership
+            </a>
+            <a href="dashboard.html" class="btn-bench-outline" style="padding: 1rem 1.8rem;">
+              <i data-lucide="activity" style="width: 18px; height: 18px; color: var(--bench-green);"></i>
+              Live Control Room
+            </a>
+          </div>
+
+          <div class="d-flex align-items-center gap-4 pt-3 border-top">
+            <div>
+              <div class="font-mono-num fw-bold" style="font-size: 1.25rem;">$140M+</div>
+              <div style="font-size: 0.75rem; color: #697178;">ARR Managed</div>
+            </div>
+            <div style="width: 1px; height: 32px; background: #DDD6C8;"></div>
+            <div>
+              <div class="font-mono-num fw-bold text-bench-green" style="font-size: 1.25rem;">5-Day</div>
+              <div style="font-size: 0.75rem; color: #697178;">Guaranteed Close</div>
+            </div>
+            <div style="width: 1px; height: 32px; background: #DDD6C8;"></div>
+            <div>
+              <div class="font-mono-num fw-bold" style="font-size: 1.25rem; color: #B66A45;">8.4 Mo</div>
+              <div style="font-size: 0.75rem; color: #697178;">Avg Runway</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Realistic Financial Dashboard Card -->
+        <div class="col-lg-6">
+          <div class="panel-dark-h2 p-4 p-md-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge bg-dark border text-light px-3 py-1 font-mono" style="font-size: 0.72rem;">CASH POSITION</span>
+              <span class="badge bg-success-subtle text-success font-mono fw-bold">+12.8%</span>
+            </div>
+
+            <div style="font-size: 0.75rem; font-family: var(--font-mono); color: #949DA4; text-transform: uppercase;">Total Available Liquidity</div>
+            <div class="font-mono-num my-2" style="font-size: 3rem; font-weight: 800; color: #fff;">$284,620</div>
+
+            <div style="height: 140px; position: relative;" class="my-3">
+              <canvas id="heroCashChart"></canvas>
+            </div>
+
+            <div class="row g-2 pt-3 border-top" style="border-color: rgba(255, 255, 255, 0.1) !important;">
+              <div class="col-4">
+                <div style="font-family: var(--font-mono); font-size: 0.7rem; color: #949DA4;">REVENUE</div>
+                <div class="font-mono-num fw-bold text-white">$128,400</div>
+              </div>
+              <div class="col-4">
+                <div style="font-family: var(--font-mono); font-size: 0.7rem; color: #949DA4;">EXPENSES</div>
+                <div class="font-mono-num fw-bold text-white">$86,200</div>
+              </div>
+              <div class="col-4">
+                <div style="font-family: var(--font-mono); font-size: 0.7rem; color: #949DA4;">NET CASH FLOW</div>
+                <div class="font-mono-num fw-bold" style="color: #C5A15A;">+$42,200</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SIGNATURE UI: CASH FLOW WATERFALL & FOUNDER SNAPSHOT
+       ========================================================================== -->
+  <section class="py-5" style="background: #17191B; color: #F4F0E8;">
+    <div class="container-custom">
+      
+      <!-- 04: Founder Snapshot Executive Panel -->
+      <div class="mb-5">
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: #C5A15A; margin-bottom: 1rem; letter-spacing: 0.1em;">
+          04 — FOUNDER SNAPSHOT EXECUTIVE PANEL
+        </div>
+        <div class="row g-3">
+          <div class="col-sm-6 col-lg-3">
+            <div class="hud-card-h2">
+              <div style="font-size: 0.75rem; color: #949DA4; font-family: var(--font-mono);">REVENUE</div>
+              <div class="font-mono-num fw-bold text-white" style="font-size: 1.8rem;">$1.24M</div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="hud-card-h2">
+              <div style="font-size: 0.75rem; color: #949DA4; font-family: var(--font-mono);">GROSS MARGIN</div>
+              <div class="font-mono-num fw-bold" style="font-size: 1.8rem; color: #C5A15A;">64.2%</div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="hud-card-h2">
+              <div style="font-size: 0.75rem; color: #949DA4; font-family: var(--font-mono);">OPERATING COSTS</div>
+              <div class="font-mono-num fw-bold text-white" style="font-size: 1.8rem;">$420K</div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-3">
+            <div class="hud-card-h2">
+              <div style="font-size: 0.75rem; color: #949DA4; font-family: var(--font-mono);">CASH RUNWAY</div>
+              <div class="font-mono-num fw-bold" style="font-size: 1.8rem; color: #B66A45;">8.4 Months</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 01: Cash Flow Waterfall -->
+      <div class="row g-4 mb-5">
+        <div class="col-lg-7">
+          <div class="panel-dark-h2 p-4 h-100">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 style="font-size: 1.15rem; color: #fff; margin: 0;">01 — Cash Flow Visualization</h3>
+              <span class="badge bg-success-subtle text-success">Incoming $\rightarrow$ Net Cash</span>
+            </div>
+            <div style="height: 240px; position: relative;">
+              <canvas id="cashFlowWaterfallChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02: Budget vs Actual -->
+        <div class="col-lg-5">
+          <div class="panel-dark-h2 p-4 h-100">
+            <h3 style="font-size: 1.15rem; color: #fff; margin-bottom: 1.25rem;">02 — Budget vs Actual</h3>
+            <table class="table table-dark table-borderless font-mono-num" style="font-size: 0.9rem;">
+              <thead>
+                <tr class="text-secondary border-bottom">
+                  <th>Category</th>
+                  <th>Budget</th>
+                  <th>Actual</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Payroll</td>
+                  <td>$42K</td>
+                  <td class="text-success">$39K</td>
+                </tr>
+                <tr>
+                  <td>Marketing</td>
+                  <td>$18K</td>
+                  <td class="text-warning">$21K</td>
+                </tr>
+                <tr>
+                  <td>Operations</td>
+                  <td>$12K</td>
+                  <td class="text-success">$10K</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- What Changed This Month -->
+            <div class="p-3 rounded mt-3" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(197, 161, 90, 0.3);">
+              <div style="font-size: 0.72rem; color: #C5A15A; font-weight: 700; font-family: var(--font-mono);">WHAT CHANGED THIS MONTH?</div>
+              <ul class="list-unstyled mb-0 mt-2 d-flex flex-column gap-1" style="font-size: 0.85rem; color: #E5E7EB;">
+                <li>• Revenue increased 8.4%</li>
+                <li>• Marketing expenses increased 5.2%</li>
+                <li>• Operating margin improved by 2.1%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       HOME 2 NEW SECTION 01: FRACTIONAL CFO BOARDROOM STRATEGY
+       ========================================================================== -->
+  <section class="py-5" style="background: #111315; color: #F4F0E8; padding: 6rem 0 !important; border-top: 1px solid #2B3037;">
+    <div class="container-custom">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="badge px-3 py-1 rounded-pill fw-bold mb-3" style="background: rgba(197, 161, 90, 0.15); color: #C5A15A; font-family: var(--font-mono); font-size: 0.8rem;">
+            EXECUTIVE ADVISORY
+          </div>
+          <h2 style="font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 800; line-height: 1.15; color: #FFFFFF;">
+            CFO firepower for your next board meeting & fundraise.
+          </h2>
+          <p style="font-size: 1.1rem; color: #9CA3AF; margin: 1.25rem 0 2rem; line-height: 1.7;">
+            High-growth founders do not just need past bookkeeping—they need forward-looking financial engineering. We model your CAC paybacks, stress-test your hiring roadmap, and build investor-ready board packages.
+          </p>
+
+          <div class="row g-3 mb-4">
+            <div class="col-sm-6">
+              <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div style="font-family: var(--font-mono); font-size: 1.4rem; font-weight: 800; color: #C5A15A;">13-Week Cash</div>
+                <div style="font-size: 0.85rem; color: #E5E7EB; font-weight: 600; margin-top: 0.25rem;">Rolling Liquidity Model</div>
+                <div style="font-size: 0.75rem; color: #9CA3AF; margin-top: 0.2rem;">Pinpoint payroll and tax obligations months in advance</div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="p-3 rounded" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);">
+                <div style="font-family: var(--font-mono); font-size: 1.4rem; font-weight: 800; color: #10B981;">Series A – C</div>
+                <div style="font-size: 0.85rem; color: #E5E7EB; font-weight: 600; margin-top: 0.25rem;">Due Diligence Data Rooms</div>
+                <div style="font-size: 0.75rem; color: #9CA3AF; margin-top: 0.2rem;">Full GAAP compliance and historical audit defense</div>
+              </div>
+            </div>
+          </div>
+
+          <a href="dashboard.html" class="btn-cfo btn-cfo-gold" style="padding: 0.85rem 1.8rem;">
+            Access CFO Portal Preview →
+          </a>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="position-relative">
+            <img src="assets/images/WDa1QHKB2aUYJNYww1KGCbuDwFNCIdYnEAv2o-DHxnzbaZa2ekrun_iqLPDMnNiyk2RII8wgnDTqT4KBz2vi53gi1.jpg" 
+                 alt="CFO Executive Strategy Presentation" 
+                 class="img-fluid rounded-4 shadow-lg w-100" 
+                 style="object-fit: cover; max-height: 480px; border: 1px solid #2B3037;">
+            
+            <!-- Float HUD Pill -->
+            <div class="position-absolute d-none d-sm-flex align-items-center gap-3 p-3 rounded-3 shadow-lg" 
+                 style="bottom: -20px; right: 20px; background: #17191B; border: 1px solid #C5A15A;">
+              <div class="rounded-circle p-2 d-flex align-items-center justify-content-center" style="background: rgba(197, 161, 90, 0.2); color: #C5A15A;">
+                <i data-lucide="award" style="width: 22px; height: 22px;"></i>
+              </div>
+              <div>
+                <div style="font-size: 0.75rem; color: #9CA3AF; font-family: var(--font-mono);">LEADERSHIP TIER</div>
+                <div style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF;">Partner-Level Fractional CFOs</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       HOME 2 NEW SECTION 02: MULTI-ENTITY RECONCILIATION & AUTOMATION
+       ========================================================================== -->
+  <section class="py-5" style="background: #0D0F12; color: #F4F0E8; padding: 6rem 0 !important; border-top: 1px solid #1E232B;">
+    <div class="container-custom">
+      <div class="row align-items-center g-5 flex-lg-row-reverse">
+        <div class="col-lg-6">
+          <div class="badge px-3 py-1 rounded-pill fw-bold mb-3" style="background: rgba(16, 185, 129, 0.15); color: #10B981; font-family: var(--font-mono); font-size: 0.8rem;">
+            LEDGER PRECISION
+          </div>
+          <h2 style="font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 800; line-height: 1.15; color: #FFFFFF;">
+            Continuous ledger sync. Zero month-end panic.
+          </h2>
+          <p style="font-size: 1.1rem; color: #9CA3AF; margin: 1.25rem 0 2rem; line-height: 1.7;">
+            Our automated data extraction connects directly with Plaid, Stripe, Shopify, Rippling, and Mercury. Transactions are automatically cleaned, classified, and audited daily by your dedicated team.
+          </p>
+
+          <div class="d-flex flex-column gap-3 mb-4">
+            <div class="d-flex align-items-start gap-3 p-3 rounded" style="background: rgba(255, 255, 255, 0.02); border: 1px solid #232830;">
+              <div class="rounded-circle p-2 mt-1" style="background: rgba(16, 185, 129, 0.15); color: #10B981;">
+                <i data-lucide="cpu" style="width: 18px; height: 18px;"></i>
+              </div>
+              <div>
+                <h4 style="font-size: 1rem; color: #FFFFFF; margin-bottom: 0.2rem; font-weight: 700;">Multi-Currency & Entity Consolidation</h4>
+                <p style="color: #9CA3AF; font-size: 0.85rem; margin: 0;">Seamless consolidation for parent entities, international subs, and multi-state operations.</p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start gap-3 p-3 rounded" style="background: rgba(255, 255, 255, 0.02); border: 1px solid #232830;">
+              <div class="rounded-circle p-2 mt-1" style="background: rgba(197, 161, 90, 0.15); color: #C5A15A;">
+                <i data-lucide="file-spreadsheet" style="width: 18px; height: 18px;"></i>
+              </div>
+              <div>
+                <h4 style="font-size: 1rem; color: #FFFFFF; margin-bottom: 0.2rem; font-weight: 700;">Zero-Defect Tax Pack Integration</h4>
+                <p style="color: #9CA3AF; font-size: 0.85rem; margin: 0;">Corporate federal, state, and local tax schedules generated directly from reconciled ledger data.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="services.html" class="btn-cfo btn-cfo-outline-light" style="padding: 0.85rem 1.8rem;">
+            Explore Complete CFO Capabilities
+          </a>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="position-relative">
+            <img src="assets/images/d-scvIUFWr9gi5FTui51jIfjyuP7tj9WIMXLfLYIUPArYzobISWJ9s1ScS358H5lnf25hC2iDo2taZ-AIerpEdmb_.jpg" 
+                 alt="Automated Ledger Sync and Financial Reconciliation" 
+                 class="img-fluid rounded-4 shadow-lg w-100" 
+                 style="object-fit: cover; max-height: 480px; border: 1px solid #2B3037;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bench-footer">
+    <div class="container-custom">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="brand-logo-bench mb-3">
+            <div class="brand-logo-main">VALENCE<span>®</span></div>
+            <div class="brand-logo-sub">CONTROL ROOM</div>
+          </div>
+          <p style="color: var(--bench-slate); font-size: 0.925rem; max-width: 320px; margin-bottom: 1.25rem;">
+            Precision bookkeeping and fractional CFO leadership for founders.
+          </p>
+
+          <div class="d-flex gap-2">
+            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" title="LinkedIn"><i data-lucide="linkedin" style="width: 16px; height: 16px;"></i></a>
+            <a href="https://twitter.com" target="_blank" class="social-icon-btn" title="Twitter"><i data-lucide="twitter" style="width: 16px; height: 16px;"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-icon-btn" title="YouTube"><i data-lucide="youtube" style="width: 16px; height: 16px;"></i></a>
+            <a href="https://facebook.com" target="_blank" class="social-icon-btn" title="Facebook"><i data-lucide="facebook" style="width: 16px; height: 16px;"></i></a>
+            <a href="https://instagram.com" target="_blank" class="social-icon-btn" title="Instagram"><i data-lucide="instagram" style="width: 16px; height: 16px;"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <div class="footer-nav-title">Navigation</div>
+          <ul class="footer-nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home 2</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <div class="footer-nav-title">Company</div>
+          <ul class="footer-nav-list">
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="pricing.html">Pricing Plans</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Log in</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <div class="footer-nav-title">Need help with your books?</div>
+          <p style="color: var(--bench-slate); font-size: 0.9rem;">
+            Talk with a dedicated financial specialist today at <strong>(888) 760-1940</strong> or schedule online.
+          </p>
+          <a href="register.html" class="btn-bench-primary btn-sm">
+            Get Started Free
+          </a>
+        </div>
+      </div>
+      <div class="pt-4 mt-5 border-top text-center" style="font-size: 0.85rem; color: var(--bench-slate-light);">
+        © 2026 VALENCE Inc. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

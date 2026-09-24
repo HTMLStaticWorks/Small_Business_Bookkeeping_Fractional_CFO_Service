@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources & Founder Tools | VALENCE</title>
+  <meta name="description" content="Free guides, cash runway calculators, and financial templates from VALENCE.">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container-custom">
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo-bench">
+          <div class="brand-logo-main">VALENCE<span>®</span></div>
+          <div class="brand-logo-sub">MAINSTREET</div>
+        </a>
+
+        <ul class="desktop-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="home-2.html">Home 2</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li class="dropdown">
+            <a href="services.html" class="dropdown-toggle" data-bs-toggle="dropdown">
+              Services <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+            </a>
+            <ul class="dropdown-menu shadow-md" style="border-radius: 10px; border: 1px solid var(--bench-border);">
+              <li><a class="dropdown-item py-2" href="services.html">Bookkeeping & Monthly Close</a></li>
+              <li><a class="dropdown-item py-2" href="services.html">Fractional CFO Advisory</a></li>
+              <li><a class="dropdown-item py-2" href="services.html">Cash-Flow Management</a></li>
+              <li><a class="dropdown-item py-2" href="services.html">Tax Prep & Year-End Filing</a></li>
+            </ul>
+          </li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li class="dropdown">
+            <a href="resources.html" class="dropdown-toggle active text-bench-green" data-bs-toggle="dropdown">
+              Resources <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+            </a>
+            <ul class="dropdown-menu shadow-md" style="border-radius: 10px; border: 1px solid var(--bench-border);">
+              <li><a class="dropdown-item py-2" href="resources.html">Founder Insights Library</a></li>
+              <li><a class="dropdown-item py-2" href="resources.html">Cash Runway Calculator</a></li>
+            </ul>
+          </li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="desktop-nav-actions">
+          <button type="button" class="quick-toggle-btn rtl-toggle-btn" title="Toggle RTL / LTR Layout" aria-label="Toggle RTL">
+            <i data-lucide="arrow-left-right" style="width: 17px; height: 17px;"></i>
+          </button>
+          <button type="button" class="quick-toggle-btn theme-toggle-btn" title="Toggle Dark Black Theme" aria-label="Toggle Theme">
+            <i data-lucide="moon" style="width: 17px; height: 17px;"></i>
+          </button>
+          <a href="login.html" class="btn-bench-outline">
+            <i data-lucide="log-in" style="width: 15px; height: 15px;"></i> Log in
+          </a>
+          <a href="register.html" class="btn-bench-primary">
+            Get Started Free
+          </a>
+        </div>
+
+        <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu">
+          <i data-lucide="menu" style="width: 24px; height: 24px;"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div>
+      <div class="d-flex align-items-center justify-content-between pb-3 border-bottom">
+        <div class="brand-logo-bench">
+          <div class="brand-logo-main">VALENCE<span>®</span></div>
+          <div class="brand-logo-sub">MAINSTREET</div>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <button type="button" class="quick-toggle-btn rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
+            <i data-lucide="arrow-left-right" style="width: 15px; height: 15px;"></i>
+          </button>
+          <button type="button" class="quick-toggle-btn theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme">
+            <i data-lucide="moon" style="width: 15px; height: 15px;"></i>
+          </button>
+          <button type="button" class="btn btn-sm" id="drawerCloseBtn"><i data-lucide="x" style="width: 20px; height: 20px;"></i></button>
+        </div>
+      </div>
+      <ul class="drawer-nav">
+        <li><a href="index.html">Home <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="home-2.html">Home 2 (Control Room) <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="dashboard.html" class="text-bench-green">Dashboard <i data-lucide="layout-dashboard"></i></a></li>
+        <li><a href="services.html">Services <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="pricing.html">Pricing <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="resources.html" class="active text-bench-green">Resources <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="how-it-works.html">How It Works <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="contact.html">Contact <i data-lucide="mail"></i></a></li>
+        <li><a href="login.html">Log in <i data-lucide="log-in"></i></a></li>
+        <li><a href="register.html">Register <i data-lucide="user-plus"></i></a></li>
+      </ul>
+    </div>
+    <div class="d-flex flex-column gap-2 pt-3 border-top">
+      <a href="login.html" class="btn-bench-outline w-100"><i data-lucide="log-in" style="width: 16px; height: 16px;"></i> Log in</a>
+      <a href="register.html" class="btn-bench-primary w-100">Get Started Free</a>
+    </div>
+  </div>
+
+  <!-- Hero & Runway Tool -->
+  <section class="py-5 bg-bench-light" style="padding: 5rem 0 !important;">
+    <div class="container-custom">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+          <h1 style="font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 800; color: var(--bench-navy);">
+            Financial tools built for founders.
+          </h1>
+          <p style="font-size: 1.15rem; color: var(--bench-slate); margin: 1.25rem 0 2rem;">
+            Test your current burn rate and calculate how many months of cash runway you have left.
+          </p>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="card-bench-feature p-4 p-md-5">
+            <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;">Interactive Cash Runway Calculator</h3>
+            <div class="mb-4">
+              <label class="form-label fw-bold" style="font-size: 0.85rem;">Total Cash Balance ($)</label>
+              <div class="d-flex justify-content-between font-mono-num text-bench-green fw-bold">
+                <span>$10k</span>
+                <span id="calcCashValLabel">$284,000</span>
+                <span>$2M</span>
+              </div>
+              <input type="range" class="form-range" id="calcCashBalance" min="10000" max="2000000" step="10000" value="284000">
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-bold" style="font-size: 0.85rem;">Gross Monthly Burn ($)</label>
+              <div class="d-flex justify-content-between font-mono-num text-bench-green fw-bold">
+                <span>$5k</span>
+                <span id="calcBurnValLabel">$34,000</span>
+                <span>$200k</span>
+              </div>
+              <input type="range" class="form-range" id="calcMonthlyBurn" min="5000" max="200000" step="1000" value="34000">
+            </div>
+
+            <div class="p-4 rounded-3 bg-bench-green-subtle d-flex justify-content-between align-items-center">
+              <div>
+                <div style="font-size: 0.75rem; font-weight: 700; color: var(--bench-slate); text-transform: uppercase;">Estimated Runway</div>
+                <div id="calcRunwayResult" class="font-mono-num text-bench-green" style="font-size: 2.2rem; font-weight: 800;">8.4 Months</div>
+              </div>
+              <span id="calcHealthStatus" class="badge bg-bench-green text-white px-3 py-2 rounded-pill">
+                Healthy Runway
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guides Grid -->
+  <section class="py-5" style="padding: 5rem 0 !important;">
+    <div class="container-custom">
+      <h2 style="font-size: 2.2rem; margin-bottom: 2.5rem; text-align: center;">Latest Bookkeeping & Tax Guides</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-bench-feature">
+            <span class="badge bg-bench-light text-bench-navy mb-3">BOOKKEEPING GUIDE</span>
+            <h3 style="font-size: 1.25rem;">The Small Business Guide to Reconciling Stripe & Square</h3>
+            <p style="color: var(--bench-slate); font-size: 0.9rem; line-height: 1.6;">
+              How to avoid phantom revenue and properly account for processing fees.
+            </p>
+            <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-bench-feature">
+            <span class="badge bg-bench-light text-bench-navy mb-3">TAX STRATEGY</span>
+            <h3 style="font-size: 1.25rem;">Top 15 Tax Deductions Small Business Owners Miss</h3>
+            <p style="color: var(--bench-slate); font-size: 0.9rem; line-height: 1.6;">
+              Legitimate write-offs for software subscriptions, home offices, and hardware.
+            </p>
+            <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-bench-feature">
+            <span class="badge bg-bench-light text-bench-navy mb-3">CFO PLAYBOOK</span>
+            <h3 style="font-size: 1.25rem;">How to Build a 13-Week Rolling Cash Flow Forecast</h3>
+            <p style="color: var(--bench-slate); font-size: 0.9rem; line-height: 1.6;">
+              Step-by-step framework to anticipate payroll crunches and manage accounts receivable.
+            </p>
+            <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bench-footer">
+    <div class="container-custom">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="brand-logo-bench mb-3">
+            <div class="brand-logo-main">VALENCE<span>®</span></div>
+            <div class="brand-logo-sub">MAINSTREET</div>
+          </div>
+          <p style="color: var(--bench-slate); font-size: 0.925rem; max-width: 320px; margin-bottom: 1.25rem;">
+            America’s favorite online bookkeeping and fractional CFO service for growing businesses.
+          </p>
+
+          <div class="d-flex gap-2">
+            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" title="LinkedIn"><i data-lucide="linkedin" style="width: 16px; height: 16px;"></i></a>
+            <a href="https://twitter.com" target="_blank" class="social-icon-btn" title="Twitter"><i data-lucide="twitter" style="width: 16px; height: 16px;"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-icon-btn" title="YouTube"><i data-lucide="youtube" style="width: 16px; height: 16px;"></i></a>
+            <a href="https://facebook.com" target="_blank" class="social-icon-btn" title="Facebook"><i data-lucide="facebook" style="width: 16px; height: 16px;"></i></a>
+            <a href="https://instagram.com" target="_blank" class="social-icon-btn" title="Instagram"><i data-lucide="instagram" style="width: 16px; height: 16px;"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <div class="footer-nav-title">Navigation</div>
+          <ul class="footer-nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home 2</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <div class="footer-nav-title">Company</div>
+          <ul class="footer-nav-list">
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="pricing.html">Pricing Plans</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Log in</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <div class="footer-nav-title">Need help with your books?</div>
+          <p style="color: var(--bench-slate); font-size: 0.9rem;">
+            Talk with a dedicated financial specialist today at <strong>(888) 760-1940</strong> or schedule online.
+          </p>
+          <a href="register.html" class="btn-bench-primary btn-sm">
+            Get Started Free
+          </a>
+        </div>
+      </div>
+      <div class="pt-4 mt-5 border-top text-center" style="font-size: 0.85rem; color: var(--bench-slate-light);">
+        © 2026 VALENCE Inc. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

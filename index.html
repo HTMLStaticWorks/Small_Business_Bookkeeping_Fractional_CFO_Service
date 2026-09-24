@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Bookkeeping Done for You | VALENCE</title>
+  <meta name="description" content="A dedicated bookkeeper does your books. Simple software keeps your financials at your fingertips. Monthly books, year-end taxes, and fractional CFO advisory.">
+  
+  <!-- CSS Frameworks & Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .social-icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #F4F8F7;
+      border: 1px solid #E2E8F0;
+      color: var(--bench-navy);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .social-icon-btn:hover {
+      background: var(--bench-green);
+      color: #ffffff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 131, 98, 0.25);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       BENCH-STYLE HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container-custom">
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo-bench" id="brandHomeLink">
+          <div class="brand-logo-main">
+            VALENCE<span style="font-size: 0.85rem; vertical-align: super; font-weight: 700;">®</span>
+          </div>
+          <div class="brand-logo-sub">MAINSTREET</div>
+        </a>
+
+        <!-- Desktop Navigation (> 1024px) -->
+        <ul class="desktop-nav">
+          <li><a href="index.html" class="active text-bench-green">Home</a></li>
+          <li><a href="home-2.html">Home 2</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li class="dropdown">
+            <a href="services.html" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Services <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+            </a>
+            <ul class="dropdown-menu shadow-md" style="border-radius: 10px; border: 1px solid var(--bench-border);">
+              <li><a class="dropdown-item py-2" href="services.html">Bookkeeping & Monthly Close</a></li>
+              <li><a class="dropdown-item py-2" href="services.html">Fractional CFO Advisory</a></li>
+              <li><a class="dropdown-item py-2" href="services.html">Cash-Flow Management</a></li>
+              <li><a class="dropdown-item py-2" href="services.html">Tax Prep & Year-End Filing</a></li>
+            </ul>
+          </li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li class="dropdown">
+            <a href="resources.html" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Resources <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+            </a>
+            <ul class="dropdown-menu shadow-md" style="border-radius: 10px; border: 1px solid var(--bench-border);">
+              <li><a class="dropdown-item py-2" href="resources.html">Founder Insights Library</a></li>
+              <li><a class="dropdown-item py-2" href="resources.html">Cash Runway Calculator</a></li>
+              <li><a class="dropdown-item py-2" href="resources.html">13-Week Cash Model</a></li>
+            </ul>
+          </li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="desktop-nav-actions">
+          <button type="button" class="quick-toggle-btn rtl-toggle-btn" title="Toggle RTL / LTR Layout" aria-label="Toggle RTL">
+            <i data-lucide="arrow-left-right" style="width: 17px; height: 17px;"></i>
+          </button>
+          <button type="button" class="quick-toggle-btn theme-toggle-btn" title="Toggle Dark Black Theme" aria-label="Toggle Theme">
+            <i data-lucide="moon" style="width: 17px; height: 17px;"></i>
+          </button>
+          <a href="login.html" class="btn-bench-outline" id="navClientLoginBtn">
+            <i data-lucide="log-in" style="width: 15px; height: 15px;"></i> Log in
+          </a>
+          <a href="register.html" class="btn-bench-primary" id="navRegisterBtn">
+            Get Started Free
+          </a>
+        </div>
+
+        <!-- Hamburger Button (<= 1180px) -->
+        <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu">
+          <i data-lucide="menu" style="width: 24px; height: 24px;"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Offcanvas Drawer -->
+  <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div>
+      <div class="d-flex align-items-center justify-content-between pb-3 border-bottom">
+        <div class="brand-logo-bench">
+          <div class="brand-logo-main">VALENCE<span>®</span></div>
+          <div class="brand-logo-sub">MAINSTREET</div>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <button type="button" class="quick-toggle-btn rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
+            <i data-lucide="arrow-left-right" style="width: 15px; height: 15px;"></i>
+          </button>
+          <button type="button" class="quick-toggle-btn theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme">
+            <i data-lucide="moon" style="width: 15px; height: 15px;"></i>
+          </button>
+          <button type="button" class="btn btn-sm" id="drawerCloseBtn" aria-label="Close menu">
+            <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+          </button>
+        </div>
+      </div>
+
+      <ul class="drawer-nav">
+        <li><a href="index.html" class="active text-bench-green">Home <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="home-2.html">Home 2 (Control Room) <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="dashboard.html" class="text-bench-green">Dashboard <i data-lucide="layout-dashboard"></i></a></li>
+        <li><a href="services.html">Services <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="pricing.html">Pricing <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="resources.html">Resources & Runway Tool <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="how-it-works.html">How It Works <i data-lucide="chevron-right"></i></a></li>
+        <li><a href="contact.html">Contact <i data-lucide="mail"></i></a></li>
+        <li><a href="login.html">Log in <i data-lucide="log-in"></i></a></li>
+        <li><a href="register.html">Register <i data-lucide="user-plus"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="d-flex flex-column gap-2 pt-3 border-top">
+      <a href="login.html" class="btn-bench-outline w-100"><i data-lucide="log-in" style="width: 16px; height: 16px;"></i> Log in</a>
+      <a href="register.html" class="btn-bench-primary w-100">Get Started Free</a>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       EXACT BENCH HERO SECTION & FLOATING UI
+       ========================================================================== -->
+  <section class="bench-hero-wrap">
+    <div class="container-custom">
+      <div class="row align-items-center g-5">
+        
+        <!-- Left Column: Copy & Checklist -->
+        <div class="col-lg-6">
+          <h1 style="font-size: clamp(2.8rem, 5.2vw, 4.3rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.04em; color: var(--bench-navy);">
+            Bookkeeping done<br>for you.
+          </h1>
+
+          <p style="font-size: 1.25rem; color: var(--bench-slate); line-height: 1.55; margin-top: 1.5rem; max-width: 500px;">
+            A dedicated bookkeeper does your books. Simple software keeps your financials at your fingertips.
+          </p>
+
+          <ul class="bench-check-list">
+            <li>
+              <i data-lucide="check" class="bench-check-icon"></i>
+              <span>Dedicated bookkeeper, a call or message away</span>
+            </li>
+            <li>
+              <i data-lucide="check" class="bench-check-icon"></i>
+              <span>Monthly books, year-end financials & taxes</span>
+            </li>
+            <li>
+              <i data-lucide="check" class="bench-check-icon"></i>
+              <span>Real-time financials at your fingertips</span>
+            </li>
+            <li>
+              <i data-lucide="check" class="bench-check-icon"></i>
+              <span>One stop shop, from financials to tax filing</span>
+            </li>
+          </ul>
+
+          <div class="d-flex flex-wrap align-items-center gap-3 mt-4">
+            <a href="register.html" class="btn-bench-primary" style="padding: 1rem 2rem; font-size: 1.05rem;">
+              See how VALENCE works
+            </a>
+            <a href="dashboard.html" class="btn-bench-outline" style="padding: 1rem 1.8rem; font-size: 1.05rem;">
+              <i data-lucide="layout-dashboard" style="width: 18px; height: 18px; color: var(--bench-green);"></i>
+              View Client Portal
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Exact Bench Floating Software & Chat Composition -->
+        <div class="col-lg-6">
+          <div class="bench-ui-stage">
+
+            <!-- Top Left Floating Chat Bubble (Jess Bookkeeper) -->
+            <div class="floating-chat-bubble top-bubble">
+              <img src="assets/images/executive-cfo.jpg" alt="Jess Dedicated Bookkeeper" class="avatar-circle-bench" style="border-radius: 50%; object-position: top center;">
+              <div class="chat-bubble-text">
+                Hey! Jess here. Your books are up-to-date—ready to unlock tax credits too?
+              </div>
+            </div>
+
+            <!-- Main Software Dashboard Window -->
+            <div class="bench-software-window">
+              <div class="row g-4 align-items-center">
+                
+                <!-- Left Chart Area -->
+                <div class="col-sm-6">
+                  <div class="d-flex align-items-center gap-2 mb-3">
+                    <div style="width: 18px; height: 18px; background: #3B82F6; border-radius: 3px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 9px; font-weight: 800;">
+                      <i data-lucide="bar-chart" style="width: 12px; height: 12px;"></i>
+                    </div>
+                    <div style="width: 18px; height: 18px; background: var(--bench-green); border-radius: 3px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 9px; font-weight: 800;">
+                      <i data-lucide="check" style="width: 12px; height: 12px;"></i>
+                    </div>
+                    <span style="font-size: 0.8rem; font-weight: 700; color: var(--bench-navy);">Net Inflow</span>
+                  </div>
+
+                  <div style="height: 175px; position: relative; display: flex; align-items: flex-end; justify-content: space-around; border-bottom: 2px solid #E2E8F0; padding-bottom: 8px;">
+                    
+                    <div class="text-center" style="width: 42px;">
+                      <div style="height: 55px; background: #10B981; border-radius: 4px; width: 22px; margin: 0 auto 6px;"></div>
+                      <div style="font-size: 0.72rem; font-weight: 700; color: var(--bench-slate); font-family: var(--font-mono);">JAN</div>
+                    </div>
+
+                    <svg style="position: absolute; top: 15px; left: 20px; right: 20px; width: calc(100% - 40px); height: 110px;" viewBox="0 0 160 80" fill="none">
+                      <path d="M 15 65 L 80 40 L 145 10" stroke="#112A3D" stroke-width="3" stroke-linecap="round"/>
+                      <circle cx="15" cy="65" r="4" fill="#112A3D"/>
+                      <circle cx="80" cy="40" r="4" fill="#112A3D"/>
+                      <circle cx="145" cy="10" r="5" fill="#008362" stroke="#fff" stroke-width="2"/>
+                    </svg>
+
+                    <div class="text-center" style="width: 42px;">
+                      <div style="height: 125px; background: #008362; border-radius: 4px; width: 22px; margin: 0 auto 6px;"></div>
+                      <div style="font-size: 0.72rem; font-weight: 700; color: var(--bench-slate); font-family: var(--font-mono);">FEB</div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- Right Top Expenses Breakdown -->
+                <div class="col-sm-6 border-start-sm" style="border-left: 1px solid #EEF2F6; padding-left: 1.25rem;">
+                  <div style="font-size: 0.9rem; font-weight: 800; color: var(--bench-navy); margin-bottom: 1rem;">
+                    Top Expenses
+                  </div>
+
+                  <div class="expense-bar-item">
+                    <span class="expense-bar-label">Rent Expense</span>
+                    <div class="expense-bar-fill-wrap">
+                      <div class="expense-bar-fill" style="width: 30%;"></div>
+                    </div>
+                    <span class="expense-bar-pct">30%</span>
+                  </div>
+
+                  <div class="expense-bar-item">
+                    <span class="expense-bar-label">Cost of Goods Sold</span>
+                    <div class="expense-bar-fill-wrap">
+                      <div class="expense-bar-fill" style="width: 25%;"></div>
+                    </div>
+                    <span class="expense-bar-pct">25%</span>
+                  </div>
+
+                  <div class="expense-bar-item">
+                    <span class="expense-bar-label">Marketing Expense</span>
+                    <div class="expense-bar-fill-wrap">
+                      <div class="expense-bar-fill" style="width: 20%;"></div>
+                    </div>
+                    <span class="expense-bar-pct">20%</span>
+                  </div>
+
+                  <div class="expense-bar-item">
+                    <span class="expense-bar-label">Shipping Expense</span>
+                    <div class="expense-bar-fill-wrap">
+                      <div class="expense-bar-fill" style="width: 12%;"></div>
+                    </div>
+                    <span class="expense-bar-pct">12%</span>
+                  </div>
+
+                  <div class="expense-bar-item">
+                    <span class="expense-bar-label">Payroll Expense</span>
+                    <div class="expense-bar-fill-wrap">
+                      <div class="expense-bar-fill green" style="width: 8%;"></div>
+                    </div>
+                    <span class="expense-bar-pct" style="background: var(--bench-green);">8%</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Bottom Right Floating Chat Bubble (Founder) -->
+            <div class="floating-chat-bubble bottom-bubble">
+              <div class="chat-bubble-text text-end">
+                Absolutely! Unlocking tax credits would be a game-changer!
+              </div>
+              <img src="assets/images/founder-strategy.jpg" alt="Founder Customer" class="avatar-circle-bench" style="border-radius: 50%; object-position: center top;">
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TRUST LOGOS STRIP
+       ========================================================================== -->
+  <section class="py-4 border-top border-bottom bg-bench-light">
+    <div class="container-custom text-center">
+      <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--bench-slate); margin-bottom: 1.25rem;">
+        TRUSTED BY OVER 10,000+ AMERICAN SMALL BUSINESSES & STARTUPS
+      </div>
+      <div class="d-flex flex-wrap align-items-center justify-content-center gap-4 gap-md-5 opacity-75">
+        <span style="font-size: 1.15rem; font-weight: 800; color: var(--bench-navy); letter-spacing: -0.02em;">QUICKBOOKS</span>
+        <span style="font-size: 1.15rem; font-weight: 800; color: var(--bench-navy); letter-spacing: -0.02em;">GUSTO</span>
+        <span style="font-size: 1.15rem; font-weight: 800; color: var(--bench-navy); letter-spacing: -0.02em;">STRIPE</span>
+        <span style="font-size: 1.15rem; font-weight: 800; color: var(--bench-navy); letter-spacing: -0.02em;">MERCURY</span>
+        <span style="font-size: 1.15rem; font-weight: 800; color: var(--bench-navy); letter-spacing: -0.02em;">SHOPIFY</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5-BOX SHOWCASE
+       ========================================================================== -->
+  <section class="bench-showcase-section">
+    <div class="container-custom">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <h2 style="font-size: 2.4rem; color: var(--bench-navy);">Everything you need to master your numbers</h2>
+        <p style="color: var(--bench-slate); font-size: 1.1rem; margin-top: 0.5rem;">
+          From daily bookkeeping and tax compliance to high-level CFO growth roadmaps.
+        </p>
+      </div>
+
+      <div class="showcase-grid-wrapper">
+        <div class="showcase-col-side">
+          <a href="services.html" class="showcase-card-side">
+            <h4>Build a Strategic Growth Roadmap <span class="text-bench-green">→</span></h4>
+            <p>Gain financial insights & strategic leadership to confidently scale.</p>
+          </a>
+          <a href="services.html" class="showcase-card-side">
+            <h4>Strengthen Decision Making <span class="text-bench-green">→</span></h4>
+            <p>Boost forecasting and analytics to mitigate risks and action on opportunities.</p>
+          </a>
+        </div>
+
+        <div class="showcase-card-center">
+          <div>
+            <a href="services.html" style="text-decoration: none;">
+              <h3>Get Accurate, Organized Books <span>→</span></h3>
+            </a>
+            <p>Reduce stress on your lean team with day-to-day accounting support.</p>
+          </div>
+
+          <div class="showcase-illustration-wrap">
+            <svg viewBox="0 0 460 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="30" y="235" width="400" height="15" rx="7" fill="#0D4436"/>
+              <rect x="180" y="20" width="34" height="34" rx="4" fill="#FFB74D" transform="rotate(-8 180 20)"/>
+              <rect x="210" y="22" width="34" height="34" rx="4" fill="#E0E0E0" transform="rotate(6 210 22)"/>
+              <path d="M330 65 Q338 35 348 20 Q358 35 365 65 Z" fill="#2E7D32"/>
+              <path d="M340 70 Q355 45 375 35 Q370 55 360 70 Z" fill="#43A047"/>
+              <path d="M325 70 Q310 50 305 40 Q320 50 335 70 Z" fill="#66BB6A"/>
+              <polygon points="325,70 365,70 358,95 332,95" fill="#D7CCC8"/>
+              <rect x="160" y="60" width="180" height="120" rx="8" fill="#1A202C" stroke="#4A5568" stroke-width="4"/>
+              <rect x="168" y="68" width="164" height="104" rx="4" fill="#0F172A"/>
+              <rect x="176" y="78" width="148" height="84" rx="4" fill="#1E293B"/>
+              <path d="M 185 140 Q 215 110 245 130 T 310 95" stroke="#10B981" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <circle cx="310" cy="95" r="4" fill="#F59E0B"/>
+              <rect x="185" y="85" width="35" height="6" rx="3" fill="#64748B"/>
+              <polygon points="135,185 365,185 390,225 110,225" fill="#E2E8F0"/>
+              <rect x="145" y="190" width="210" height="24" rx="3" fill="#CBD5E1"/>
+              <circle cx="120" cy="180" r="32" fill="#80CBC4"/>
+              <ellipse cx="98" cy="180" rx="10" ry="8" fill="#4DB6AC"/>
+              <circle cx="106" cy="172" r="3" fill="#004D40"/>
+              <rect x="110" y="152" width="12" height="3" rx="1" fill="#004D40"/>
+              <rect x="70" y="195" width="38" height="35" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+              <rect x="70" y="195" width="38" height="10" rx="4" fill="#EF4444"/>
+              <text x="81" y="222" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="bold" fill="#1E293B">15</text>
+              <ellipse cx="140" cy="225" rx="10" ry="4" fill="#FFB300"/>
+              <ellipse cx="140" cy="220" rx="10" ry="4" fill="#FFC107"/>
+              <ellipse cx="140" cy="215" rx="10" ry="4" fill="#FFD54F"/>
+              <path d="M 330 180 Q 370 140 375 225 Z" fill="#1C7B5E"/>
+              <path d="M 350 160 Q 365 140 375 160 Z" fill="#FFFFFF"/>
+              <circle cx="360" cy="115" r="22" fill="#D7A183"/>
+              <path d="M 342 105 Q 365 75 385 105 Q 395 145 375 165 Q 355 145 342 105 Z" fill="#2C2C2C"/>
+              <path d="M 320 205 Q 345 195 365 225 Z" fill="#166A55"/>
+              <circle cx="280" cy="205" r="7" fill="#D7A183"/>
+              <circle cx="230" cy="205" r="7" fill="#D7A183"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="showcase-col-side">
+          <a href="services.html" class="showcase-card-side">
+            <h4>Manage Taxes and Stay Compliant <span class="text-bench-green">→</span></h4>
+            <p>File on time with a strong tax strategy and audit-ready books.</p>
+          </a>
+          <a href="services.html" class="showcase-card-side">
+            <h4>Drive Discipline and Efficiency <span class="text-bench-green">→</span></h4>
+            <p>Streamline financial processes and systems to keep pace with growth.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       BENCH 3-STEP HIGHLIGHTS
+       ========================================================================== -->
+  <section class="py-5 bg-bench-light" style="padding: 5.5rem 0 !important;">
+    <div class="container-custom">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <h2 style="font-size: 2.5rem;">How VALENCE takes bookkeeping off your plate</h2>
+        <p style="color: var(--bench-slate); font-size: 1.1rem; margin-top: 0.75rem;">
+          We pair smart financial software with real, dedicated human bookkeepers and fractional CFOs.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-bench-feature">
+            <div class="feature-icon-wrap">
+              <i data-lucide="users" style="width: 24px; height: 24px;"></i>
+            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 0.75rem;">1. You get a dedicated in-house team</h3>
+            <p style="color: var(--bench-slate); font-size: 0.95rem; line-height: 1.6;">
+              Your personal bookkeeper and controller get to know your business inside and out. Message or call them directly anytime.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-bench-feature">
+            <div class="feature-icon-wrap">
+              <i data-lucide="sync" style="width: 24px; height: 24px;"></i>
+            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 0.75rem;">2. We automatically import & reconcile</h3>
+            <p style="color: var(--bench-slate); font-size: 0.95rem; line-height: 1.6;">
+              Securely connect your bank accounts, merchant processors, and payroll. We categorize every dollar and deliver clean monthly statements.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-bench-feature">
+            <div class="feature-icon-wrap">
+              <i data-lucide="file-check" style="width: 24px; height: 24px;"></i>
+            </div>
+            <h3 style="font-size: 1.35rem; margin-bottom: 0.75rem;">3. Tax-ready financials & CFO advice</h3>
+            <p style="color: var(--bench-slate); font-size: 0.95rem; line-height: 1.6;">
+              Receive tax-ready year-end financial packages and strategic cash-flow forecasts so you can file seamlessly and grow with confidence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       NEW SECTION 01: REAL HUMAN EXPERTS & DEDICATED CFO POD
+       ========================================================================== -->
+  <section class="py-5" style="padding: 6rem 0 !important; background-color: #ffffff;">
+    <div class="container-custom">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="position-relative">
+            <img src="assets/images/z2GfD4hm8SJvvTMKGEq--c7clLxsl9-_DUwXxvi3Q-psM4Mqfqj73IzTraxkD3PhkL29hAiLe0wncGdJfjr-TB3Oo.jpg" 
+                 alt="Strategic Fractional CFO Consultation with Founder" 
+                 class="img-fluid rounded-4 shadow-lg w-100" 
+                 style="object-fit: cover; max-height: 480px;">
+            
+            <!-- Floating Trust Badge -->
+            <div class="position-absolute d-none d-sm-flex align-items-center gap-3 p-3 rounded-4 shadow-lg" 
+                 style="bottom: -20px; left: 24px; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(8px); border: 1px solid var(--bench-border); max-width: 320px;">
+              <div class="rounded-circle p-2 bg-bench-green-subtle text-bench-green d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+                <i data-lucide="shield-check" style="width: 24px; height: 24px;"></i>
+              </div>
+              <div>
+                <div style="font-size: 0.85rem; font-weight: 800; color: var(--bench-navy);">100% US-Based CPAs</div>
+                <div style="font-size: 0.75rem; color: var(--bench-slate);">Dedicated pod of bookkeeper & partner CFO</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="badge bg-bench-green-subtle text-bench-green px-3 py-1 rounded-pill fw-bold mb-3">YOUR FINANCIAL POD</div>
+          <h2 style="font-size: clamp(2rem, 3.8vw, 2.9rem); font-weight: 800; color: var(--bench-navy); line-height: 1.15; letter-spacing: -0.03em;">
+            Expert human intelligence. Not just an algorithm.
+          </h2>
+          <p style="font-size: 1.1rem; color: var(--bench-slate); margin: 1.25rem 0 2rem; line-height: 1.65;">
+            Software handles the mechanical data pipelines, but seasoned CFOs and certified bookkeepers verify every transaction, optimize your margins, and guide your high-stakes decisions.
+          </p>
+
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-start gap-3">
+              <div class="rounded-circle p-2 bg-bench-green-subtle text-bench-green mt-1">
+                <i data-lucide="check" style="width: 18px; height: 18px;"></i>
+              </div>
+              <div>
+                <h4 style="font-size: 1.05rem; margin-bottom: 0.25rem; font-weight: 700;">Guaranteed 5-Day Monthly Close</h4>
+                <p style="color: var(--bench-slate); font-size: 0.9rem; margin: 0;">Accrual P&L, Balance Sheet, and variance analysis delivered by the 5th business day of every month.</p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start gap-3">
+              <div class="rounded-circle p-2 bg-bench-green-subtle text-bench-green mt-1">
+                <i data-lucide="check" style="width: 18px; height: 18px;"></i>
+              </div>
+              <div>
+                <h4 style="font-size: 1.05rem; margin-bottom: 0.25rem; font-weight: 700;">Direct Phone & Slack Access</h4>
+                <p style="color: var(--bench-slate); font-size: 0.9rem; margin: 0;">No generic support ticketing queues. Connect directly with your assigned finance partner whenever you need.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 mt-2">
+            <a href="how-it-works.html" class="btn-bench-primary" style="padding: 0.85rem 1.8rem;">
+              Meet Our Advisory Team
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       NEW SECTION 02: VISUAL FINANCIAL CLARITY & 13-WEEK PROJECTIONS
+       ========================================================================== -->
+  <section class="py-5 bg-bench-light" style="padding: 6rem 0 !important;">
+    <div class="container-custom">
+      <div class="row align-items-center g-5 flex-lg-row-reverse">
+        <div class="col-lg-6">
+          <div class="position-relative">
+            <img src="assets/images/Jxj_CO084JaWATdkKHm_cLSOodQJlAo0lnLnT_Zqfou4baUB0Ex8Pv7MBhwfkCmXHyNc3EY_hygDCU6l8NEazCKNz.jpg" 
+                 alt="Founder viewing live financial dashboard analytics" 
+                 class="img-fluid rounded-4 shadow-lg w-100" 
+                 style="object-fit: cover; max-height: 480px;">
+            
+            <!-- Floating Metric Card -->
+            <div class="position-absolute d-none d-sm-flex align-items-center gap-3 p-3 rounded-4 shadow-lg" 
+                 style="top: -20px; right: 24px; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(8px); border: 1px solid var(--bench-border);">
+              <div class="rounded-circle p-2 text-white bg-bench-green d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                <i data-lucide="trending-up" style="width: 20px; height: 20px;"></i>
+              </div>
+              <div>
+                <div style="font-size: 0.75rem; color: var(--bench-slate); font-weight: 600;">RUNWAY VISIBILITY</div>
+                <div style="font-size: 1.1rem; font-weight: 800; color: var(--bench-navy);">13-Week Rolling Cash Flow</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="badge bg-bench-green-subtle text-bench-green px-3 py-1 rounded-pill fw-bold mb-3">FINANCIAL INTELLIGENCE</div>
+          <h2 style="font-size: clamp(2rem, 3.8vw, 2.9rem); font-weight: 800; color: var(--bench-navy); line-height: 1.15; letter-spacing: -0.03em;">
+            From scattered receipts to board-ready clarity.
+          </h2>
+          <p style="font-size: 1.1rem; color: var(--bench-slate); margin: 1.25rem 0 2rem; line-height: 1.65;">
+            Stop scrambling before board meetings or tax season. VALENCE transforms raw transactions from QuickBooks, Stripe, Gusto, and Brex into dynamic executive reporting.
+          </p>
+
+          <div class="row g-3 mb-4">
+            <div class="col-6">
+              <div class="p-3 rounded-3 bg-white border h-100">
+                <div style="font-size: 1.8rem; font-weight: 800; color: var(--bench-green); line-height: 1;">99.8%</div>
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--bench-navy); margin-top: 0.35rem;">Reconciliation Precision</div>
+                <div style="font-size: 0.75rem; color: var(--bench-slate); margin-top: 0.2rem;">Every penny categorized & ledger-balanced</div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="p-3 rounded-3 bg-white border h-100">
+                <div style="font-size: 1.8rem; font-weight: 800; color: var(--bench-navy); line-height: 1;">12+ Hrs</div>
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--bench-navy); margin-top: 0.35rem;">Saved Per Founder / Mo</div>
+                <div style="font-size: 0.75rem; color: var(--bench-slate); margin-top: 0.2rem;">Focus on customers, not spreadsheets</div>
+              </div>
+            </div>
+          </div>
+
+          <a href="pricing.html" class="btn-bench-outline" style="padding: 0.85rem 1.8rem;">
+            Explore Pricing Plans →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       BENCH FOOTER (WITH SOCIAL ICONS)
+       ========================================================================== -->
+  <footer class="bench-footer">
+    <div class="container-custom">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="brand-logo-bench mb-3">
+            <div class="brand-logo-main">VALENCE<span>®</span></div>
+            <div class="brand-logo-sub">MAINSTREET</div>
+          </div>
+          <p style="color: var(--bench-slate); font-size: 0.925rem; max-width: 320px; margin-bottom: 1.25rem;">
+            America’s favorite online bookkeeping and fractional CFO service for growing businesses.
+          </p>
+
+          <!-- Social Media Icons Strip -->
+          <div class="d-flex gap-2">
+            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" title="LinkedIn"><i data-lucide="linkedin" style="width: 16px; height: 16px;"></i></a>
+            <a href="https://twitter.com" target="_blank" class="social-icon-btn" title="Twitter / X"><i data-lucide="twitter" style="width: 16px; height: 16px;"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-icon-btn" title="YouTube"><i data-lucide="youtube" style="width: 16px; height: 16px;"></i></a>
+            <a href="https://facebook.com" target="_blank" class="social-icon-btn" title="Facebook"><i data-lucide="facebook" style="width: 16px; height: 16px;"></i></a>
+            <a href="https://instagram.com" target="_blank" class="social-icon-btn" title="Instagram"><i data-lucide="instagram" style="width: 16px; height: 16px;"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <div class="footer-nav-title">Navigation</div>
+          <ul class="footer-nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home 2</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <div class="footer-nav-title">Company</div>
+          <ul class="footer-nav-list">
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="pricing.html">Pricing Plans</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="login.html">Log in</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="footer-nav-title">Need help with your books?</div>
+          <p style="color: var(--bench-slate); font-size: 0.9rem;">
+            Talk with a dedicated financial specialist today at <strong>(888) 760-1940</strong> or schedule online.
+          </p>
+          <a href="register.html" class="btn-bench-primary btn-sm">
+            Get Started Free
+          </a>
+        </div>
+      </div>
+
+      <div class="pt-4 mt-5 border-top d-flex flex-wrap justify-content-between align-items-center gap-2" style="font-size: 0.85rem; color: var(--bench-slate-light);">
+        <div>© 2026 VALENCE Inc. All rights reserved.</div>
+        <div class="d-flex gap-3">
+          <a href="#" style="color: var(--bench-slate-light); text-decoration: none;">Privacy Policy</a>
+          <a href="#" style="color: var(--bench-slate-light); text-decoration: none;">Terms of Service</a>
+          <a href="#" style="color: var(--bench-slate-light); text-decoration: none;">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

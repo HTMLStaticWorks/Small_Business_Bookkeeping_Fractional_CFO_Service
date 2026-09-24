@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Control Room | Private CFO Workspace | VALENCE</title>
+  <meta name="description" content="Private executive financial workspace for founders. Live cash flow, financial statements, budget vs actual variance, and direct CFO advisory.">
+  
+  <!-- CSS Frameworks & Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+  <div class="app-container">
+
+    <!-- ==========================================================================
+         DASHBOARD SIDEBAR (STANDALONE RESPONSIVE DRAWER)
+         ========================================================================== -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <div>
+        <div class="sidebar-header">
+          <a href="dashboard.html" class="sidebar-brand">
+            <div class="sidebar-brand-badge">V</div>
+            <div>
+              <div style="font-weight: 800; font-size: 1.15rem; color: #fff; line-height: 1;">VALENCE</div>
+              <div style="font-size: 0.65rem; color: var(--dash-gold); letter-spacing: 0.12em; text-transform: uppercase;">Control Room</div>
+            </div>
+          </a>
+
+          <!-- Company Workspace Selector -->
+          <div class="company-selector-box dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <div>
+              <div class="company-name">Vanguard Dynamics Inc.</div>
+              <div class="company-tag">Series A • Scale CFO Tier</div>
+            </div>
+            <i data-lucide="chevrons-up-down" style="width: 14px; height: 14px; color: var(--dash-slate);"></i>
+          </div>
+          <ul class="dropdown-menu dropdown-menu-dark" style="background: #171A1E; border: 1px solid var(--dash-border);">
+            <li><a class="dropdown-item active" href="#">Vanguard Dynamics Inc. (Primary)</a></li>
+            <li><a class="dropdown-item" href="#">Vanguard UK Sub Ltd.</a></li>
+            <li><hr class="dropdown-divider" style="border-color: var(--dash-border);"></li>
+            <li><a class="dropdown-item text-gold" href="#"><i data-lucide="plus" style="width: 12px; height: 12px;"></i> Add Entity</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-nav-container">
+          <div class="sidebar-section-title">Core Intelligence</div>
+          <ul class="dash-nav-list">
+            <li>
+              <a class="dash-nav-link active" data-target="tab-overview" data-title="Executive Overview">
+                <div class="dash-nav-link-content">
+                  <i data-lucide="layout-dashboard" style="width: 18px; height: 18px;"></i>
+                  <span>Overview</span>
+                </div>
+                <span class="dash-nav-badge">Live</span>
+              </a>
+            </li>
+            <li>
+              <a class="dash-nav-link" data-target="tab-statements" data-title="Financial Statements">
+                <div class="dash-nav-link-content">
+                  <i data-lucide="file-spreadsheet" style="width: 18px; height: 18px;"></i>
+                  <span>Financial Statements</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="dash-nav-link" data-target="tab-cashflow" data-title="Cash Flow Engineering">
+                <div class="dash-nav-link-content">
+                  <i data-lucide="activity" style="width: 18px; height: 18px;"></i>
+                  <span>Cash Flow</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="dash-nav-link" data-target="tab-budget" data-title="Budget vs Actual Variance">
+                <div class="dash-nav-link-content">
+                  <i data-lucide="table" style="width: 18px; height: 18px;"></i>
+                  <span>Budget vs Actual</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="dash-nav-link" data-target="tab-forecasts" data-title="Forecasts & Scenario Engine">
+                <div class="dash-nav-link-content">
+                  <i data-lucide="trending-up" style="width: 18px; height: 18px;"></i>
+                  <span>Forecasts</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <div class="sidebar-section-title">Advisory & Governance</div>
+          <ul class="dash-nav-list">
+            <li>
+              <a class="dash-nav-link" data-target="tab-reports" data-title="Monthly Financial Reports & Board Packs">
+                <div class="dash-nav-link-content">
+                  <i data-lucide="folder-kanban" style="width: 18px; height: 18px;"></i>
+                  <span>Reports</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="dash-nav-link" data-target="tab-messages" data-title="CFO Advisory Desk">
+                <div class="dash-nav-link-content">
+                  <i data-lucide="message-square" style="width: 18px; height: 18px;"></i>
+                  <span>Messages</span>
+                </div>
+                <span class="dash-nav-badge" style="background: var(--dash-gold); color: #000;">1</span>
+              </a>
+            </li>
+            <li>
+              <a class="dash-nav-link" data-target="tab-billing" data-title="Billing & Service Plans">
+                <div class="dash-nav-link-content">
+                  <i data-lucide="credit-card" style="width: 18px; height: 18px;"></i>
+                  <span>Billing</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="dash-nav-link" data-target="tab-settings" data-title="Integrations & Settings">
+                <div class="dash-nav-link-content">
+                  <i data-lucide="settings" style="width: 18px; height: 18px;"></i>
+                  <span>Settings</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sidebar User Profile & Logout -->
+      <div class="sidebar-footer">
+        <div class="user-profile-widget">
+          <div class="user-info">
+            <div class="user-avatar">AS</div>
+            <div>
+              <div class="user-name">Alex Sterling</div>
+              <div class="user-role">Founder & CEO</div>
+            </div>
+          </div>
+          <a href="index.html" title="Exit to Public Site / Logout" style="color: var(--dash-slate); text-decoration: none;">
+            <i data-lucide="log-out" style="width: 18px; height: 18px;"></i>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==========================================================================
+         MAIN CONTENT CANVAS
+         ========================================================================== -->
+    <main class="dash-main">
+
+      <!-- Topbar Header -->
+      <header class="dash-topbar">
+        <div class="topbar-left">
+          <button type="button" class="sidebar-toggle-btn" id="sidebarToggleBtn" aria-label="Toggle sidebar">
+            <i data-lucide="menu" style="width: 20px; height: 20px;"></i>
+          </button>
+          <div class="view-title-wrap">
+            <h1 id="dashViewTitle">Overview</h1>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- RTL & Theme Quick Toggles -->
+          <button type="button" class="quick-toggle-btn rtl-toggle-btn" title="Toggle RTL / LTR Layout" aria-label="Toggle RTL">
+            <i data-lucide="arrow-left-right" style="width: 16px; height: 16px;"></i>
+          </button>
+          <button type="button" class="quick-toggle-btn theme-toggle-btn" title="Toggle Dark Black Theme" aria-label="Toggle Theme">
+            <i data-lucide="moon" style="width: 16px; height: 16px;"></i>
+          </button>
+
+          <!-- Quick Period Switcher -->
+          <div class="dropdown">
+            <button class="period-select-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i data-lucide="calendar" style="width: 14px; height: 14px; color: var(--dash-gold);"></i>
+              <span id="currentPeriodLabel">Q3 2026</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" style="background: #171A1E; border: 1px solid var(--dash-border);">
+              <li><a class="dropdown-item period-option" href="#" data-period="MTD">Current Month (Sep 2026 MTD)</a></li>
+              <li><a class="dropdown-item period-option" href="#" data-period="Q3 2026">Q3 2026 (July – Sept)</a></li>
+              <li><a class="dropdown-item period-option" href="#" data-period="YTD 2026">YTD 2026 (Jan – Current)</a></li>
+            </ul>
+          </div>
+
+          <!-- Quick Export Pack -->
+          <button type="button" class="btn-cfo btn-cfo-outline-light" style="padding: 0.45rem 0.9rem; font-size: 0.8rem;" onclick="showToast('Downloading complete Q3 GAAP Financial Package (PDF)...')">
+            <i data-lucide="download" style="width: 14px; height: 14px; color: var(--dash-gold);"></i>
+            Export Pack
+          </button>
+
+          <!-- Back to Public Site link -->
+          <a href="index.html" class="btn-cfo btn-cfo-outline-light" style="padding: 0.45rem 0.9rem; font-size: 0.8rem;">
+            <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+            Public Site
+          </a>
+        </div>
+      </header>
+
+      <!-- Dynamic View Panes -->
+      <div class="dash-view-canvas">
+
+        <!-- ====================================================================
+             TAB 01: OVERVIEW (EXECUTIVE CONTROL ROOM)
+             ==================================================================== -->
+        <section id="tab-overview" class="dash-tab-pane active">
+
+          <!-- 5-Metric Executive KPI Cards -->
+          <div class="kpi-grid">
+            <!-- 1. Financial Health -->
+            <div class="kpi-card">
+              <div class="kpi-card-header">
+                <span class="kpi-title">Financial Health</span>
+                <div class="kpi-icon"><i data-lucide="shield-check"></i></div>
+              </div>
+              <div class="kpi-value" style="color: var(--dash-emerald);">Good</div>
+              <div class="kpi-badge positive">
+                <span class="pulse-dot emerald" style="width: 6px; height: 6px;"></span> SOC2 Compliant
+              </div>
+            </div>
+
+            <!-- 2. Revenue YTD -->
+            <div class="kpi-card">
+              <div class="kpi-card-header">
+                <span class="kpi-title">Revenue YTD</span>
+                <div class="kpi-icon"><i data-lucide="dollar-sign"></i></div>
+              </div>
+              <div class="kpi-value" id="kpiRevenue">$1,248,400</div>
+              <div class="kpi-badge positive">
+                <i data-lucide="trending-up" style="width: 12px; height: 12px;"></i> +16.8% vs Plan
+              </div>
+            </div>
+
+            <!-- 3. Net Cash Flow -->
+            <div class="kpi-card">
+              <div class="kpi-card-header">
+                <span class="kpi-title">Net Cash Flow</span>
+                <div class="kpi-icon"><i data-lucide="activity"></i></div>
+              </div>
+              <div class="kpi-value" id="kpiCashFlow" style="color: var(--dash-gold);">+$84,620</div>
+              <div class="kpi-badge positive">
+                <i data-lucide="arrow-up-right" style="width: 12px; height: 12px;"></i> Net Positive
+              </div>
+            </div>
+
+            <!-- 4. Outstanding Invoices -->
+            <div class="kpi-card">
+              <div class="kpi-card-header">
+                <span class="kpi-title">Outstanding Inv.</span>
+                <div class="kpi-icon"><i data-lucide="file-clock"></i></div>
+              </div>
+              <div class="kpi-value" id="kpiInvoices">$28,400</div>
+              <div class="kpi-badge neutral">
+                DSO: 22.4 Days
+              </div>
+            </div>
+
+            <!-- 5. Cash Runway -->
+            <div class="kpi-card" style="border-color: rgba(182, 106, 69, 0.4);">
+              <div class="kpi-card-header">
+                <span class="kpi-title" style="color: var(--dash-copper);">Cash Runway</span>
+                <div class="kpi-icon" style="color: var(--dash-copper);"><i data-lucide="hourglass"></i></div>
+              </div>
+              <div class="kpi-value" id="kpiRunway" style="color: var(--dash-copper);">8.4 Months</div>
+              <div class="kpi-badge positive">
+                Target: > 6 Months
+              </div>
+            </div>
+          </div>
+
+          <!-- "What Changed This Month?" AI Financial Summary Card -->
+          <div class="ai-summary-card mb-4">
+            <div class="d-flex flex-wrap align-items-center justify-content-between mb-3 gap-2">
+              <h4 style="font-size: 1.05rem; color: var(--dash-gold); margin: 0;">
+                “What Changed This Month?” — Executive Flash
+              </h4>
+              <div class="d-flex align-items-center gap-2">
+                <span style="font-size: 0.75rem; color: var(--dash-slate); font-family: var(--font-mono);">SCENARIO:</span>
+                <select id="whatChangedMonthSelect" class="form-select form-control-cfo" style="width: auto; padding: 0.2rem 1.5rem 0.2rem 0.6rem; font-size: 0.75rem;">
+                  <option value="sep26">September 2026 (Latest Close)</option>
+                  <option value="aug26">August 2026 (Audit)</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="whatChangedBullets">
+              <div class="insight-bullet">
+                <div class="insight-icon emerald"><i data-lucide="trending-up"></i></div>
+                <div>
+                  <div style="font-weight: 700; color: #fff;">Revenue increased 8.4%</div>
+                  <div style="font-size: 0.85rem; color: var(--dash-slate);">Expansion in Tier-2 enterprise contracts delivered +$22,400 net new ARR.</div>
+                </div>
+              </div>
+              <div class="insight-bullet">
+                <div class="insight-icon copper"><i data-lucide="arrow-up-right"></i></div>
+                <div>
+                  <div style="font-weight: 700; color: #fff;">Marketing expenses increased 5.2%</div>
+                  <div style="font-size: 0.85rem; color: var(--dash-slate);">Targeted CAC experiments ran $3,100 above baseline with payback period of 3.8 months.</div>
+                </div>
+              </div>
+              <div class="insight-bullet">
+                <div class="insight-icon gold"><i data-lucide="shield-check"></i></div>
+                <div>
+                  <div style="font-weight: 700; color: #fff;">Operating margin improved by 2.1%</div>
+                  <div style="font-size: 0.85rem; color: var(--dash-slate);">Cloud infrastructure renegotiation yielded $4,200/mo ongoing margin expansion.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Row: Cash Flow Movement & Expense Breakdown -->
+          <div class="row g-4 mb-4">
+            <div class="col-lg-8">
+              <div class="dash-panel h-100">
+                <div class="dash-panel-header">
+                  <h3 class="dash-panel-title">
+                    <i data-lucide="bar-chart-2" style="width: 18px; height: 18px; color: var(--dash-gold);"></i>
+                    Cash-Flow Inflows vs Outflows (12-Month Trend)
+                  </h3>
+                  <span class="badge-executive badge-emerald">Reconciled</span>
+                </div>
+                <div style="height: 300px;">
+                  <canvas id="dashCashFlowChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="dash-panel h-100">
+                <div class="dash-panel-header">
+                  <h3 class="dash-panel-title">
+                    <i data-lucide="pie-chart" style="width: 18px; height: 18px; color: var(--dash-copper);"></i>
+                    Expense Breakdown
+                  </h3>
+                  <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--dash-slate);">TOTAL: $385.5K</span>
+                </div>
+                <div style="height: 300px;">
+                  <canvas id="dashExpenseDonutChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Revenue Trend & Forecast Line -->
+          <div class="dash-panel mb-4">
+            <div class="dash-panel-header">
+              <h3 class="dash-panel-title">
+                <i data-lucide="trending-up" style="width: 18px; height: 18px; color: var(--dash-gold);"></i>
+                Revenue Trend & 12-Month Pro-Forma Forecast
+              </h3>
+              <span class="badge-executive badge-gold">Model v4.2 Active</span>
+            </div>
+            <div style="height: 280px;">
+              <canvas id="dashRevenueTrendChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Budget vs Actual Quick Glance & Recent Reports Split -->
+          <div class="row g-4">
+            <div class="col-lg-7">
+              <div class="dash-panel h-100">
+                <div class="dash-panel-header">
+                  <h3 class="dash-panel-title">Budget vs. Actual Variance (Top Accounts)</h3>
+                  <button class="btn-cfo btn-cfo-outline-light" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="document.querySelector('.dash-nav-link[data-target=\'tab-budget\']').click()">
+                    View Full Table
+                  </button>
+                </div>
+                <table class="table-dash-custom">
+                  <thead>
+                    <tr>
+                      <th>Account</th>
+                      <th>Budget</th>
+                      <th>Actual</th>
+                      <th>Variance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight: 600; color: #fff;">Engineering Payroll</td>
+                      <td class="font-mono-num">$42,000</td>
+                      <td class="font-mono-num" style="color: var(--dash-emerald);">$39,200</td>
+                      <td class="font-mono-num" style="color: var(--dash-emerald);">-$2,800 (-6.6%)</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: 600; color: #fff;">Paid Growth & Marketing</td>
+                      <td class="font-mono-num">$18,000</td>
+                      <td class="font-mono-num" style="color: var(--dash-copper);">$21,100</td>
+                      <td class="font-mono-num" style="color: var(--dash-copper);">+$3,100 (+17.2%)</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: 600; color: #fff;">Cloud Infrastructure (AWS)</td>
+                      <td class="font-mono-num">$12,000</td>
+                      <td class="font-mono-num" style="color: var(--dash-emerald);">$10,400</td>
+                      <td class="font-mono-num" style="color: var(--dash-emerald);">-$1,600 (-13.3%)</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: 600; color: #fff;">Executive Travel & Meals</td>
+                      <td class="font-mono-num">$4,500</td>
+                      <td class="font-mono-num">$4,120</td>
+                      <td class="font-mono-num" style="color: var(--dash-emerald);">-$380 (-8.4%)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="dash-panel h-100">
+                <div class="dash-panel-header">
+                  <h3 class="dash-panel-title">Recent CFO Reports</h3>
+                  <button class="btn-cfo btn-cfo-outline-light" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" onclick="document.querySelector('.dash-nav-link[data-target=\'tab-reports\']').click()">
+                    All Archives
+                  </button>
+                </div>
+                <div class="d-flex flex-column gap-3">
+                  <div class="p-3 rounded d-flex align-items-center justify-content-between" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--dash-border);">
+                    <div class="d-flex align-items-center gap-3">
+                      <i data-lucide="file-text" style="color: var(--dash-gold); width: 20px; height: 20px;"></i>
+                      <div>
+                        <div style="font-weight: 700; font-size: 0.875rem; color: #fff;">Q3 2026 Board Review Deck</div>
+                        <div style="font-size: 0.72rem; color: var(--dash-slate);">Published Sep 15, 2026 • PDF</div>
+                      </div>
+                    </div>
+                    <button class="btn-cfo btn-cfo-outline-light" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="downloadInvoiceModal('REPORT-Q3-2026', 'Sep 15, 2026', '$0.00 (Included)')">
+                      View
+                    </button>
+                  </div>
+
+                  <div class="p-3 rounded d-flex align-items-center justify-content-between" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--dash-border);">
+                    <div class="d-flex align-items-center gap-3">
+                      <i data-lucide="file-spreadsheet" style="color: var(--dash-emerald); width: 20px; height: 20px;"></i>
+                      <div>
+                        <div style="font-weight: 700; font-size: 0.875rem; color: #fff;">August GAAP Monthly Financials</div>
+                        <div style="font-size: 0.72rem; color: var(--dash-slate);">Sign-off: CPA Controller • PDF</div>
+                      </div>
+                    </div>
+                    <button class="btn-cfo btn-cfo-outline-light" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="downloadInvoiceModal('GAAP-AUG-2026', 'Sep 05, 2026', '$0.00 (Included)')">
+                      View
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+
+        <!-- ====================================================================
+             TAB 02: FINANCIAL STATEMENTS (P&L, BALANCE SHEET, CASH FLOW)
+             ==================================================================== -->
+        <section id="tab-statements" class="dash-tab-pane">
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <h3 class="dash-panel-title">
+                <i data-lucide="file-text" style="width: 18px; height: 18px; color: var(--dash-gold);"></i>
+                Income Statement (P&L) — Accrual Basis
+              </h3>
+              <div class="d-flex gap-2">
+                <button class="btn-cfo btn-cfo-outline-light" style="padding: 0.35rem 0.75rem; font-size: 0.75rem;">Download Excel</button>
+                <button class="btn-cfo btn-cfo-copper" style="padding: 0.35rem 0.75rem; font-size: 0.75rem;">Download Audited PDF</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table-dash-custom font-mono-num">
+                <thead>
+                  <tr>
+                    <th style="width: 45%;">Account / Line Item</th>
+                    <th>July 2026</th>
+                    <th>August 2026</th>
+                    <th>September 2026 (MTD)</th>
+                    <th style="color: var(--dash-gold);">Q3 Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background: rgba(255, 255, 255, 0.02);">
+                    <td style="font-weight: 700; color: #fff;">GROSS REVENUE (ARR + Subscriptions)</td>
+                    <td>$238,000</td>
+                    <td>$252,000</td>
+                    <td>$268,400</td>
+                    <td style="font-weight: 700; color: var(--dash-gold);">$758,400</td>
+                  </tr>
+                  <tr>
+                    <td style="padding-left: 2rem; color: var(--dash-slate);">Cost of Goods Sold (Hosting & Third-Party APIs)</td>
+                    <td>($82,000)</td>
+                    <td>($86,500)</td>
+                    <td>($94,200)</td>
+                    <td>($262,700)</td>
+                  </tr>
+                  <tr style="background: rgba(197, 161, 90, 0.06); font-weight: 700;">
+                    <td style="color: var(--dash-gold);">GROSS PROFIT</td>
+                    <td style="color: #fff;">$156,000 (65.5%)</td>
+                    <td style="color: #fff;">$165,500 (65.6%)</td>
+                    <td style="color: #fff;">$174,200 (64.9%)</td>
+                    <td style="color: var(--dash-gold);">$495,700 (65.3%)</td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight: 700; color: #fff; padding-top: 1.5rem;">OPERATING EXPENSES (OPEX)</td>
+                    <td colspan="4"></td>
+                  </tr>
+                  <tr>
+                    <td style="padding-left: 2rem;">Wages, Payroll & Contractor Fees</td>
+                    <td>($58,000)</td>
+                    <td>($61,000)</td>
+                    <td>($63,500)</td>
+                    <td>($182,500)</td>
+                  </tr>
+                  <tr>
+                    <td style="padding-left: 2rem;">Sales & Marketing Ad Spend</td>
+                    <td>($18,200)</td>
+                    <td>($19,800)</td>
+                    <td>($21,100)</td>
+                    <td>($59,100)</td>
+                  </tr>
+                  <tr>
+                    <td style="padding-left: 2rem;">General & Administrative (G&A)</td>
+                    <td>($11,400)</td>
+                    <td>($12,100)</td>
+                    <td>($10,800)</td>
+                    <td>($34,300)</td>
+                  </tr>
+                  <tr style="background: rgba(16, 185, 129, 0.08); font-weight: 800; font-size: 1rem;">
+                    <td style="color: var(--dash-emerald);">NET OPERATING INCOME (EBITDA)</td>
+                    <td style="color: var(--dash-emerald);">+$68,400</td>
+                    <td style="color: var(--dash-emerald);">+$72,600</td>
+                    <td style="color: var(--dash-emerald);">+$78,800</td>
+                    <td style="color: var(--dash-emerald);">+$219,800</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ====================================================================
+             TAB 03: CASH FLOW & LIQUIDITY ENGINEERING
+             ==================================================================== -->
+        <section id="tab-cashflow" class="dash-tab-pane">
+          <div class="row g-4 mb-4">
+            <div class="col-md-4">
+              <div class="hud-metric-card">
+                <div class="hud-label">Current Cash in Bank</div>
+                <div class="hud-value">$284,620</div>
+                <div class="hud-trend positive"><i data-lucide="shield"></i> 100% Mercury & SVB Verified</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="hud-metric-card">
+                <div class="hud-label">Monthly Net Burn</div>
+                <div class="hud-value text-gold">$33,880</div>
+                <div class="hud-trend positive"><i data-lucide="trending-down"></i> -8.2% vs last quarter</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="hud-metric-card">
+                <div class="hud-label">Estimated Zero-Cash Date</div>
+                <div class="hud-value text-copper">June 14, 2027</div>
+                <div class="hud-trend positive"><i data-lucide="check-circle"></i> +4.2 Months Added YTD</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <h3 class="dash-panel-title">13-Week Rolling Cash Flow Projection Engine</h3>
+              <span class="badge-executive badge-gold">Weekly Precision</span>
+            </div>
+            <p style="color: var(--dash-slate); font-size: 0.85rem;">
+              Simulating continuous weekly receivables against payroll cycles, AWS invoices, and vendor disbursements.
+            </p>
+            <div style="height: 280px;">
+              <canvas id="forecastScenarioChart"></canvas>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ====================================================================
+             TAB 04: BUDGET VS ACTUAL (DATATABLES INTEGRATION)
+             ==================================================================== -->
+        <section id="tab-budget" class="dash-tab-pane">
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title">Department Budget vs. Actual Variance Master Table</h3>
+                <div style="font-size: 0.75rem; color: var(--dash-slate); margin-top: 0.25rem;">Live search and sortable by variance magnitude.</div>
+              </div>
+              <span class="badge-executive badge-emerald">Audited by Controller</span>
+            </div>
+
+            <div class="table-responsive">
+              <table id="budgetActualDataTable" class="table table-dark table-hover table-dash-custom font-mono-num w-100">
+                <thead>
+                  <tr>
+                    <th>Department / Account</th>
+                    <th>Category</th>
+                    <th>Q3 Budget</th>
+                    <th>Q3 Actual</th>
+                    <th>Variance ($)</th>
+                    <th>Variance (%)</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="color: #fff; font-weight: 600;">Core Engineering Payroll</td>
+                    <td>R&D</td>
+                    <td>$126,000</td>
+                    <td>$117,600</td>
+                    <td class="text-emerald">-$8,400</td>
+                    <td class="text-emerald">-6.6%</td>
+                    <td><span class="badge-executive badge-emerald">Favorable</span></td>
+                  </tr>
+                  <tr>
+                    <td style="color: #fff; font-weight: 600;">Paid Search & Meta Ads</td>
+                    <td>Growth</td>
+                    <td>$54,000</td>
+                    <td>$63,300</td>
+                    <td class="text-copper">+$9,300</td>
+                    <td class="text-copper">+17.2%</td>
+                    <td><span class="badge-executive badge-copper">Invested</span></td>
+                  </tr>
+                  <tr>
+                    <td style="color: #fff; font-weight: 600;">AWS / GCP Infrastructure</td>
+                    <td>COGS</td>
+                    <td>$36,000</td>
+                    <td>$31,200</td>
+                    <td class="text-emerald">-$4,800</td>
+                    <td class="text-emerald">-13.3%</td>
+                    <td><span class="badge-executive badge-emerald">Saved</span></td>
+                  </tr>
+                  <tr>
+                    <td style="color: #fff; font-weight: 600;">SaaS Tech Stack & Software</td>
+                    <td>G&A</td>
+                    <td>$18,000</td>
+                    <td>$16,800</td>
+                    <td class="text-emerald">-$1,200</td>
+                    <td class="text-emerald">-6.7%</td>
+                    <td><span class="badge-executive badge-emerald">Favorable</span></td>
+                  </tr>
+                  <tr>
+                    <td style="color: #fff; font-weight: 600;">Legal & Corporate Governance</td>
+                    <td>G&A</td>
+                    <td>$15,000</td>
+                    <td>$18,400</td>
+                    <td class="text-copper">+$3,400</td>
+                    <td class="text-copper">+22.6%</td>
+                    <td><span class="badge-executive badge-gold">One-time Exp</span></td>
+                  </tr>
+                  <tr>
+                    <td style="color: #fff; font-weight: 600;">Sales Commission & Bonus</td>
+                    <td>Sales</td>
+                    <td>$30,000</td>
+                    <td>$34,200</td>
+                    <td class="text-copper">+$4,200</td>
+                    <td class="text-copper">+14.0%</td>
+                    <td><span class="badge-executive badge-emerald">Target Beat</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ====================================================================
+             TAB 05: FORECASTS & SCENARIO ENGINE
+             ==================================================================== -->
+        <section id="tab-forecasts" class="dash-tab-pane">
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <h3 class="dash-panel-title">Dynamic 3-Scenario Strategic Forecasting</h3>
+              <span class="badge-executive badge-gold">Q4 2026 – Q4 2027</span>
+            </div>
+            <p style="color: var(--dash-slate); font-size: 0.85rem;">
+              Toggle between three capital allocation trajectories modeled by your Fractional CFO.
+            </p>
+            <div class="row g-3 mb-4">
+              <div class="col-md-4">
+                <div class="p-3 rounded" style="background: rgba(16, 185, 129, 0.08); border: 1px solid var(--dash-emerald);">
+                  <div style="font-weight: 700; color: var(--dash-emerald);">Plan A: Base Trajectory</div>
+                  <div style="font-size: 0.8rem; color: #D1D5DB; margin-top: 0.25rem;">Organic growth + current headcount. Runway: 18.2 Months.</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded" style="background: rgba(197, 161, 90, 0.08); border: 1px solid var(--dash-gold);">
+                  <div style="font-weight: 700; color: var(--dash-gold);">Plan B: Aggressive Hiring</div>
+                  <div style="font-size: 0.8rem; color: #D1D5DB; margin-top: 0.25rem;">+4 Senior Eng & 2 AEs in Q4. Runway: 11.4 Months.</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 rounded" style="background: rgba(59, 130, 246, 0.08); border: 1px solid #3B82F6;">
+                  <div style="font-weight: 700; color: #3B82F6);">Plan C: Downturn Buffer</div>
+                  <div style="font-size: 0.8rem; color: #D1D5DB; margin-top: 0.25rem;">Strict freeze on discretionary spend. Runway: 24.5 Months.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ====================================================================
+             TAB 06: REPORTS & BOARD DECKS REPOSITORY
+             ==================================================================== -->
+        <section id="tab-reports" class="dash-tab-pane">
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <h3 class="dash-panel-title">Published Executive Financial Packages & Board Decks</h3>
+              <button class="btn-cfo btn-cfo-copper" style="padding: 0.35rem 0.75rem; font-size: 0.75rem;" onclick="showToast('Requesting custom investor reporting deck from Partner CFO...')">
+                Request Custom Board Pack
+              </button>
+            </div>
+
+            <div class="d-flex flex-column gap-3">
+              <div class="p-3 rounded d-flex flex-wrap align-items-center justify-content-between gap-3" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--dash-border);">
+                <div class="d-flex align-items-center gap-3">
+                  <i data-lucide="file-text" style="color: var(--dash-gold); width: 24px; height: 24px;"></i>
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.95rem; color: #fff;">Q3 2026 Executive Financial Review & Board Presentation Deck</div>
+                    <div style="font-size: 0.75rem; color: var(--dash-slate);">Includes revenue bridge, gross margin analysis, cohort retention, and 2027 budget proposal.</div>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn-cfo btn-cfo-outline-light" style="padding: 0.35rem 0.75rem; font-size: 0.75rem;" onclick="downloadInvoiceModal('REPORT-Q3-2026', 'Sep 15, 2026', '$0.00 (Included)')">
+                    Preview
+                  </button>
+                  <button class="btn-cfo btn-cfo-copper" style="padding: 0.35rem 0.75rem; font-size: 0.75rem;" onclick="showToast('Downloading Q3 Board Deck PDF...')">
+                    Download PDF
+                  </button>
+                </div>
+              </div>
+
+              <div class="p-3 rounded d-flex flex-wrap align-items-center justify-content-between gap-3" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--dash-border);">
+                <div class="d-flex align-items-center gap-3">
+                  <i data-lucide="file-spreadsheet" style="color: var(--dash-emerald); width: 24px; height: 24px;"></i>
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.95rem; color: #fff;">August 2026 Closed Financial Statements (GAAP Accrual)</div>
+                    <div style="font-size: 0.75rem; color: var(--dash-slate);">Full general ledger, balance sheet, trial balance, and 1099 tax schedules.</div>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <button class="btn-cfo btn-cfo-outline-light" style="padding: 0.35rem 0.75rem; font-size: 0.75rem;" onclick="downloadInvoiceModal('GAAP-AUG-2026', 'Sep 05, 2026', '$0.00 (Included)')">
+                    Preview
+                  </button>
+                  <button class="btn-cfo btn-cfo-copper" style="padding: 0.35rem 0.75rem; font-size: 0.75rem;" onclick="showToast('Downloading August GAAP Financials...')">
+                    Download PDF
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ====================================================================
+             TAB 07: CFO MESSAGES & STRATEGY DESK
+             ==================================================================== -->
+        <section id="tab-messages" class="dash-tab-pane">
+          <div class="dash-panel p-0">
+            <div class="chat-container">
+              <!-- Thread List -->
+              <div class="chat-thread-list">
+                <div class="p-3 border-bottom" style="border-color: var(--dash-border) !important;">
+                  <div style="font-weight: 700; font-size: 0.9rem; color: #fff;">Advisory Threads</div>
+                </div>
+                <div class="chat-thread-item active">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span style="font-weight: 700; font-size: 0.85rem; color: #fff;">Eleanor Vance (CFO)</span>
+                    <span style="font-size: 0.65rem; color: var(--dash-gold);">10:42 AM</span>
+                  </div>
+                  <div style="font-size: 0.75rem; color: var(--dash-slate); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    Q4 hiring budget & board presentation deck adjustments...
+                  </div>
+                </div>
+              </div>
+
+              <!-- Main Chat Pane -->
+              <div class="chat-main-pane">
+                <div class="chat-header">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="user-avatar" style="background: var(--dash-gold); color: #000;">EV</div>
+                    <div>
+                      <div style="font-weight: 700; color: #fff; font-size: 0.9rem;">Eleanor Vance, CFA</div>
+                      <div style="font-size: 0.7rem; color: var(--dash-emerald); display: flex; align-items: center; gap: 4px;">
+                        <span class="pulse-dot emerald" style="width: 5px; height: 5px;"></span> Partner CFO • Online
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn-cfo btn-cfo-outline-light" style="padding: 0.35rem 0.75rem; font-size: 0.75rem;" onclick="showToast('Calendar link sent: 1-on-1 strategy call booking available for tomorrow.')">
+                    <i data-lucide="video" style="width: 14px; height: 14px;"></i> Schedule 1-on-1 Call
+                  </button>
+                </div>
+
+                <!-- Messages -->
+                <div class="chat-messages-area" id="chatMessagesArea">
+                  <div class="chat-bubble incoming">
+                    <div style="font-size: 0.72rem; color: var(--dash-gold); font-weight: 700; margin-bottom: 4px;">Eleanor Vance (Partner CFO)</div>
+                    <div>Hi Alex, I reviewed the September MTD ledger numbers. Your gross margin improved to 64.9% due to the AWS renegotiation. Are we still planning to present the aggressive hiring model at next Thursday's board meeting?</div>
+                    <div style="font-size: 0.68rem; color: var(--dash-slate); margin-top: 4px;">10:42 AM</div>
+                  </div>
+
+                  <div class="chat-bubble outgoing">
+                    <div>Yes Eleanor, let's include Plan B in the appendix, but lead with the Base Case to protect our 8.4-month runway.</div>
+                    <div style="font-size: 0.68rem; opacity: 0.8; margin-top: 4px; text-align: right;">10:45 AM</div>
+                  </div>
+                </div>
+
+                <!-- Input -->
+                <div class="chat-input-bar">
+                  <input type="text" id="chatMessageInput" class="form-control form-control-cfo" placeholder="Type a message to your Fractional CFO...">
+                  <button type="button" id="btnSendChatMessage" class="btn-cfo btn-cfo-copper" style="padding: 0.65rem 1.25rem;">
+                    <i data-lucide="send" style="width: 16px; height: 16px;"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ====================================================================
+             TAB 08: BILLING AREA (FULL BILLING HUB)
+             ==================================================================== -->
+        <section id="tab-billing" class="dash-tab-pane">
+
+          <!-- Current Plan Hero Card -->
+          <div class="billing-hero-card">
+            <div class="row align-items-center g-4">
+              <div class="col-lg-8">
+                <div class="badge-executive badge-gold mb-2">ACTIVE PLAN</div>
+                <h2 style="font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem;">Scale Fractional CFO & Advisory</h2>
+                <p style="color: var(--dash-slate); font-size: 0.9rem; margin-bottom: 1.25rem;">
+                  Full accrual bookkeeping, guaranteed 5-day close, 13-week cash engine, and dedicated Partner CFO advisory.
+                </p>
+                <div class="d-flex flex-wrap gap-4 font-mono-num" style="font-size: 0.85rem;">
+                  <div>
+                    <span style="color: var(--dash-slate);">Monthly Fee:</span>
+                    <strong style="color: #fff;">$4,850 / month</strong>
+                  </div>
+                  <div>
+                    <span style="color: var(--dash-slate);">Next Billing Date:</span>
+                    <strong style="color: var(--dash-gold);">October 1, 2026</strong>
+                  </div>
+                  <div>
+                    <span style="color: var(--dash-slate);">Payment Method:</span>
+                    <strong style="color: #fff;">Mercury ACH (•••• 8412)</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 text-lg-end">
+                <button class="btn-cfo btn-cfo-copper" onclick="showToast('Upgrade dialog initiated. Contacting your relationship director...')">
+                  Upgrade / Modify Service
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Invoice History Table -->
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <h3 class="dash-panel-title">Invoice History & Receipts</h3>
+              <span class="badge-executive badge-emerald">All Accounts in Good Standing</span>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table-dash-custom font-mono-num">
+                <thead>
+                  <tr>
+                    <th>Invoice #</th>
+                    <th>Billing Period</th>
+                    <th>Date Issued</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="font-weight: 700; color: #fff;">INV-2026-0901</td>
+                    <td>September 2026 Fractional CFO Service</td>
+                    <td>Sep 01, 2026</td>
+                    <td>$4,850.00</td>
+                    <td><span class="invoice-badge-status paid">Paid (ACH)</span></td>
+                    <td>
+                      <button class="btn-cfo btn-cfo-outline-light" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="downloadInvoiceModal('INV-2026-0901', 'Sep 01, 2026', '$4,850.00')">
+                        <i data-lucide="download" style="width: 12px; height: 12px;"></i> Download PDF
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight: 700; color: #fff;">INV-2026-0801</td>
+                    <td>August 2026 Fractional CFO Service</td>
+                    <td>Aug 01, 2026</td>
+                    <td>$4,850.00</td>
+                    <td><span class="invoice-badge-status paid">Paid (ACH)</span></td>
+                    <td>
+                      <button class="btn-cfo btn-cfo-outline-light" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="downloadInvoiceModal('INV-2026-0801', 'Aug 01, 2026', '$4,850.00')">
+                        <i data-lucide="download" style="width: 12px; height: 12px;"></i> Download PDF
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-weight: 700; color: #fff;">INV-2026-0701</td>
+                    <td>July 2026 Fractional CFO Service</td>
+                    <td>Jul 01, 2026</td>
+                    <td>$4,850.00</td>
+                    <td><span class="invoice-badge-status paid">Paid (ACH)</span></td>
+                    <td>
+                      <button class="btn-cfo btn-cfo-outline-light" style="padding: 0.25rem 0.6rem; font-size: 0.75rem;" onclick="downloadInvoiceModal('INV-2026-0701', 'Jul 01, 2026', '$4,850.00')">
+                        <i data-lucide="download" style="width: 12px; height: 12px;"></i> Download PDF
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+
+        <!-- ====================================================================
+             TAB 09: SETTINGS & INTEGRATIONS
+             ==================================================================== -->
+        <section id="tab-settings" class="dash-tab-pane">
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <h3 class="dash-panel-title">Connected Financial Integrations</h3>
+              <span class="badge-executive badge-emerald">Encrypted 256-Bit</span>
+            </div>
+
+            <div class="d-flex flex-column gap-3">
+              <div class="p-3 rounded d-flex align-items-center justify-content-between" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--dash-border);">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="brand-symbol" style="width: 38px; height: 38px; font-size: 0.9rem;">QB</div>
+                  <div>
+                    <div style="font-weight: 700; color: #fff;">QuickBooks Online (Advanced)</div>
+                    <div style="font-size: 0.72rem; color: var(--dash-emerald);">Connected • Last synced 12 mins ago</div>
+                  </div>
+                </div>
+                <span class="badge-executive badge-emerald">Active Sync</span>
+              </div>
+
+              <div class="p-3 rounded d-flex align-items-center justify-content-between" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--dash-border);">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="brand-symbol" style="width: 38px; height: 38px; font-size: 0.9rem; color: var(--dash-copper);">ST</div>
+                  <div>
+                    <div style="font-weight: 700; color: #fff;">Stripe Payments & Billing</div>
+                    <div style="font-size: 0.72rem; color: var(--dash-emerald);">Connected • Webhooks live</div>
+                  </div>
+                </div>
+                <span class="badge-executive badge-emerald">Active Sync</span>
+              </div>
+
+              <div class="p-3 rounded d-flex align-items-center justify-content-between" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--dash-border);">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="brand-symbol" style="width: 38px; height: 38px; font-size: 0.9rem; color: var(--dash-gold);">MB</div>
+                  <div>
+                    <div style="font-weight: 700; color: #fff;">Mercury Treasury & Operating Banking</div>
+                    <div style="font-size: 0.72rem; color: var(--dash-emerald);">Connected • Direct API Feed</div>
+                  </div>
+                </div>
+                <span class="badge-executive badge-emerald">Active Sync</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- ==========================================================================
+       INVOICE PREVIEW & DOWNLOAD MODAL
+       ========================================================================== -->
+  <div class="modal fade modal-cfo" id="invoicePreviewModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h5 class="modal-title" style="color: #fff; font-weight: 700;">VALENCE Official Statement</h5>
+            <div id="invModalNumber" style="font-size: 0.75rem; color: var(--dash-gold); font-family: var(--font-mono);">INV-2026-0901</div>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body font-mono-num" style="font-size: 0.875rem;">
+          <div class="p-3 rounded mb-3" style="background: #0D0F11; border: 1px solid var(--dash-border);">
+            <div class="d-flex justify-content-between mb-2">
+              <span style="color: var(--dash-slate);">Client:</span>
+              <span style="color: #fff; font-weight: 700;">Vanguard Dynamics Inc.</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span style="color: var(--dash-slate);">Date:</span>
+              <span id="invModalDate" style="color: #fff;">Sep 01, 2026</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span style="color: var(--dash-slate);">Service:</span>
+              <span style="color: #fff;">Scale Fractional CFO Advisory</span>
+            </div>
+            <hr style="border-color: var(--dash-border);">
+            <div class="d-flex justify-content-between" style="font-size: 1.1rem; font-weight: 800;">
+              <span style="color: #fff;">Total Paid:</span>
+              <span id="invModalAmount" style="color: var(--dash-gold);">$4,850.00</span>
+            </div>
+          </div>
+          <div style="font-size: 0.75rem; color: var(--dash-slate); text-align: center;">
+            Paid via Mercury Operating ACH • Transaction ID: TXN-89412984-VALENCE
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-cfo btn-cfo-outline-light" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn-cfo btn-cfo-copper" onclick="window.print();">
+            <i data-lucide="printer" style="width: 14px; height: 14px;"></i> Print / Save PDF
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="js/main.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

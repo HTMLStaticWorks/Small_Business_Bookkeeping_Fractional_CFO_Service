@@ -1,0 +1,693 @@
+/* ==========================================================================
+   VALENCE FINANCIAL | CLIENT CFO DASHBOARD & CONTROL ROOM
+   Theme: Executive Financial Intelligence (Dark Carbon × Gold × Copper)
+   ========================================================================== */
+
+:root {
+  --dash-bg: #0D0F11;
+  --dash-sidebar: #121518;
+  --dash-surface: #171A1E;
+  --dash-surface-hover: #1E2328;
+  --dash-surface-elevated: #22272E;
+  --dash-border: #262B33;
+  --dash-border-subtle: rgba(255, 255, 255, 0.07);
+
+  --dash-gold: #C5A15A;
+  --dash-copper: #B66A45;
+  --dash-emerald: #10B981;
+  --dash-crimson: #EF4444;
+  --dash-amber: #F59E0B;
+  --dash-cyan: #06B6D4;
+  --dash-slate: #8B949E;
+  --dash-ivory: #F4F0E8;
+}
+
+body.dashboard-body {
+  background-color: var(--dash-bg);
+  color: #E6EDF3;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dashboard App Layout */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ==========================================================================
+   DASHBOARD SIDEBAR
+   ========================================================================== */
+.dash-sidebar {
+  width: 270px;
+  background-color: var(--dash-sidebar);
+  border-right: 1px solid var(--dash-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 1050;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sidebar-header {
+  padding: 1.75rem 1.5rem 1.25rem;
+  border-bottom: 1px solid var(--dash-border-subtle);
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.sidebar-brand-badge {
+  background: var(--color-carbon-deep);
+  border: 1px solid rgba(197, 161, 90, 0.4);
+  color: var(--dash-gold);
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.company-selector-box {
+  margin-top: 1.25rem;
+  background: var(--dash-surface);
+  border: 1px solid var(--dash-border);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.company-selector-box:hover {
+  border-color: rgba(197, 161, 90, 0.4);
+  background: var(--dash-surface-hover);
+}
+
+.company-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.company-tag {
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  color: var(--dash-gold);
+  text-transform: uppercase;
+}
+
+/* Sidebar Navigation Items */
+.sidebar-nav-container {
+  padding: 1.25rem 1rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.sidebar-section-title {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--dash-slate);
+  padding: 0.5rem 0.75rem 0.25rem;
+}
+
+.dash-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dash-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.85rem;
+  color: #9CA3AF;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.dash-nav-link-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dash-nav-link:hover {
+  background-color: var(--dash-surface-hover);
+  color: #fff;
+}
+
+.dash-nav-link.active {
+  background-color: rgba(197, 161, 90, 0.12);
+  color: var(--dash-gold);
+  font-weight: 600;
+  border: 1px solid rgba(197, 161, 90, 0.25);
+}
+
+.dash-nav-badge {
+  background: var(--dash-copper);
+  color: #fff;
+  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* Sidebar Footer / User Profile */
+.sidebar-footer {
+  padding: 1.25rem;
+  border-top: 1px solid var(--dash-border-subtle);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.user-profile-widget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--dash-copper), var(--dash-gold));
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.user-role {
+  font-size: 0.7rem;
+  color: var(--dash-slate);
+}
+
+/* ==========================================================================
+   MAIN DASHBOARD CONTENT AREA
+   ========================================================================== */
+.dash-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-color: var(--dash-bg);
+}
+
+/* Topbar Header */
+.dash-topbar {
+  height: 72px;
+  background-color: var(--dash-sidebar);
+  border-bottom: 1px solid var(--dash-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.sidebar-toggle-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--dash-border);
+  color: #fff;
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.view-title-wrap h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.period-select-btn {
+  background: var(--dash-surface);
+  border: 1px solid var(--dash-border);
+  color: #E6EDF3;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.period-select-btn:hover {
+  background: var(--dash-surface-hover);
+  border-color: rgba(197, 161, 90, 0.4);
+}
+
+/* Dashboard Body View Canvas */
+.dash-view-canvas {
+  padding: 2rem;
+  flex: 1;
+  max-width: 1540px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Tab View Panes */
+.dash-tab-pane {
+  display: none;
+}
+
+.dash-tab-pane.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   DASHBOARD KPI METRIC CARDS
+   ========================================================================== */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.kpi-card {
+  background: var(--dash-surface);
+  border: 1px solid var(--dash-border);
+  border-radius: 10px;
+  padding: 1.35rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.kpi-card:hover {
+  border-color: rgba(197, 161, 90, 0.4);
+  background: var(--dash-surface-hover);
+  transform: translateY(-2px);
+}
+
+.kpi-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.kpi-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--dash-slate);
+}
+
+.kpi-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dash-gold);
+}
+
+.kpi-value {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.kpi-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.kpi-badge.positive {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--dash-emerald);
+}
+
+.kpi-badge.neutral {
+  background: rgba(197, 161, 90, 0.12);
+  color: var(--dash-gold);
+}
+
+.kpi-badge.warning {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--dash-amber);
+}
+
+/* ==========================================================================
+   DASHBOARD DATA PANELS & CHARTS
+   ========================================================================== */
+.dash-panel {
+  background: var(--dash-surface);
+  border: 1px solid var(--dash-border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.dash-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--dash-border-subtle);
+}
+
+.dash-panel-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chart-canvas-wrap {
+  position: relative;
+  width: 100%;
+}
+
+/* ==========================================================================
+   BUDGET VS ACTUAL TABLE
+   ========================================================================== */
+.table-dash-custom {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.875rem;
+}
+
+.table-dash-custom th {
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--dash-slate);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--dash-border);
+}
+
+.table-dash-custom td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--dash-border-subtle);
+  color: #D1D5DB;
+}
+
+.table-dash-custom tr:hover td {
+  background-color: var(--dash-surface-hover);
+  color: #fff;
+}
+
+/* DataTables Overrides */
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+  color: var(--dash-slate) !important;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  margin: 1rem 0;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  background: var(--dash-surface-elevated) !important;
+  border: 1px solid var(--dash-border) !important;
+  color: #fff !important;
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  color: var(--dash-slate) !important;
+  border-radius: 4px !important;
+  border: 1px solid transparent !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background: var(--dash-surface-elevated) !important;
+  border-color: var(--dash-gold) !important;
+  color: var(--dash-gold) !important;
+}
+
+/* ==========================================================================
+   CFO MESSAGES & CHAT INTERFACE
+   ========================================================================== */
+.chat-container {
+  display: flex;
+  height: 580px;
+  border: 1px solid var(--dash-border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--dash-surface);
+}
+
+.chat-thread-list {
+  width: 280px;
+  border-right: 1px solid var(--dash-border);
+  background: rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+}
+
+.chat-thread-item {
+  padding: 1rem;
+  border-bottom: 1px solid var(--dash-border-subtle);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.chat-thread-item:hover,
+.chat-thread-item.active {
+  background: var(--dash-surface-hover);
+}
+
+.chat-main-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--dash-sidebar);
+}
+
+.chat-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--dash-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-messages-area {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.chat-bubble {
+  max-width: 75%;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.chat-bubble.incoming {
+  background: var(--dash-surface-elevated);
+  border: 1px solid var(--dash-border);
+  color: #E6EDF3;
+  align-self: flex-start;
+}
+
+.chat-bubble.outgoing {
+  background: var(--dash-copper);
+  color: #ffffff;
+  align-self: flex-end;
+}
+
+.chat-input-bar {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--dash-border);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--dash-surface);
+}
+
+/* ==========================================================================
+   BILLING & INVOICE MANAGEMENT
+   ========================================================================== */
+.billing-hero-card {
+  background: linear-gradient(135deg, #1C2128, #16191E);
+  border: 1px solid rgba(197, 161, 90, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.invoice-badge-status {
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.invoice-badge-status.paid {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--dash-emerald);
+}
+
+.invoice-badge-status.pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--dash-amber);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (DASHBOARD)
+   ========================================================================== */
+@media (max-width: 1280px) {
+  .kpi-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .dash-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    box-shadow: 10px 0 40px rgba(0, 0, 0, 0.8);
+  }
+
+  .dash-sidebar.active {
+    transform: translateX(0);
+  }
+
+  .sidebar-toggle-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chat-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .chat-thread-list {
+    width: 100%;
+    max-height: 160px;
+  }
+
+  .chat-messages-area {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+  .dash-view-canvas {
+    padding: 1.25rem;
+  }
+  .dash-topbar {
+    padding: 0 1.25rem;
+  }
+}
