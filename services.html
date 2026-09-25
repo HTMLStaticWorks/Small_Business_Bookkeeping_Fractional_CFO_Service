@@ -6,29 +6,9 @@
   <title>Services | Online Bookkeeping & Fractional CFO | VALENCE</title>
   <meta name="description" content="Dedicated bookkeeping, fractional CFO advisory, cash flow management, and tax filing tailored for small businesses and startups.">
   
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <style>
-    .social-icon-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: #F4F8F7;
-      border: 1px solid #E2E8F0;
-      color: var(--bench-navy);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: var(--transition);
-    }
-    .social-icon-btn:hover {
-      background: var(--bench-green);
-      color: #ffffff !important;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 131, 98, 0.25);
-    }
-  </style>
 </head>
 <body>
 
@@ -46,30 +26,12 @@
         <ul class="desktop-nav">
           <li><a href="index.html">Home</a></li>
           <li><a href="home-2.html">Home 2</a></li>
-          <li><a href="dashboard.html">Dashboard</a></li>
-          <li class="dropdown">
-            <a href="services.html" class="dropdown-toggle active text-bench-green" data-bs-toggle="dropdown">
-              Services <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
-            </a>
-            <ul class="dropdown-menu shadow-md" style="border-radius: 10px; border: 1px solid var(--bench-border);">
-              <li><a class="dropdown-item py-2" href="services.html">Bookkeeping & Monthly Close</a></li>
-              <li><a class="dropdown-item py-2" href="services.html">Fractional CFO Advisory</a></li>
-              <li><a class="dropdown-item py-2" href="services.html">Cash-Flow Management</a></li>
-              <li><a class="dropdown-item py-2" href="services.html">Tax Prep & Year-End Filing</a></li>
-            </ul>
-          </li>
+          <li><a href="services.html" class="active text-bench-green">Services</a></li>
           <li><a href="pricing.html">Pricing</a></li>
-          <li class="dropdown">
-            <a href="resources.html" class="dropdown-toggle" data-bs-toggle="dropdown">
-              Resources <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
-            </a>
-            <ul class="dropdown-menu shadow-md" style="border-radius: 10px; border: 1px solid var(--bench-border);">
-              <li><a class="dropdown-item py-2" href="resources.html">Founder Insights Library</a></li>
-              <li><a class="dropdown-item py-2" href="resources.html">Cash Runway Calculator</a></li>
-            </ul>
-          </li>
+          <li><a href="resources.html">Resources</a></li>
           <li><a href="how-it-works.html">How It Works</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
         </ul>
 
         <div class="desktop-nav-actions">
@@ -116,14 +78,12 @@
       <ul class="drawer-nav">
         <li><a href="index.html">Home <i data-lucide="chevron-right"></i></a></li>
         <li><a href="home-2.html">Home 2 <i data-lucide="chevron-right"></i></a></li>
-        <li><a href="dashboard.html" class="text-bench-green">Dashboard <i data-lucide="layout-dashboard"></i></a></li>
         <li><a href="services.html" class="active text-bench-green">Services <i data-lucide="chevron-right"></i></a></li>
         <li><a href="pricing.html">Pricing <i data-lucide="chevron-right"></i></a></li>
         <li><a href="resources.html">Resources <i data-lucide="chevron-right"></i></a></li>
         <li><a href="how-it-works.html">How It Works <i data-lucide="chevron-right"></i></a></li>
         <li><a href="contact.html">Contact <i data-lucide="mail"></i></a></li>
-        <li><a href="login.html">Log in <i data-lucide="log-in"></i></a></li>
-        <li><a href="register.html">Register <i data-lucide="user-plus"></i></a></li>
+        <li><a href="dashboard.html">Dashboard <i data-lucide="layout-dashboard"></i></a></li>
       </ul>
     </div>
     <div class="d-flex flex-column gap-2 pt-3 border-top">
@@ -154,71 +114,99 @@
 
         <!-- 01: Bookkeeping -->
         <div class="col-lg-6">
-          <div class="card-bench-feature p-4 p-md-5">
-            <div class="feature-icon-wrap" style="background: #E8F5E9; color: #2E7D32;">
-              <i data-lucide="book-open" style="width: 26px; height: 26px;"></i>
+          <div class="card-bench-feature p-4 p-md-5 d-flex flex-column justify-content-between h-100">
+            <div>
+              <div class="feature-icon-wrap" style="background: #E8F5E9; color: #2E7D32;">
+                <i data-lucide="book-open" style="width: 26px; height: 26px;"></i>
+              </div>
+              <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Full-Service Monthly Bookkeeping</h2>
+              <p style="color: var(--bench-slate); font-size: 1rem; line-height: 1.65; margin-bottom: 1.5rem;">
+                Your dedicated bookkeeper categorizes all your transactions, reconciles merchant feeds (Stripe, Square, Shopify), and delivers pristine monthly financial statements.
+              </p>
+              <ul class="list-unstyled d-flex flex-column gap-2 mb-4" style="font-weight: 600; font-size: 0.925rem; color: var(--bench-navy);">
+                <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Guaranteed 5-day monthly close</li>
+                <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Accrual-basis income statement & balance sheet</li>
+                <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Automated receipt matching & ledger audit</li>
+              </ul>
             </div>
-            <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Full-Service Monthly Bookkeeping</h2>
-            <p style="color: var(--bench-slate); font-size: 1rem; line-height: 1.65; margin-bottom: 1.5rem;">
-              Your dedicated bookkeeper categorizes all your transactions, reconciles merchant feeds (Stripe, Square, Shopify), and delivers pristine monthly financial statements.
-            </p>
-            <ul class="list-unstyled d-flex flex-column gap-2" style="font-weight: 600; font-size: 0.925rem; color: var(--bench-navy);">
-              <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Guaranteed 5-day monthly close</li>
-              <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Accrual-basis income statement & balance sheet</li>
-              <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Automated receipt matching & ledger audit</li>
-            </ul>
+            <div class="pt-2 border-top">
+              <a href="pricing.html" class="fw-bold text-bench-green text-decoration-none d-inline-flex align-items-center gap-1">
+                Know more <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
           </div>
         </div>
 
         <!-- 02: Fractional CFO -->
         <div class="col-lg-6">
-          <div class="card-bench-feature p-4 p-md-5">
-            <div class="feature-icon-wrap" style="background: #E3F2FD; color: #1976D2;">
-              <i data-lucide="trending-up" style="width: 26px; height: 26px;"></i>
+          <div class="card-bench-feature p-4 p-md-5 d-flex flex-column justify-content-between h-100">
+            <div>
+              <div class="feature-icon-wrap" style="background: #E3F2FD; color: #1976D2;">
+                <i data-lucide="trending-up" style="width: 26px; height: 26px;"></i>
+              </div>
+              <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Fractional CFO Advisory</h2>
+              <p style="color: var(--bench-slate); font-size: 1rem; line-height: 1.65; margin-bottom: 1.5rem;">
+                Get partner-level guidance on unit economics, runway expansion, fundraising readiness, and dynamic 3-statement financial models.
+              </p>
+              <ul class="list-unstyled d-flex flex-column gap-2 mb-4" style="font-weight: 600; font-size: 0.925rem; color: var(--bench-navy);">
+                <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Monthly executive strategy session with Partner CFO</li>
+                <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Board of Directors presentation decks</li>
+                <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Headcount planning & burn-rate sensitivity models</li>
+              </ul>
             </div>
-            <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Fractional CFO Advisory</h2>
-            <p style="color: var(--bench-slate); font-size: 1rem; line-height: 1.65; margin-bottom: 1.5rem;">
-              Get partner-level guidance on unit economics, runway expansion, fundraising readiness, and dynamic 3-statement financial models.
-            </p>
-            <ul class="list-unstyled d-flex flex-column gap-2" style="font-weight: 600; font-size: 0.925rem; color: var(--bench-navy);">
-              <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Monthly executive strategy session with Partner CFO</li>
-              <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Board of Directors presentation decks</li>
-              <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Headcount planning & burn-rate sensitivity models</li>
-            </ul>
+            <div class="pt-2 border-top">
+              <a href="pricing.html" class="fw-bold text-bench-green text-decoration-none d-inline-flex align-items-center gap-1">
+                Know more <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
           </div>
         </div>
 
         <!-- 03: Cash-Flow Management -->
         <div class="col-lg-6">
-          <div class="card-bench-feature p-4 p-md-5">
-            <div class="feature-icon-wrap" style="background: #FFF3E0; color: #E65100;">
-              <i data-lucide="activity" style="width: 26px; height: 26px;"></i>
+          <div class="card-bench-feature p-4 p-md-5 d-flex flex-column justify-content-between h-100">
+            <div>
+              <div class="feature-icon-wrap" style="background: #FFF3E0; color: #E65100;">
+                <i data-lucide="activity" style="width: 26px; height: 26px;"></i>
+              </div>
+              <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem;">13-Week Cash Flow Engine</h2>
+              <p style="color: var(--bench-slate); font-size: 1rem; line-height: 1.65; margin-bottom: 1.5rem;">
+                Eliminate payroll surprises. We build rolling weekly liquidity models that track customer receipts, accounts receivable, and vendor disbursements.
+              </p>
+              <ul class="list-unstyled d-flex flex-column gap-2 mb-4" style="font-weight: 600; font-size: 0.925rem; color: var(--bench-navy);">
+                <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> 13-week dynamic cash forecasting</li>
+                <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> DSO acceleration & AR invoice workflows</li>
+              </ul>
             </div>
-            <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem;">13-Week Cash Flow Engine</h2>
-            <p style="color: var(--bench-slate); font-size: 1rem; line-height: 1.65; margin-bottom: 1.5rem;">
-              Eliminate payroll surprises. We build rolling weekly liquidity models that track customer receipts, accounts receivable, and vendor disbursements.
-            </p>
-            <ul class="list-unstyled d-flex flex-column gap-2" style="font-weight: 600; font-size: 0.925rem; color: var(--bench-navy);">
-              <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> 13-week dynamic cash forecasting</li>
-              <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> DSO acceleration & AR invoice workflows</li>
-            </ul>
+            <div class="pt-2 border-top">
+              <a href="pricing.html" class="fw-bold text-bench-green text-decoration-none d-inline-flex align-items-center gap-1">
+                Know more <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
           </div>
         </div>
 
         <!-- 04: Tax Prep & Year-End -->
         <div class="col-lg-6">
-          <div class="card-bench-feature p-4 p-md-5">
-            <div class="feature-icon-wrap" style="background: #F3E5F5; color: #7B1FA2;">
-              <i data-lucide="shield-check" style="width: 26px; height: 26px;"></i>
+          <div class="card-bench-feature p-4 p-md-5 d-flex flex-column justify-content-between h-100">
+            <div>
+              <div class="feature-icon-wrap" style="background: #F3E5F5; color: #7B1FA2;">
+                <i data-lucide="shield-check" style="width: 26px; height: 26px;"></i>
+              </div>
+              <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Tax Advisory & Year-End Filing</h2>
+              <p style="color: var(--bench-slate); font-size: 1rem; line-height: 1.65; margin-bottom: 1.5rem;">
+                Enjoy stress-free tax season. Our CPAs prepare and file your federal, state, and local business income tax returns directly from your closed books.
+              </p>
+              <ul class="list-unstyled d-flex flex-column gap-2 mb-4" style="font-weight: 600; font-size: 0.925rem; color: var(--bench-navy);">
+                <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Complete 1120 / 1120S / 1065 business tax prep</li>
+                <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> 1099-NEC contractor e-filing</li>
+              </ul>
             </div>
-            <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Tax Advisory & Year-End Filing</h2>
-            <p style="color: var(--bench-slate); font-size: 1rem; line-height: 1.65; margin-bottom: 1.5rem;">
-              Enjoy stress-free tax season. Our CPAs prepare and file your federal, state, and local business income tax returns directly from your closed books.
-            </p>
-            <ul class="list-unstyled d-flex flex-column gap-2" style="font-weight: 600; font-size: 0.925rem; color: var(--bench-navy);">
-              <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Complete 1120 / 1120S / 1065 business tax prep</li>
-              <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> 1099-NEC contractor e-filing</li>
-            </ul>
+            <div class="pt-2 border-top">
+              <a href="pricing.html" class="fw-bold text-bench-green text-decoration-none d-inline-flex align-items-center gap-1">
+                Know more <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
           </div>
         </div>
 

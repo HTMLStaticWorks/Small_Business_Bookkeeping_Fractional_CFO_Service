@@ -6,6 +6,7 @@
   <title>Resources & Founder Tools | VALENCE</title>
   <meta name="description" content="Free guides, cash runway calculators, and financial templates from VALENCE.">
   
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -25,30 +26,12 @@
         <ul class="desktop-nav">
           <li><a href="index.html">Home</a></li>
           <li><a href="home-2.html">Home 2</a></li>
-          <li><a href="dashboard.html">Dashboard</a></li>
-          <li class="dropdown">
-            <a href="services.html" class="dropdown-toggle" data-bs-toggle="dropdown">
-              Services <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
-            </a>
-            <ul class="dropdown-menu shadow-md" style="border-radius: 10px; border: 1px solid var(--bench-border);">
-              <li><a class="dropdown-item py-2" href="services.html">Bookkeeping & Monthly Close</a></li>
-              <li><a class="dropdown-item py-2" href="services.html">Fractional CFO Advisory</a></li>
-              <li><a class="dropdown-item py-2" href="services.html">Cash-Flow Management</a></li>
-              <li><a class="dropdown-item py-2" href="services.html">Tax Prep & Year-End Filing</a></li>
-            </ul>
-          </li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="pricing.html">Pricing</a></li>
-          <li class="dropdown">
-            <a href="resources.html" class="dropdown-toggle active text-bench-green" data-bs-toggle="dropdown">
-              Resources <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
-            </a>
-            <ul class="dropdown-menu shadow-md" style="border-radius: 10px; border: 1px solid var(--bench-border);">
-              <li><a class="dropdown-item py-2" href="resources.html">Founder Insights Library</a></li>
-              <li><a class="dropdown-item py-2" href="resources.html">Cash Runway Calculator</a></li>
-            </ul>
-          </li>
+          <li><a href="resources.html" class="active text-bench-green">Resources</a></li>
           <li><a href="how-it-works.html">How It Works</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
         </ul>
 
         <div class="desktop-nav-actions">
@@ -94,15 +77,13 @@
       </div>
       <ul class="drawer-nav">
         <li><a href="index.html">Home <i data-lucide="chevron-right"></i></a></li>
-        <li><a href="home-2.html">Home 2 (Control Room) <i data-lucide="chevron-right"></i></a></li>
-        <li><a href="dashboard.html" class="text-bench-green">Dashboard <i data-lucide="layout-dashboard"></i></a></li>
+        <li><a href="home-2.html">Home 2 <i data-lucide="chevron-right"></i></a></li>
         <li><a href="services.html">Services <i data-lucide="chevron-right"></i></a></li>
         <li><a href="pricing.html">Pricing <i data-lucide="chevron-right"></i></a></li>
         <li><a href="resources.html" class="active text-bench-green">Resources <i data-lucide="chevron-right"></i></a></li>
         <li><a href="how-it-works.html">How It Works <i data-lucide="chevron-right"></i></a></li>
         <li><a href="contact.html">Contact <i data-lucide="mail"></i></a></li>
-        <li><a href="login.html">Log in <i data-lucide="log-in"></i></a></li>
-        <li><a href="register.html">Register <i data-lucide="user-plus"></i></a></li>
+        <li><a href="dashboard.html">Dashboard <i data-lucide="layout-dashboard"></i></a></li>
       </ul>
     </div>
     <div class="d-flex flex-column gap-2 pt-3 border-top">
@@ -168,35 +149,47 @@
       <h2 style="font-size: 2.2rem; margin-bottom: 2.5rem; text-align: center;">Latest Bookkeeping & Tax Guides</h2>
       <div class="row g-4">
         <div class="col-md-4">
-          <div class="card-bench-feature">
-            <span class="badge bg-bench-light text-bench-navy mb-3">BOOKKEEPING GUIDE</span>
-            <h3 style="font-size: 1.25rem;">The Small Business Guide to Reconciling Stripe & Square</h3>
-            <p style="color: var(--bench-slate); font-size: 0.9rem; line-height: 1.6;">
-              How to avoid phantom revenue and properly account for processing fees.
-            </p>
-            <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+          <div class="card-bench-feature d-flex flex-column justify-content-between h-100">
+            <div>
+              <span class="badge bg-bench-light text-bench-navy mb-3">BOOKKEEPING GUIDE</span>
+              <h3 style="font-size: 1.25rem;">The Small Business Guide to Reconciling Stripe & Square</h3>
+              <p style="color: var(--bench-slate); font-size: 0.9rem; line-height: 1.6;">
+                How to avoid phantom revenue and properly account for processing fees.
+              </p>
+            </div>
+            <div class="mt-auto pt-3">
+              <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+            </div>
           </div>
         </div>
 
         <div class="col-md-4">
-          <div class="card-bench-feature">
-            <span class="badge bg-bench-light text-bench-navy mb-3">TAX STRATEGY</span>
-            <h3 style="font-size: 1.25rem;">Top 15 Tax Deductions Small Business Owners Miss</h3>
-            <p style="color: var(--bench-slate); font-size: 0.9rem; line-height: 1.6;">
-              Legitimate write-offs for software subscriptions, home offices, and hardware.
-            </p>
-            <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+          <div class="card-bench-feature d-flex flex-column justify-content-between h-100">
+            <div>
+              <span class="badge bg-bench-light text-bench-navy mb-3">TAX STRATEGY</span>
+              <h3 style="font-size: 1.25rem;">Top 15 Tax Deductions Small Business Owners Miss</h3>
+              <p style="color: var(--bench-slate); font-size: 0.9rem; line-height: 1.6;">
+                Legitimate write-offs for software subscriptions, home offices, and hardware.
+              </p>
+            </div>
+            <div class="mt-auto pt-3">
+              <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+            </div>
           </div>
         </div>
 
         <div class="col-md-4">
-          <div class="card-bench-feature">
-            <span class="badge bg-bench-light text-bench-navy mb-3">CFO PLAYBOOK</span>
-            <h3 style="font-size: 1.25rem;">How to Build a 13-Week Rolling Cash Flow Forecast</h3>
-            <p style="color: var(--bench-slate); font-size: 0.9rem; line-height: 1.6;">
-              Step-by-step framework to anticipate payroll crunches and manage accounts receivable.
-            </p>
-            <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+          <div class="card-bench-feature d-flex flex-column justify-content-between h-100">
+            <div>
+              <span class="badge bg-bench-light text-bench-navy mb-3">CFO PLAYBOOK</span>
+              <h3 style="font-size: 1.25rem;">How to Build a 13-Week Rolling Cash Flow Forecast</h3>
+              <p style="color: var(--bench-slate); font-size: 0.9rem; line-height: 1.6;">
+                Step-by-step framework to anticipate payroll crunches and manage accounts receivable.
+              </p>
+            </div>
+            <div class="mt-auto pt-3">
+              <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+            </div>
           </div>
         </div>
       </div>

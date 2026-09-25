@@ -319,9 +319,22 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid var(--bench-border-light);
 }
 
-.drawer-nav a:hover,
-.drawer-nav a.active {
+.drawer-nav a:hover {
   color: var(--bench-green);
+}
+
+.drawer-nav a.active {
+  color: var(--bench-green) !important;
+  background: var(--bench-green-subtle);
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  border-bottom-color: transparent !important;
+}
+
+.drawer-nav a.active i,
+.drawer-nav a.active svg {
+  color: var(--bench-green) !important;
+  stroke: var(--bench-green) !important;
 }
 
 /* ==========================================================================
@@ -362,6 +375,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   max-width: 580px;
   margin: 0 auto;
+  padding: 2.25rem 0;
 }
 
 .bench-software-window {
@@ -386,17 +400,17 @@ h1, h2, h3, h4, h5, h6 {
   gap: 0.85rem;
   position: absolute;
   z-index: 10;
-  max-width: 330px;
+  max-width: 320px;
   animation: floatSubtle 4s ease-in-out infinite alternate;
 }
 
 .floating-chat-bubble.top-bubble {
-  top: -28px;
+  top: 0px;
   left: -20px;
 }
 
 .floating-chat-bubble.bottom-bubble {
-  bottom: -28px;
+  bottom: 0px;
   right: -15px;
   animation-delay: 2s;
 }
@@ -421,6 +435,27 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   color: var(--bench-navy);
   line-height: 1.35;
+}
+
+/* Floating Image Trust & Metric Badges */
+.floating-image-badge {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--bench-border);
+  box-shadow: var(--shadow-lg);
+  color: var(--bench-navy);
+  z-index: 5;
+  transition: var(--transition);
+}
+
+.floating-image-badge .badge-label-main {
+  color: var(--bench-navy);
+  font-weight: 800;
+}
+
+.floating-image-badge .badge-label-sub {
+  color: var(--bench-slate);
+  font-weight: 500;
 }
 
 /* Top Expenses Horizontal Bars */
@@ -602,6 +637,120 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
+   RESPONSIVE HERO CENTER ALIGNMENT (HOMEPAGE 1 & HOMEPAGE 2)
+   ========================================================================== */
+@media (max-width: 991.98px) {
+  /* Homepage 1 Hero */
+  .bench-hero-wrap {
+    padding: 3.5rem 0 4rem;
+  }
+  .bench-hero-wrap .hero-copy-col,
+  .bench-hero-wrap .col-lg-6:first-child {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2.5rem;
+  }
+  .bench-hero-wrap h1 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .bench-hero-wrap p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .bench-check-list {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 1.5rem auto 1.75rem;
+  }
+  .bench-hero-btns {
+    justify-content: center !important;
+    width: 100%;
+  }
+
+  /* Homepage 2 Hero */
+  .hero-section-h2 .hero-copy-col-h2,
+  .hero-section-h2 .col-lg-6:first-child {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2.5rem;
+  }
+  .hero-section-h2 .badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-section-h2 h1 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-section-h2 p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-btns-wrap-h2 {
+    justify-content: center !important;
+    width: 100%;
+  }
+  .hero-stats-wrap-h2 {
+    justify-content: center !important;
+    width: 100%;
+  }
+}
+
+/* Chat bubble responsive behavior on tablet/mobile */
+@media (max-width: 768px) {
+  .bench-ui-stage {
+    padding: 0.5rem 0;
+  }
+  .floating-chat-bubble.top-bubble {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-bottom: 1.25rem;
+    max-width: 100%;
+  }
+  .floating-chat-bubble.bottom-bubble {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 1.25rem;
+    max-width: 100%;
+  }
+}
+
+/* Mobile 360px & Small Mobile - Equal Button Widths */
+@media (max-width: 480px) {
+  .bench-hero-btns,
+  .hero-btns-wrap-h2 {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem !important;
+    align-items: stretch;
+  }
+  .bench-hero-btns a,
+  .hero-btns-wrap-h2 a {
+    width: 100% !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .hero-stats-wrap-h2 {
+    gap: 1rem !important;
+  }
+}
+
+/* ==========================================================================
    FEATURE TILES, CARDS & REVIEWS
    ========================================================================== */
 .card-bench-feature {
@@ -674,7 +823,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
   background: #F4F8F7;
   border: 1px solid #E2E8F0;
-  color: var(--bench-navy);
+  color: #112A3D;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -682,8 +831,18 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--transition);
 }
 
+.social-icon-btn i,
+.social-icon-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  color: currentColor;
+  display: block;
+}
+
 .social-icon-btn:hover {
   background: var(--bench-green);
+  border-color: var(--bench-green);
   color: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 131, 98, 0.25);
@@ -884,8 +1043,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme="dark"] .badge.bg-bench-green-subtle {
-  background-color: #0E2922 !important;
+  background-color: rgba(52, 211, 153, 0.15) !important;
   color: #34D399 !important;
+  border: 1px solid rgba(52, 211, 153, 0.25) !important;
+}
+
+[data-theme="dark"] .bg-bench-green-subtle {
+  background-color: rgba(52, 211, 153, 0.15) !important;
+  color: #34D399 !important;
+}
+
+/* Floating Image Badges Dark Mode */
+[data-theme="dark"] .floating-image-badge {
+  background: rgba(19, 22, 27, 0.96) !important;
+  border-color: #2D3748 !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6) !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .floating-image-badge .badge-label-main {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .floating-image-badge .badge-label-sub {
+  color: #94A3B8 !important;
 }
 
 [data-theme="dark"] .border,
@@ -901,6 +1082,19 @@ h1, h2, h3, h4, h5, h6 {
 [data-theme="dark"] .bg-white,
 [data-theme="dark"] .trust-bar-bench {
   background-color: #08090A !important;
+}
+
+[data-theme="dark"] .stat-card-clean {
+  background-color: #13161B !important;
+  border-color: #222730 !important;
+}
+
+[data-theme="dark"] .stat-card-clean .stat-title {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .stat-card-clean .stat-sub {
+  color: #94A3B8 !important;
 }
 
 [data-theme="dark"] .bench-footer {
@@ -921,14 +1115,24 @@ h1, h2, h3, h4, h5, h6 {
   color: #E2E8F0 !important;
 }
 
-[data-theme="dark"] .social-icon-btn,
+[data-theme="dark"] .social-icon-btn {
+  background: #1C212A !important;
+  border-color: #2D3748 !important;
+  color: #E2E8F0 !important;
+}
+
 [data-theme="dark"] .quick-toggle-btn {
   background: #15181E !important;
   border-color: #262D37 !important;
   color: #E2E8F0 !important;
 }
 
-[data-theme="dark"] .social-icon-btn:hover,
+[data-theme="dark"] .social-icon-btn:hover {
+  background: var(--bench-green) !important;
+  border-color: var(--bench-green) !important;
+  color: #FFFFFF !important;
+}
+
 [data-theme="dark"] .quick-toggle-btn:hover {
   background: var(--bench-green) !important;
   border-color: var(--bench-green) !important;
@@ -965,6 +1169,117 @@ h1, h2, h3, h4, h5, h6 {
 [data-theme="dark"] .drawer-nav a {
   color: #E2E8F0 !important;
   border-bottom-color: #1A1E25 !important;
+}
+
+[data-theme="dark"] .drawer-nav a:hover {
+  color: #34D399 !important;
+}
+
+[data-theme="dark"] .drawer-nav a.active {
+  color: #34D399 !important;
+  background: rgba(52, 211, 153, 0.15) !important;
+  border-bottom-color: transparent !important;
+}
+
+[data-theme="dark"] .drawer-nav a.active i,
+[data-theme="dark"] .drawer-nav a.active svg {
+  color: #34D399 !important;
+  stroke: #34D399 !important;
+}
+
+/* ==========================================================================
+   PASSWORD FIELD & AUTH TOP CONTROLS & SSO BUTTONS
+   ========================================================================== */
+.password-field-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.password-field-wrapper .form-control {
+  padding-right: 44px !important;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 4px;
+  color: var(--bench-slate);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  z-index: 5;
+}
+
+.password-toggle-btn:hover {
+  color: var(--bench-green);
+}
+
+[data-theme="dark"] .password-toggle-btn {
+  color: #94A3B8;
+}
+
+[data-theme="dark"] .password-toggle-btn:hover {
+  color: #34D399;
+}
+
+.auth-top-controls {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  z-index: 1050;
+}
+
+.btn-sso {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--bench-border);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--bench-navy);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  box-sizing: border-box;
+}
+
+.btn-sso:hover {
+  background: var(--bench-bg-light);
+  border-color: var(--bench-navy);
+  color: var(--bench-navy);
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .btn-sso {
+  background: #181C23 !important;
+  border-color: #2D3748 !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .btn-sso:hover {
+  background: #222730 !important;
+  border-color: var(--bench-green) !important;
+  color: #FFFFFF !important;
+}
+
+.apple-logo-icon {
+  fill: currentColor;
 }
 
 /* ==========================================================================

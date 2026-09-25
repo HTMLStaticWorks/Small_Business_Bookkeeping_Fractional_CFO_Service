@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="valGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00A87E"/>
+      <stop offset="100%" stop-color="#00664B"/>
+    </linearGradient>
+    <filter id="valShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <!-- Background Container -->
+  <rect width="64" height="64" rx="14" fill="url(#valGrad)"/>
+  <!-- Geometric V Emblem -->
+  <path d="M18 17 L27 17 L32 37 L37 17 L46 17 L36 47 L28 47 Z" fill="#FFFFFF" filter="url(#valShadow)"/>
+  <!-- Subtle accent pip -->
+  <circle cx="48" cy="18" r="3.5" fill="#34D399"/>
+</svg>

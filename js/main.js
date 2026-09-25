@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Core Features
   initNavbarScroll();
   initMobileDrawer();
+  initPasswordToggles();
   initRunwayCalculator();
   initPricingToggle();
   initScopeEstimator();
@@ -65,6 +66,24 @@ function initMobileDrawer() {
   hamburgerBtn.addEventListener('click', openDrawer);
   if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
   drawerOverlay.addEventListener('click', closeDrawer);
+}
+
+/**
+ * 02b. Password Visibility Toggle
+ */
+function initPasswordToggles() {
+  document.querySelectorAll('.password-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const input = btn.closest('.password-field-wrapper')?.querySelector('input');
+      if (!input) return;
+      const isPass = input.type === 'password';
+      input.type = isPass ? 'text' : 'password';
+      btn.innerHTML = isPass 
+        ? '<i data-lucide="eye-off" style="width: 17px; height: 17px;"></i>' 
+        : '<i data-lucide="eye" style="width: 17px; height: 17px;"></i>';
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    });
+  });
 }
 
 /**
@@ -349,7 +368,6 @@ function initThemeAndRTL() {
     btn.addEventListener('click', () => {
       const activeTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       applyTheme(activeTheme);
-      showToast(activeTheme === 'dark' ? 'Switched to Deep Black Dark Mode' : 'Switched to Clean Light Mode');
     });
   });
 
@@ -358,7 +376,6 @@ function initThemeAndRTL() {
     btn.addEventListener('click', () => {
       const activeDir = document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
       applyRTL(activeDir);
-      showToast(activeDir === 'rtl' ? 'RTL Layout Activated (Right-to-Left)' : 'LTR Layout Activated (Left-to-Right)');
     });
   });
 }
