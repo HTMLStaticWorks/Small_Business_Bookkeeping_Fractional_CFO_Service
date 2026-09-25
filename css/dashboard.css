@@ -987,3 +987,176 @@ html:not([data-theme="dark"]) .modal-content div[style*="color: #fff"],
 [data-theme="light"] .modal-content div[style*="color: #fff"] {
   color: #0F172A !important;
 }
+
+/* ==========================================================================
+   EXECUTIVE BADGES (DARK & LIGHT THEME PALETTES)
+   ========================================================================== */
+.badge-executive {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.badge-executive.badge-emerald {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34D399;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.badge-executive.badge-gold {
+  background: rgba(197, 161, 90, 0.15);
+  color: #FBBF24;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.badge-executive.badge-copper {
+  background: rgba(182, 106, 69, 0.18);
+  color: #FB923C;
+  border: 1px solid rgba(251, 146, 60, 0.3);
+}
+
+.badge-executive.badge-cyan {
+  background: rgba(6, 182, 212, 0.15);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* Light Theme Badges Overrides */
+html:not([data-theme="dark"]) .badge-executive.badge-emerald,
+[data-theme="light"] .badge-executive.badge-emerald {
+  background: #DEF7EC !important;
+  color: #03543F !important;
+  border: 1px solid #BCF0DA !important;
+}
+
+html:not([data-theme="dark"]) .badge-executive.badge-gold,
+[data-theme="light"] .badge-executive.badge-gold {
+  background: #FEF3C7 !important;
+  color: #92400E !important;
+  border: 1px solid #FDE68A !important;
+}
+
+html:not([data-theme="dark"]) .badge-executive.badge-copper,
+[data-theme="light"] .badge-executive.badge-copper {
+  background: #FFEDD5 !important;
+  color: #9A3412 !important;
+  border: 1px solid #FED7AA !important;
+}
+
+html:not([data-theme="dark"]) .badge-executive.badge-cyan,
+[data-theme="light"] .badge-executive.badge-cyan {
+  background: #E0F2FE !important;
+  color: #075985 !important;
+  border: 1px solid #BAE6FD !important;
+}
+
+/* Light Theme Custom Dashboard Tables & Hover Contrast */
+html:not([data-theme="dark"]) .table-dash-custom,
+[data-theme="light"] .table-dash-custom {
+  color: #1E293B !important;
+}
+
+html:not([data-theme="dark"]) .table-dash-custom th,
+[data-theme="light"] .table-dash-custom th {
+  background-color: #F8FAFC !important;
+  color: #475569 !important;
+  border-bottom-color: #E2E8F0 !important;
+}
+
+html:not([data-theme="dark"]) .table-dash-custom td,
+[data-theme="light"] .table-dash-custom td {
+  background-color: transparent !important;
+  color: #334155 !important;
+  border-bottom-color: #F1F5F9 !important;
+}
+
+html:not([data-theme="dark"]) .table-dash-custom td.dash-item-title,
+[data-theme="light"] .table-dash-custom td.dash-item-title,
+html:not([data-theme="dark"]) .table-dash-custom td strong,
+[data-theme="light"] .table-dash-custom td strong {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+}
+
+html:not([data-theme="dark"]) .table-dash-custom tr:hover td,
+[data-theme="light"] .table-dash-custom tr:hover td {
+  background-color: #F1F5F9 !important;
+  color: #0F172A !important;
+}
+
+/* Light Theme Forecast & Settings & Panels */
+html:not([data-theme="dark"]) .dash-panel,
+[data-theme="light"] .dash-panel {
+  background: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not([data-theme="dark"]) .dash-panel-title,
+[data-theme="light"] .dash-panel-title {
+  color: #0F172A !important;
+}
+
+html:not([data-theme="dark"]) .dash-panel-header,
+[data-theme="light"] .dash-panel-header {
+  border-bottom-color: #E2E8F0 !important;
+}
+
+html:not([data-theme="dark"]) .forecast-plan-card,
+[data-theme="light"] .forecast-plan-card {
+  background: #FFFFFF !important;
+}
+
+html:not([data-theme="dark"]) .forecast-plan-desc,
+[data-theme="light"] .forecast-plan-desc {
+  color: #475569 !important;
+}
+
+html:not([data-theme="dark"]) .dash-list-card,
+[data-theme="light"] .dash-list-card {
+  background: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+}
+
+html:not([data-theme="dark"]) .dash-list-card .dash-item-title,
+[data-theme="light"] .dash-list-card .dash-item-title {
+  color: #0F172A !important;
+}
+
+html:not([data-theme="dark"]) .hud-metric-card,
+[data-theme="light"] .hud-metric-card {
+  background: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+}
+
+html:not([data-theme="dark"]) .hud-label,
+[data-theme="light"] .hud-label {
+  color: #64748B !important;
+}
+
+html:not([data-theme="dark"]) .hud-value,
+[data-theme="light"] .hud-value {
+  color: #0F172A !important;
+}
+
+html:not([data-theme="dark"]) .dataTables_wrapper .dataTables_filter input,
+[data-theme="light"] .dataTables_wrapper .dataTables_filter input {
+  background: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+html:not([data-theme="dark"]) .dataTables_wrapper .dataTables_filter label,
+[data-theme="light"] .dataTables_wrapper .dataTables_filter label {
+  color: #475569 !important;
+}

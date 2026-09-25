@@ -823,26 +823,28 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
   background: #F4F8F7;
   border: 1px solid #E2E8F0;
-  color: #112A3D;
+  color: #112A3D !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   transition: var(--transition);
+  flex-shrink: 0;
 }
 
-.social-icon-btn i,
-.social-icon-btn svg {
-  width: 16px;
-  height: 16px;
+.social-icon-btn svg,
+.social-icon-btn i {
+  width: 17px;
+  height: 17px;
   stroke: currentColor;
+  stroke-width: 2;
   color: currentColor;
   display: block;
 }
 
 .social-icon-btn:hover {
-  background: var(--bench-green);
-  border-color: var(--bench-green);
+  background: var(--bench-green) !important;
+  border-color: var(--bench-green) !important;
   color: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 131, 98, 0.25);
@@ -1244,9 +1246,9 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  position: relative;
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.78rem 1.25rem;
   border: 1px solid var(--bench-border);
   border-radius: 8px;
   background: #ffffff;
@@ -1257,6 +1259,23 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   margin-bottom: 0.75rem;
   box-sizing: border-box;
+}
+
+.btn-sso .sso-icon {
+  position: absolute;
+  left: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+html[dir="rtl"] .btn-sso .sso-icon,
+[dir="rtl"] .btn-sso .sso-icon {
+  left: auto;
+  right: 1.25rem;
 }
 
 .btn-sso:hover {
