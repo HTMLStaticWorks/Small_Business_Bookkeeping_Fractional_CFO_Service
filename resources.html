@@ -92,49 +92,79 @@
     </div>
   </div>
 
-  <!-- Hero & Runway Tool -->
-  <section class="py-5 bg-bench-light" style="padding: 5rem 0 !important;">
+  <!-- ==========================================================================
+       SECTION 01: HERO & INTERACTIVE CASH RUNWAY CALCULATOR
+       ========================================================================== -->
+  <section class="py-5 bg-bench-light" style="padding: 5.5rem 0 !important;">
     <div class="container-custom">
       <div class="row align-items-center g-5">
         <div class="col-lg-5">
-          <h1 style="font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 800; color: var(--bench-navy);">
-            Financial tools built for founders.
+          <div class="badge bg-bench-green-subtle text-bench-green px-3 py-2 rounded-pill font-mono mb-3" style="font-weight: 700;">
+            FOUNDER RESOURCE HUB
+          </div>
+          <h1 style="font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 800; color: var(--bench-navy); line-height: 1.15;">
+            Financial intelligence built for founders.
           </h1>
-          <p style="font-size: 1.15rem; color: var(--bench-slate); margin: 1.25rem 0 2rem;">
-            Test your current burn rate and calculate how many months of cash runway you have left.
+          <p style="font-size: 1.15rem; color: var(--bench-slate); margin: 1.25rem 0 2rem; line-height: 1.6;">
+            Calculate your cash runway in real time, explore field-tested bookkeeping frameworks, and download CFO-grade financial models designed for high-growth businesses.
           </p>
+
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-center gap-3">
+              <div class="p-2 rounded-circle bg-bench-green-subtle text-bench-green d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                <i data-lucide="check" style="width: 18px; height: 18px;"></i>
+              </div>
+              <span style="font-size: 0.95rem; font-weight: 600; color: var(--bench-navy);">Average client saves $38,000/yr in missed write-offs</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div class="p-2 rounded-circle bg-bench-green-subtle text-bench-green d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                <i data-lucide="check" style="width: 18px; height: 18px;"></i>
+              </div>
+              <span style="font-size: 0.95rem; font-weight: 600; color: var(--bench-navy);">5-Day guaranteed monthly close with GAAP-compliant statements</span>
+            </div>
+          </div>
         </div>
 
         <div class="col-lg-7">
-          <div class="card-bench-feature p-4 p-md-5">
-            <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;">Interactive Cash Runway Calculator</h3>
+          <div class="card-bench-feature p-4 p-md-5" style="border: 1px solid var(--bench-border); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--bench-navy); margin: 0;">Interactive Cash Runway Calculator</h3>
+              <span class="badge bg-bench-green-subtle text-bench-green font-mono">LIVE MODEL</span>
+            </div>
+
             <div class="mb-4">
-              <label class="form-label fw-bold" style="font-size: 0.85rem;">Total Cash Balance ($)</label>
-              <div class="d-flex justify-content-between font-mono-num text-bench-green fw-bold">
-                <span>$10k</span>
-                <span id="calcCashValLabel">$284,000</span>
-                <span>$2M</span>
+              <div class="d-flex justify-content-between mb-2">
+                <label class="form-label fw-bold m-0" style="font-size: 0.85rem; color: var(--bench-navy);">Total Cash Balance ($)</label>
+                <span id="calcCashValLabel" class="font-mono-num text-bench-green fw-bold">$284,000</span>
               </div>
               <input type="range" class="form-range" id="calcCashBalance" min="10000" max="2000000" step="10000" value="284000">
+              <div class="d-flex justify-content-between font-mono-num" style="font-size: 0.75rem; color: var(--bench-slate);">
+                <span>$10k</span>
+                <span>$1.0M</span>
+                <span>$2.0M</span>
+              </div>
             </div>
 
             <div class="mb-4">
-              <label class="form-label fw-bold" style="font-size: 0.85rem;">Gross Monthly Burn ($)</label>
-              <div class="d-flex justify-content-between font-mono-num text-bench-green fw-bold">
-                <span>$5k</span>
-                <span id="calcBurnValLabel">$34,000</span>
-                <span>$200k</span>
+              <div class="d-flex justify-content-between mb-2">
+                <label class="form-label fw-bold m-0" style="font-size: 0.85rem; color: var(--bench-navy);">Gross Monthly Burn ($)</label>
+                <span id="calcBurnValLabel" class="font-mono-num text-bench-green fw-bold">$34,000</span>
               </div>
               <input type="range" class="form-range" id="calcMonthlyBurn" min="5000" max="200000" step="1000" value="34000">
+              <div class="d-flex justify-content-between font-mono-num" style="font-size: 0.75rem; color: var(--bench-slate);">
+                <span>$5k</span>
+                <span>$100k</span>
+                <span>$200k</span>
+              </div>
             </div>
 
-            <div class="p-3 p-sm-4 rounded-3 bg-bench-green-subtle d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2 gap-sm-3">
+            <div class="p-3 p-sm-4 rounded-3 bg-bench-green-subtle d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3">
               <div>
-                <div style="font-size: 0.75rem; font-weight: 700; color: var(--bench-slate); text-transform: uppercase;">Estimated Runway</div>
-                <div id="calcRunwayResult" class="font-mono-num text-bench-green" style="font-size: clamp(1.6rem, 5vw, 2.2rem); font-weight: 800; white-space: nowrap;">8.4 Months</div>
+                <div style="font-size: 0.75rem; font-weight: 700; color: var(--bench-slate); text-transform: uppercase; letter-spacing: 0.05em;">Estimated Runway Cushion</div>
+                <div id="calcRunwayResult" class="font-mono-num text-bench-green" style="font-size: clamp(1.8rem, 5vw, 2.4rem); font-weight: 800; white-space: nowrap;">8.4 Months</div>
               </div>
-              <span id="calcHealthStatus" class="badge bg-bench-green text-white px-3 py-2 rounded-pill text-wrap text-start">
-                Healthy Runway
+              <span id="calcHealthStatus" class="badge bg-bench-green text-white px-3 py-2 rounded-pill text-wrap text-start font-mono" style="font-size: 0.85rem;">
+                Healthy Runway (Standard Cushion)
               </span>
             </div>
           </div>
@@ -143,55 +173,509 @@
     </div>
   </section>
 
-  <!-- Guides Grid -->
+  <!-- ==========================================================================
+       SECTION 02: CURATED STRATEGIC PLAYBOOKS & KNOWLEDGE LIBRARY
+       ========================================================================== -->
   <section class="py-5" style="padding: 5rem 0 !important;">
     <div class="container-custom">
-      <h2 style="font-size: 2.2rem; margin-bottom: 2.5rem; text-align: center;">Latest Bookkeeping & Tax Guides</h2>
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 gap-3">
+        <div>
+          <div class="badge bg-bench-green-subtle text-bench-green px-3 py-2 rounded-pill font-mono mb-2" style="font-weight: 700;">
+            FOUNDER GUIDES & PLAYBOOKS
+          </div>
+          <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--bench-navy); margin: 0;">
+            Field-tested financial insights
+          </h2>
+          <p style="color: var(--bench-slate); margin-top: 0.5rem; max-width: 600px;">
+            Written by practicing CPAs, senior bookkeepers, and fractional CFOs who have closed over 10,000 monthly ledgers.
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="d-flex flex-wrap gap-2">
+          <button type="button" class="resource-filter-btn active" data-category="all">All Topics</button>
+          <button type="button" class="resource-filter-btn" data-category="bookkeeping">Bookkeeping</button>
+          <button type="button" class="resource-filter-btn" data-category="tax">Tax Strategy</button>
+          <button type="button" class="resource-filter-btn" data-category="cfo">Fractional CFO</button>
+        </div>
+      </div>
+
+      <!-- Search Input -->
+      <div class="mb-5 position-relative" style="max-width: 480px;">
+        <input type="text" id="resourceSearchInput" class="form-control" placeholder="Search guides by keyword, topic, or metric..." style="border-radius: 30px; padding: 0.75rem 1.25rem 0.75rem 2.8rem; border-color: var(--bench-border);">
+        <i data-lucide="search" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--bench-slate);"></i>
+      </div>
+
+      <!-- 6 Guide Cards with High-Res Real Photography -->
       <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card-bench-feature d-flex flex-column justify-content-between h-100">
-            <div>
-              <span class="badge bg-bench-light text-bench-navy mb-3">BOOKKEEPING GUIDE</span>
-              <h3 style="font-size: 1.25rem;">The Small Business Guide to Reconciling Stripe & Square</h3>
-              <p style="color: var(--bench-slate); font-size: 0.9rem; line-height: 1.6;">
-                How to avoid phantom revenue and properly account for processing fees.
-              </p>
+        <!-- Guide 1 -->
+        <div class="col-md-6 col-lg-4 resource-item-card-wrapper">
+          <div class="resource-item-card" data-category="bookkeeping">
+            <div class="resource-card-img-wrap">
+              <img src="assets/images/vQ2xobIn2-xt_usTcvoGTilL7k-sVVOr4AcxdUtE9A6i8niIVbIjc-GmV76U0hZuJ36lQtX8Do4GvaIyQiI1cA-oQ.jpg" alt="Reconciling Stripe and Square" class="resource-card-img">
+              <span class="resource-card-tag">BOOKKEEPING</span>
             </div>
-            <div class="mt-auto pt-3">
-              <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+            <div class="resource-card-body">
+              <h3 class="resource-card-title">The Small Business Guide to Reconciling Stripe, Square & Shopify</h3>
+              <p class="resource-card-desc">
+                Learn how to accurately account for payment processing fees, holdbacks, multi-currency payouts, and prevent phantom income from corrupting your P&L.
+              </p>
+              <div class="resource-card-meta">
+                <span><i data-lucide="clock" style="width: 14px; height: 14px; margin-right: 4px;"></i> 7 min read</span>
+                <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="card-bench-feature d-flex flex-column justify-content-between h-100">
-            <div>
-              <span class="badge bg-bench-light text-bench-navy mb-3">TAX STRATEGY</span>
-              <h3 style="font-size: 1.25rem;">Top 15 Tax Deductions Small Business Owners Miss</h3>
-              <p style="color: var(--bench-slate); font-size: 0.9rem; line-height: 1.6;">
-                Legitimate write-offs for software subscriptions, home offices, and hardware.
-              </p>
+        <!-- Guide 2 -->
+        <div class="col-md-6 col-lg-4 resource-item-card-wrapper">
+          <div class="resource-item-card" data-category="tax">
+            <div class="resource-card-img-wrap">
+              <img src="assets/images/-lcaRMHL4ohTAU5vqh9l34PVH1N1PRwM2-LAvV9zbLwXHLAmVjsY7RJ9OfNkczeQSUhfpHChW-nbZ2TEO_jr2.jpg" alt="Tax Deductions" class="resource-card-img">
+              <span class="resource-card-tag">TAX STRATEGY</span>
             </div>
-            <div class="mt-auto pt-3">
-              <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+            <div class="resource-card-body">
+              <h3 class="resource-card-title">Top 15 Tax Deductions Small Business & Agency Owners Miss</h3>
+              <p class="resource-card-desc">
+                Legitimate IRS write-offs for software subscriptions, home office allocations, vehicle mileage, research tax credits, and Section 179 accelerated depreciation.
+              </p>
+              <div class="resource-card-meta">
+                <span><i data-lucide="clock" style="width: 14px; height: 14px; margin-right: 4px;"></i> 8 min read</span>
+                <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="card-bench-feature d-flex flex-column justify-content-between h-100">
-            <div>
-              <span class="badge bg-bench-light text-bench-navy mb-3">CFO PLAYBOOK</span>
-              <h3 style="font-size: 1.25rem;">How to Build a 13-Week Rolling Cash Flow Forecast</h3>
-              <p style="color: var(--bench-slate); font-size: 0.9rem; line-height: 1.6;">
-                Step-by-step framework to anticipate payroll crunches and manage accounts receivable.
-              </p>
+        <!-- Guide 3 -->
+        <div class="col-md-6 col-lg-4 resource-item-card-wrapper">
+          <div class="resource-item-card" data-category="cfo">
+            <div class="resource-card-img-wrap">
+              <img src="assets/images/3lsLD0DEOgCT1YAhUdBfw-hv0GlhGwYkv44hxjQDW6a7IRun6t_NNceHJuev-nA63hzmPhSrdFUutYfJgUdLx66o5.jpg" alt="13-Week Cash Flow" class="resource-card-img">
+              <span class="resource-card-tag">CFO PLAYBOOK</span>
             </div>
-            <div class="mt-auto pt-3">
-              <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+            <div class="resource-card-body">
+              <h3 class="resource-card-title">How to Build a 13-Week Rolling Cash Flow Forecast Model</h3>
+              <p class="resource-card-desc">
+                The exact weekly treasury forecast methodology used by venture-backed startups to anticipate cash crunches, optimize accounts receivable, and plan hiring.
+              </p>
+              <div class="resource-card-meta">
+                <span><i data-lucide="clock" style="width: 14px; height: 14px; margin-right: 4px;"></i> 10 min read</span>
+                <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- Guide 4 -->
+        <div class="col-md-6 col-lg-4 resource-item-card-wrapper">
+          <div class="resource-item-card" data-category="cfo">
+            <div class="resource-card-img-wrap">
+              <img src="assets/images/sv8DP2K61YhGzVBob1cuPsKfobX8YRjXkVEW5cvkspj5ivh0-RTrXy7TOsdMWWB1vvQ2I4v1zFJM1CpTQSokcqdbV.jpg" alt="Fractional CFO vs Controller" class="resource-card-img">
+              <span class="resource-card-tag">FRACTIONAL CFO</span>
+            </div>
+            <div class="resource-card-body">
+              <h3 class="resource-card-title">When to Hire a Fractional CFO vs a Full-Time Controller</h3>
+              <p class="resource-card-desc">
+                An objective decision rubric comparing strategic finance, cost considerations ($35k/yr vs $220k/yr), and key milestones for companies doing $1M to $25M in revenue.
+              </p>
+              <div class="resource-card-meta">
+                <span><i data-lucide="clock" style="width: 14px; height: 14px; margin-right: 4px;"></i> 6 min read</span>
+                <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guide 5 -->
+        <div class="col-md-6 col-lg-4 resource-item-card-wrapper">
+          <div class="resource-item-card" data-category="bookkeeping">
+            <div class="resource-card-img-wrap">
+              <img src="assets/images/d-scvIUFWr9gi5FTui51jIfjyuP7tj9WIMXLfLYIUPArYzobISWJ9s1ScS358H5lnf25hC2iDo2taZ-AIerpEdmb_.jpg" alt="Accrual vs Cash" class="resource-card-img">
+              <span class="resource-card-tag">BOOKKEEPING</span>
+            </div>
+            <div class="resource-card-body">
+              <h3 class="resource-card-title">Accrual vs. Cash Accounting: Which Method Does Your Business Need?</h3>
+              <p class="resource-card-desc">
+                Understand the difference between cash collection and GAAP revenue recognition, and why transitioning to accrual unlocks institutional lending and growth capital.
+              </p>
+              <div class="resource-card-meta">
+                <span><i data-lucide="clock" style="width: 14px; height: 14px; margin-right: 4px;"></i> 5 min read</span>
+                <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guide 6 -->
+        <div class="col-md-6 col-lg-4 resource-item-card-wrapper">
+          <div class="resource-item-card" data-category="cfo">
+            <div class="resource-card-img-wrap">
+              <img src="assets/images/Vpl4XE83yLJ8ZIr5km82U536byawtx1R7dS2krppFojc_vTlho5HSFqivp8BTZw00anLM4RaSy-BMSCjbWTbby_kN.jpg" alt="Board Pack Preparation" class="resource-card-img">
+              <span class="resource-card-tag">FRACTIONAL CFO</span>
+            </div>
+            <div class="resource-card-body">
+              <h3 class="resource-card-title">Preparing Board-Ready Financial Packages & Executive Metrics</h3>
+              <p class="resource-card-desc">
+                A blueprint for compiling quarterly investor updates, budget variance breakdowns, unit economics charts, and capital expenditure forecasts that build stakeholder trust.
+              </p>
+              <div class="resource-card-meta">
+                <span><i data-lucide="clock" style="width: 14px; height: 14px; margin-right: 4px;"></i> 9 min read</span>
+                <a href="how-it-works.html" class="fw-bold text-bench-green text-decoration-none">Read Guide →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 03: INTERACTIVE FINANCIAL MODELING & CALCULATOR SUITE
+       ========================================================================== -->
+  <section class="py-5 bg-bench-green-subtle" style="padding: 5rem 0 !important;">
+    <div class="container-custom">
+      <div class="text-center mb-5">
+        <div class="badge bg-white text-bench-green px-3 py-2 rounded-pill font-mono mb-2" style="font-weight: 700; border: 1px solid rgba(0, 131, 98, 0.2);">
+          FINANCIAL MODELING SUITE
+        </div>
+        <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--bench-navy);">
+          Instant executive calculation tools
+        </h2>
+        <p style="color: var(--bench-slate); max-width: 620px; margin: 0.5rem auto 0;">
+          Test your unit economics, margin health, and monthly break-even thresholds with our interactive calculators.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Tool 1: Gross Margin Calculator -->
+        <div class="col-lg-4">
+          <div class="card-bench-feature p-4 h-100 bg-white">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="p-2 rounded-3 bg-bench-green-subtle text-bench-green">
+                <i data-lucide="percent" style="width: 20px; height: 20px;"></i>
+              </div>
+              <h3 style="font-size: 1.2rem; margin: 0; font-weight: 700; color: var(--bench-navy);">Gross Margin Analyzer</h3>
+            </div>
+            <p style="font-size: 0.875rem; color: var(--bench-slate); margin-bottom: 1.25rem;">
+              Evaluate your core product profitability after accounting for direct cost of goods sold.
+            </p>
+
+            <div class="mb-3">
+              <label class="form-label" style="font-size: 0.8rem; font-weight: 700; color: var(--bench-navy);">Monthly Revenue ($)</label>
+              <input type="number" id="calcGmRevenue" class="form-control form-control-sm font-mono-num" value="85000">
+            </div>
+            <div class="mb-3">
+              <label class="form-label" style="font-size: 0.8rem; font-weight: 700; color: var(--bench-navy);">Cost of Goods Sold (COGS) ($)</label>
+              <input type="number" id="calcGmCogs" class="form-control form-control-sm font-mono-num" value="23000">
+            </div>
+
+            <div class="p-3 rounded-3 bg-bench-light mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--bench-slate);">GROSS MARGIN %</span>
+                <span id="calcGmResult" class="font-mono-num fw-bold text-bench-green" style="font-size: 1.3rem;">72.9%</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <span style="font-size: 0.75rem; color: var(--bench-slate);">Gross Profit:</span>
+                <span id="calcGmProfit" class="font-mono-num fw-bold text-bench-navy">$62,000/mo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool 2: Break-Even Revenue Calculator -->
+        <div class="col-lg-4">
+          <div class="card-bench-feature p-4 h-100 bg-white">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="p-2 rounded-3 bg-bench-green-subtle text-bench-green">
+                <i data-lucide="scale" style="width: 20px; height: 20px;"></i>
+              </div>
+              <h3 style="font-size: 1.2rem; margin: 0; font-weight: 700; color: var(--bench-navy);">Break-Even Threshold</h3>
+            </div>
+            <p style="font-size: 0.875rem; color: var(--bench-slate); margin-bottom: 1.25rem;">
+              Calculate the exact monthly sales volume required to cover fixed overhead expenses.
+            </p>
+
+            <div class="mb-3">
+              <label class="form-label" style="font-size: 0.8rem; font-weight: 700; color: var(--bench-navy);">Fixed Monthly Overhead ($)</label>
+              <input type="number" id="calcBeOverhead" class="form-control form-control-sm font-mono-num" value="45000">
+            </div>
+            <div class="mb-3">
+              <label class="form-label" style="font-size: 0.8rem; font-weight: 700; color: var(--bench-navy);">Average Gross Margin % (e.g. 65)</label>
+              <input type="number" id="calcBeMarginPct" class="form-control form-control-sm font-mono-num" value="65">
+            </div>
+
+            <div class="p-3 rounded-3 bg-bench-light mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--bench-slate);">BREAK-EVEN REVENUE</span>
+                <span id="calcBeResult" class="font-mono-num fw-bold text-bench-green" style="font-size: 1.3rem;">$69,231/mo</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <span style="font-size: 0.75rem; color: var(--bench-slate);">Annual Run-Rate:</span>
+                <span id="calcBeAnnual" class="font-mono-num fw-bold text-bench-navy">$830,772/yr</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tool 3: Burn Multiple Grader -->
+        <div class="col-lg-4">
+          <div class="card-bench-feature p-4 h-100 bg-white">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="p-2 rounded-3 bg-bench-green-subtle text-bench-green">
+                <i data-lucide="zap" style="width: 20px; height: 20px;"></i>
+              </div>
+              <h3 style="font-size: 1.2rem; margin: 0; font-weight: 700; color: var(--bench-navy);">Capital Efficiency Grader</h3>
+            </div>
+            <p style="font-size: 0.875rem; color: var(--bench-slate); margin-bottom: 1.25rem;">
+              Measure your Burn Multiple: how much cash you burn to generate each net new dollar of revenue.
+            </p>
+
+            <div class="mb-3">
+              <label class="form-label" style="font-size: 0.8rem; font-weight: 700; color: var(--bench-navy);">Net Cash Burn ($)</label>
+              <input type="number" id="calcBmBurn" class="form-control form-control-sm font-mono-num" value="120000">
+            </div>
+            <div class="mb-3">
+              <label class="form-label" style="font-size: 0.8rem; font-weight: 700; color: var(--bench-navy);">Net New ARR Generated ($)</label>
+              <input type="number" id="calcBmArr" class="form-control form-control-sm font-mono-num" value="150000">
+            </div>
+
+            <div class="p-3 rounded-3 bg-bench-light mt-auto">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--bench-slate);">BURN MULTIPLE</span>
+                <span id="calcBmResult" class="font-mono-num fw-bold text-bench-green" style="font-size: 1.3rem;">0.80x (Elite)</span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <span style="font-size: 0.75rem; color: var(--bench-slate);">Benchmark Tier:</span>
+                <span class="badge bg-bench-green text-white font-mono" style="font-size: 0.7rem;">Top Quartile Efficiency</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 04: FREE DOWNLOADABLE FINANCIAL TOOLKITS & SPREADSHEETS
+       ========================================================================== -->
+  <section class="py-5" style="padding: 5rem 0 !important;">
+    <div class="container-custom">
+      <div class="row align-items-end justify-content-between mb-5">
+        <div class="col-lg-7">
+          <div class="badge bg-bench-green-subtle text-bench-green px-3 py-2 rounded-pill font-mono mb-2" style="font-weight: 700;">
+            FREE SPREADSHEETS & TOOLKITS
+          </div>
+          <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--bench-navy); margin: 0;">
+            Downloadable financial templates
+          </h2>
+          <p style="color: var(--bench-slate); margin-top: 0.5rem;">
+            Pre-built, formula-locked models created by VALENCE fractional CFOs. Compatible with Microsoft Excel and Google Sheets.
+          </p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <span class="badge bg-bench-light text-bench-navy px-3 py-2 rounded-pill">
+            <i data-lucide="download-cloud" style="width: 14px; height: 14px; margin-right: 4px;"></i> 12,400+ Total Downloads
+          </span>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Toolkit 1 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="download-toolkit-card">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <span class="file-format-badge badge-xlsx"><i data-lucide="file-spreadsheet" style="width: 14px; height: 14px;"></i> XLSX</span>
+              <span style="font-size: 0.75rem; color: var(--bench-slate); font-family: var(--font-mono);">2.4 MB</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--bench-navy); margin-bottom: 0.75rem;">13-Week Cash Flow Master Model</h3>
+            <p style="font-size: 0.85rem; color: var(--bench-slate); line-height: 1.5; margin-bottom: 1.25rem; flex-grow: 1;">
+              Dynamic weekly inflows/outflows forecast with liquidity trigger thresholds and automated payroll buffer formulas.
+            </p>
+            <div class="mt-auto">
+              <a href="assets/sample-13-week-cashflow.xlsx" download class="btn-bench-outline w-100 btn-sm text-center" onclick="showToast('Downloading 13-Week Cash Flow Master Model (Excel)...'); return false;">
+                <i data-lucide="download" style="width: 14px; height: 14px;"></i> Download Model
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Toolkit 2 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="download-toolkit-card">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <span class="file-format-badge badge-pdf"><i data-lucide="file-text" style="width: 14px; height: 14px;"></i> PDF</span>
+              <span style="font-size: 0.75rem; color: var(--bench-slate); font-family: var(--font-mono);">1.1 MB</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--bench-navy); margin-bottom: 0.75rem;">Small Business Tax Prep Checklist</h3>
+            <p style="font-size: 0.85rem; color: var(--bench-slate); line-height: 1.5; margin-bottom: 1.25rem; flex-grow: 1;">
+              32-point IRS audit defense checklist. Ensure every 1099, W-2, mileage log, and depreciation schedule is file-ready.
+            </p>
+            <div class="mt-auto">
+              <a href="assets/tax-prep-checklist.pdf" download class="btn-bench-outline w-100 btn-sm text-center" onclick="showToast('Downloading Tax Preparation Checklist (PDF)...'); return false;">
+                <i data-lucide="download" style="width: 14px; height: 14px;"></i> Download Checklist
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Toolkit 3 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="download-toolkit-card">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <span class="file-format-badge badge-csv"><i data-lucide="database" style="width: 14px; height: 14px;"></i> CSV</span>
+              <span style="font-size: 0.75rem; color: var(--bench-slate); font-family: var(--font-mono);">380 KB</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--bench-navy); margin-bottom: 0.75rem;">SaaS & Agency Chart of Accounts</h3>
+            <p style="font-size: 0.85rem; color: var(--bench-slate); line-height: 1.5; margin-bottom: 1.25rem; flex-grow: 1;">
+              GAAP-standard chart of accounts mapping for QuickBooks and Xero. Segmented for recurring revenue, COGS, and R&D.
+            </p>
+            <div class="mt-auto">
+              <a href="assets/standard-chart-of-accounts.csv" download class="btn-bench-outline w-100 btn-sm text-center" onclick="showToast('Downloading Standard Chart of Accounts (CSV)...'); return false;">
+                <i data-lucide="download" style="width: 14px; height: 14px;"></i> Download CSV
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Toolkit 4 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="download-toolkit-card">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <span class="file-format-badge badge-deck"><i data-lucide="presentation" style="width: 14px; height: 14px;"></i> PPTX</span>
+              <span style="font-size: 0.75rem; color: var(--bench-slate); font-family: var(--font-mono);">4.6 MB</span>
+            </div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--bench-navy); margin-bottom: 0.75rem;">Board Deck Financial Slide Pack</h3>
+            <p style="font-size: 0.85rem; color: var(--bench-slate); line-height: 1.5; margin-bottom: 1.25rem; flex-grow: 1;">
+              Executive slide deck template containing 5 essential quarterly governance slides: P&L summary, burn trajectory, and ARR bridge.
+            </p>
+            <div class="mt-auto">
+              <a href="assets/board-deck-template.pptx" download class="btn-bench-outline w-100 btn-sm text-center" onclick="showToast('Downloading Board Financial Deck Template (PPTX)...'); return false;">
+                <i data-lucide="download" style="width: 14px; height: 14px;"></i> Download Slides
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 05: FOUNDER MASTERCLASSES & CFO OFFICE HOURS
+       ========================================================================== -->
+  <section class="py-5 bg-bench-light" style="padding: 5rem 0 !important;">
+    <div class="container-custom">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+          <div class="badge bg-bench-green-subtle text-bench-green px-3 py-2 rounded-pill font-mono mb-3" style="font-weight: 700;">
+            FOUNDER MASTERCLASSES
+          </div>
+          <h2 style="font-size: 2.2rem; font-weight: 800; color: var(--bench-navy); line-height: 1.2;">
+            Learn directly from seasoned CFOs and CPAs.
+          </h2>
+          <p style="color: var(--bench-slate); font-size: 1.05rem; margin: 1.25rem 0 2rem; line-height: 1.6;">
+            Watch 20-minute executive masterclasses on high-impact financial strategies. Plus, join our bi-weekly live CFO Office Hours to ask questions in real time.
+          </p>
+
+          <div class="card-bench-feature p-4 bg-white border mb-3">
+            <div class="d-flex align-items-center gap-3">
+              <div class="p-3 rounded-circle bg-bench-green-subtle text-bench-green d-flex align-items-center justify-content-center">
+                <i data-lucide="video" style="width: 24px; height: 24px;"></i>
+              </div>
+              <div>
+                <div class="fw-bold text-bench-navy" style="font-size: 1.05rem;">Next Live CFO Office Hours</div>
+                <div style="font-size: 0.85rem; color: var(--bench-slate);">Thursday, October 22 • 11:00 AM PST (Zoom)</div>
+              </div>
+            </div>
+            <div class="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
+              <span class="badge bg-bench-green text-white font-mono" style="font-size: 0.75rem;">FREE FOR FOUNDERS</span>
+              <button type="button" class="btn-bench-primary btn-sm" onclick="showToast('Your seat has been reserved! Zoom link sent to your email.')">
+                RSVP Free Seat
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="row g-4">
+            <!-- Masterclass Video 1 -->
+            <div class="col-sm-6">
+              <div class="masterclass-card">
+                <div class="masterclass-thumbnail">
+                  <img src="assets/images/WDa1QHKB2aUYJNYww1KGCbuDwFNCIdYnEAv2o-DHxnzbaZa2ekrun_iqLPDMnNiyk2RII8wgnDTqT4KBz2vi53gi1.jpg" alt="Mastering SaaS Unit Economics">
+                  <div class="play-overlay-btn" onclick="showToast('Playing Masterclass: Unit Economics & SaaS Margins...')">
+                    <i data-lucide="play" style="width: 22px; height: 22px; margin-left: 2px;"></i>
+                  </div>
+                  <span class="badge bg-dark text-white font-mono position-absolute bottom-0 end-0 m-2 px-2 py-1" style="font-size: 0.72rem; opacity: 0.9;">18:42</span>
+                </div>
+                <div class="p-3 d-flex flex-column flex-grow-1">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <span class="badge bg-bench-green-subtle text-bench-green font-mono" style="font-size: 0.7rem;">UNIT ECONOMICS</span>
+                  </div>
+                  <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--bench-navy); margin-bottom: 0.5rem;">
+                    Mastering CAC, LTV, Magic Number & Net Revenue Retention
+                  </h3>
+                  <div class="mt-auto pt-2 border-top d-flex align-items-center gap-2">
+                    <span style="font-size: 0.8rem; color: var(--bench-slate);">Instructor: <strong>Sarah Jenkins, CPA</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Masterclass Video 2 -->
+            <div class="col-sm-6">
+              <div class="masterclass-card">
+                <div class="masterclass-thumbnail">
+                  <img src="assets/images/2PFjkB3ndOX1k6syEULuVbUqkwDmJIMUUfDYLtG0HIGv11nTcPgKqwrK8sEMndeo1Wdij11fYcsq6fI2KrtFmgsfj.jpg" alt="Cash Conversion Cycles">
+                  <div class="play-overlay-btn" onclick="showToast('Playing Masterclass: Working Capital & Runway Management...')">
+                    <i data-lucide="play" style="width: 22px; height: 22px; margin-left: 2px;"></i>
+                  </div>
+                  <span class="badge bg-dark text-white font-mono position-absolute bottom-0 end-0 m-2 px-2 py-1" style="font-size: 0.72rem; opacity: 0.9;">22:15</span>
+                </div>
+                <div class="p-3 d-flex flex-column flex-grow-1">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <span class="badge bg-bench-green-subtle text-bench-green font-mono" style="font-size: 0.7rem;">CASH MANAGEMENT</span>
+                  </div>
+                  <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--bench-navy); margin-bottom: 0.5rem;">
+                    Optimizing Working Capital & Eliminating Receivable Delays
+                  </h3>
+                  <div class="mt-auto pt-2 border-top d-flex align-items-center gap-2">
+                    <span style="font-size: 0.8rem; color: var(--bench-slate);">Instructor: <strong>Marcus Vance, Fractional CFO</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 06: CALL TO ACTION BANNER
+       ========================================================================== -->
+  <section class="py-5" style="background: var(--bench-navy); color: #ffffff; padding: 5rem 0 !important;">
+    <div class="container-custom text-center">
+      <div class="badge bg-bench-green text-white px-3 py-2 rounded-pill font-mono mb-3" style="font-weight: 700;">
+        READY FOR PRISTINE BOOKS?
+      </div>
+      <h2 style="font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; color: #ffffff; max-width: 800px; margin: 0 auto 1.25rem;">
+        Get one month of free bookkeeping and a full ledger audit.
+      </h2>
+      <p style="font-size: 1.15rem; color: #CBD5E1; max-width: 650px; margin: 0 auto 2.5rem;">
+        No credit card required to start. We connect your accounts in 5 minutes, reconcile your prior month, and deliver tax-ready statements.
+      </p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="register.html" class="btn-bench-primary" style="padding: 1rem 2.25rem; font-size: 1.05rem;">
+          Claim Free Month Trial
+        </a>
+        <a href="pricing.html" class="btn-bench-outline" style="border-color: rgba(255, 255, 255, 0.3); color: #ffffff; padding: 1rem 2.25rem; font-size: 1.05rem;">
+          View Pricing Plans
+        </a>
+      </div>
+      <div class="mt-4 pt-3 font-mono" style="font-size: 0.85rem; color: #94A3B8;">
+        ✓ SOC2 Type II Certified &nbsp;•&nbsp; 256-Bit Bank Encryption &nbsp;•&nbsp; 30-Day Money-Back Guarantee
       </div>
     </div>
   </section>

@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initConsultationModal();
   initHealthAuditModal();
   initCloseTrackerInteraction();
+  initResourceCalculators();
 });
 
 /**
@@ -436,4 +437,74 @@ function applyRTL(dir) {
     lucide.createIcons();
   }
 }
+
+/**
+ * 12. Interactive Resource Hub Financial Modeling Suite
+ */
+function initResourceCalculators() {
+  // Gross Margin Calculator
+  const gmRev = document.getElementById('calcGmRevenue');
+  const gmCogs = document.getElementById('calcGmCogs');
+  const gmResult = document.getElementById('calcGmResult');
+  const gmProfit = document.getElementById('calcGmProfit');
+
+  function updateGm() {
+    if (!gmRev || !gmCogs || !gmResult) return;
+    const rev = Math.max(1, parseFloat(gmRev.value) || 0);
+    const cogs = parseFloat(gmCogs.value) || 0;
+    const profit = rev - cogs;
+    const margin = (profit / rev) * 100;
+    gmResult.textContent = `${margin.toFixed(1)}%`;
+    if (gmProfit) gmProfit.textContent = `$${Math.round(profit).toLocaleString()}/mo`;
+  }
+
+  if (gmRev && gmCogs) {
+    gmRev.addEventListener('input', updateGm);
+    gmCogs.addEventListener('input', updateGm);
+  }
+
+  // Break-Even Calculator
+  const beOverhead = document.getElementById('calcBeOverhead');
+  const beMargin = document.getElementById('calcBeMarginPct');
+  const beResult = document.getElementById('calcBeResult');
+  const beAnnual = document.getElementById('calcBeAnnual');
+
+  function updateBe() {
+    if (!beOverhead || !beMargin || !beResult) return;
+    const overhead = parseFloat(beOverhead.value) || 0;
+    const marginPct = Math.max(1, parseFloat(beMargin.value) || 1) / 100;
+    const breakEven = overhead / marginPct;
+    beResult.textContent = `$${Math.round(breakEven).toLocaleString()}/mo`;
+    if (beAnnual) beAnnual.textContent = `$${Math.round(breakEven * 12).toLocaleString()}/yr`;
+  }
+
+  if (beOverhead && beMargin) {
+    beOverhead.addEventListener('input', updateBe);
+    beMargin.addEventListener('input', updateBe);
+  }
+
+  // Burn Multiple Grader
+  const bmBurn = document.getElementById('calcBmBurn');
+  const bmArr = document.getElementById('calcBmArr');
+  const bmResult = document.getElementById('calcBmResult');
+
+  function updateBm() {
+    if (!bmBurn || !bmArr || !bmResult) return;
+    const burn = parseFloat(bmBurn.value) || 0;
+    const arr = Math.max(1, parseFloat(bmArr.value) || 1);
+    const multiple = burn / arr;
+    let tier = 'Elite';
+    if (multiple > 2.0) tier = 'High Burn';
+    else if (multiple > 1.5) tier = 'Concerning';
+    else if (multiple > 1.0) tier = 'Good';
+
+    bmResult.textContent = `${multiple.toFixed(2)}x (${tier})`;
+  }
+
+  if (bmBurn && bmArr) {
+    bmBurn.addEventListener('input', updateBm);
+    bmArr.addEventListener('input', updateBm);
+  }
+}
+
 

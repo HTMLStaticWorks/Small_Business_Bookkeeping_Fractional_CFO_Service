@@ -1246,36 +1246,34 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  gap: 0.7rem;
   width: 100%;
-  padding: 0.78rem 1.25rem;
+  padding: 0.72rem 1rem;
   border: 1px solid var(--bench-border);
   border-radius: 8px;
   background: #ffffff;
   color: var(--bench-navy);
   font-weight: 600;
   font-size: 0.9rem;
+  line-height: 1.3;
   transition: var(--transition);
   text-decoration: none;
   margin-bottom: 0.75rem;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .btn-sso .sso-icon {
-  position: absolute;
-  left: 1.25rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
 }
 
-html[dir="rtl"] .btn-sso .sso-icon,
-[dir="rtl"] .btn-sso .sso-icon {
-  left: auto;
-  right: 1.25rem;
+.btn-sso .sso-text {
+  white-space: nowrap;
 }
 
 .btn-sso:hover {
@@ -1299,6 +1297,23 @@ html[dir="rtl"] .btn-sso .sso-icon,
 
 .apple-logo-icon {
   fill: currentColor;
+}
+
+/* 360px & Small Mobile Authentication Screen Fixes */
+@media (max-width: 480px) {
+  .auth-card-clean {
+    padding: 2rem 1.25rem !important;
+    border-radius: 16px !important;
+  }
+  .btn-sso {
+    padding: 0.65rem 0.5rem;
+    font-size: 0.825rem;
+    gap: 0.5rem;
+  }
+  .btn-sso .sso-icon {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 /* ==========================================================================
@@ -1355,4 +1370,433 @@ body[dir="rtl"],
 [dir="rtl"] .text-end {
   text-align: left !important;
 }
+
+/* ==========================================================================
+   TRUSTED BRAND ITEMS & CONSISTENT STAT CARDS
+   ========================================================================== */
+.trusted-brand-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--bench-navy);
+  letter-spacing: -0.02em;
+  padding: 0.45rem 0.95rem;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid var(--bench-border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.trusted-brand-item:hover {
+  border-color: var(--bench-green);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  color: var(--bench-green);
+}
+
+.trusted-brand-item svg {
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .trusted-brand-item {
+  background: #13161B;
+  border-color: #222730;
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .trusted-brand-item:hover {
+  border-color: var(--bench-green);
+  color: var(--bench-green);
+}
+
+/* Consistent Financial Intelligence Stat Cards */
+.stat-card-clean {
+  background: #ffffff;
+  border: 1px solid var(--bench-border);
+  border-radius: 12px;
+  padding: 1.35rem 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.stat-card-clean:hover {
+  border-color: var(--bench-green);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.stat-card-clean .stat-pct {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--bench-green);
+  line-height: 1.1;
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+}
+
+.stat-card-clean .stat-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--bench-navy);
+  margin-top: 0.4rem;
+  line-height: 1.25;
+}
+
+.stat-card-clean .stat-sub {
+  font-size: 0.78rem;
+  color: var(--bench-slate);
+  margin-top: 0.25rem;
+  line-height: 1.45;
+}
+
+[data-theme="dark"] .stat-card-clean {
+  background: #13161B !important;
+  border-color: #222730 !important;
+}
+
+[data-theme="dark"] .stat-card-clean .stat-pct {
+  color: var(--bench-green) !important;
+}
+
+[data-theme="dark"] .stat-card-clean .stat-title {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .stat-card-clean .stat-sub {
+  color: #94A3B8 !important;
+}
+
+/* Service Card Image Styling */
+.service-card-cover {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+}
+
+/* ==========================================================================
+   RESOURCES HUB & FOUNDER TOOLS STYLES
+   ========================================================================== */
+.resource-item-card {
+  background: #ffffff;
+  border: 1px solid var(--bench-border);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  transition: var(--transition);
+}
+
+.resource-item-card:hover {
+  border-color: var(--bench-green);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.resource-card-img-wrap {
+  height: 200px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #E2E8F0;
+}
+
+.resource-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.resource-item-card:hover .resource-card-img {
+  transform: scale(1.06);
+}
+
+.resource-card-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(17, 42, 61, 0.88);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.resource-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.resource-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--bench-navy);
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
+}
+
+.resource-card-desc {
+  font-size: 0.9rem;
+  color: var(--bench-slate);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.resource-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--bench-border);
+  font-size: 0.825rem;
+  color: var(--bench-slate);
+}
+
+.resource-filter-btn {
+  border: 1px solid var(--bench-border);
+  background: #ffffff;
+  color: var(--bench-navy);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.45rem 1.15rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.resource-filter-btn:hover {
+  border-color: var(--bench-green);
+  color: var(--bench-green);
+}
+
+.resource-filter-btn.active {
+  background: var(--bench-green);
+  border-color: var(--bench-green);
+  color: #ffffff;
+}
+
+/* Downloadable Financial Toolkits */
+.download-toolkit-card {
+  background: #ffffff;
+  border: 1px solid var(--bench-border);
+  border-radius: 14px;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: var(--transition);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+}
+
+.download-toolkit-card:hover {
+  border-color: var(--bench-green);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+.file-format-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.badge-xlsx {
+  background: #E6F4EA;
+  color: #137333;
+}
+
+.badge-pdf {
+  background: #FCE8E6;
+  color: #C5221F;
+}
+
+.badge-csv {
+  background: #E8F0FE;
+  color: #1A73E8;
+}
+
+.badge-deck {
+  background: #FEF7E0;
+  color: #B06000;
+}
+
+/* Masterclass Video Card */
+.masterclass-card {
+  background: #ffffff;
+  border: 1px solid var(--bench-border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.masterclass-card:hover {
+  border-color: var(--bench-green);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.masterclass-thumbnail {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.masterclass-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.masterclass-card:hover .masterclass-thumbnail img {
+  transform: scale(1.05);
+}
+
+.play-overlay-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(0, 131, 98, 0.9);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.masterclass-card:hover .play-overlay-btn {
+  transform: translate(-50%, -50%) scale(1.12);
+  background: var(--bench-green);
+}
+
+/* ==========================================================================
+   HOW IT WORKS VISUAL STEP WORKFLOW STYLES
+   ========================================================================== */
+.step-visual-card {
+  background: #ffffff;
+  border: 1px solid var(--bench-border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  transition: var(--transition);
+  position: relative;
+}
+
+.step-visual-card:hover {
+  border-color: var(--bench-green);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.step-visual-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.step-flow-badge-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.step-flow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--bench-green-subtle);
+  color: var(--bench-green);
+  border: 1px solid rgba(0, 131, 98, 0.2);
+}
+
+/* Dark Theme Overrides for Resources & Visual Steps */
+[data-theme="dark"] .resource-item-card,
+[data-theme="dark"] .download-toolkit-card,
+[data-theme="dark"] .masterclass-card,
+[data-theme="dark"] .step-visual-card {
+  background: #13161B !important;
+  border-color: #222730 !important;
+}
+
+[data-theme="dark"] .resource-card-title,
+[data-theme="dark"] .download-toolkit-card h3,
+[data-theme="dark"] .masterclass-card h3 {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .resource-card-desc,
+[data-theme="dark"] .resource-card-meta {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .resource-filter-btn {
+  background: #181C23;
+  border-color: #2D3748;
+  color: #CBD5E1;
+}
+
+[data-theme="dark"] .resource-filter-btn.active {
+  background: var(--bench-green);
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .badge-xlsx {
+  background: rgba(19, 115, 51, 0.25);
+  color: #81C995;
+}
+
+[data-theme="dark"] .badge-pdf {
+  background: rgba(197, 34, 31, 0.25);
+  color: #F28B82;
+}
+
+[data-theme="dark"] .badge-csv {
+  background: rgba(26, 115, 232, 0.25);
+  color: #8AB4F8;
+}
+
+[data-theme="dark"] .badge-deck {
+  background: rgba(176, 96, 0, 0.25);
+  color: #FDD663;
+}
+
+[data-theme="dark"] .step-flow-badge {
+  background: rgba(0, 131, 98, 0.15);
+  border-color: rgba(0, 131, 98, 0.35);
+  color: #34D399;
+}
+
 

@@ -211,6 +211,45 @@
              ==================================================================== -->
         <section id="tab-overview" class="dash-tab-pane active">
 
+          <!-- Executive Welcoming Banner & Control Room Purpose -->
+          <div class="dash-welcome-banner" id="dashWelcomeBanner">
+            <div class="dash-welcome-header">
+              <div>
+                <div class="dash-welcome-greeting">
+                  <span>Welcome to your Executive Financial Control Room, Alex!</span> 
+                  <span style="font-size: 1.5rem;">👋</span>
+                </div>
+                <p class="dash-welcome-desc mt-2 mb-3">
+                  VALENCE provides real-time visibility into your cash flow, automated bookkeeping, and fractional CFO guidance. Your books for last month are 100% reconciled and closed. Explore your live KPIs below, test runway scenarios, or message your lead bookkeeper Jess directly.
+                </p>
+                <div class="dash-welcome-highlights">
+                  <div class="welcome-chip chip-success">
+                    <i data-lucide="check-circle-2" style="width: 14px; height: 14px;"></i>
+                    <span>Books Reconciled: September 2026 Closed</span>
+                  </div>
+                  <div class="welcome-chip chip-gold">
+                    <i data-lucide="shield-check" style="width: 14px; height: 14px;"></i>
+                    <span>Runway Status: 8.4 Months (Capital Safe)</span>
+                  </div>
+                  <div class="welcome-chip">
+                    <i data-lucide="user-check" style="width: 14px; height: 14px; color: var(--dash-gold);"></i>
+                    <span>Lead CFO: Sarah Jenkins, CPA (Active)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="dash-welcome-actions">
+                <button type="button" class="btn-cfo btn-cfo-primary" onclick="showToast('Connecting with your Lead CFO Sarah Jenkins...')">
+                  <i data-lucide="calendar" style="width: 14px; height: 14px;"></i>
+                  Schedule CFO Session
+                </button>
+                <button type="button" class="btn-cfo btn-cfo-outline-light" onclick="showToast('Exporting Q3 GAAP Financial Package...')">
+                  <i data-lucide="download" style="width: 14px; height: 14px;"></i>
+                  Export Package
+                </button>
+              </div>
+            </div>
+          </div>
+
           <!-- 5-Metric Executive KPI Cards -->
           <div class="kpi-grid">
             <!-- 1. Financial Health -->

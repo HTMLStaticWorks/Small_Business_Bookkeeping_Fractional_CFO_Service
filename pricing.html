@@ -92,39 +92,82 @@
     </div>
   </div>
 
-  <!-- Hero & Billing Switch -->
-  <section class="py-5 text-center bg-bench-light" style="padding: 5rem 0 3.5rem !important;">
+  <!-- ==========================================================================
+       SECTION 01: HERO SECTION WITH HIGH-QUALITY IMAGE & BILLING SWITCH
+       ========================================================================== -->
+  <section class="py-5 bg-bench-light" style="padding: 5rem 0 4.5rem !important;">
     <div class="container-custom">
-      <h1 style="font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 800; color: var(--bench-navy); max-width: 800px; margin: 0 auto;">
-        Simple, transparent pricing.
-      </h1>
-      <p style="font-size: 1.2rem; color: var(--bench-slate); max-width: 620px; margin: 1.25rem auto 2rem;">
-        No hidden hourly fees. Choose the bookkeeping or fractional CFO plan that fits your business.
-      </p>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <div class="badge bg-bench-green-subtle text-bench-green px-3 py-1 rounded-pill fw-bold mb-3">
+            CLEAR, PREDICTABLE BILLING
+          </div>
+          <h1 style="font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 800; color: var(--bench-navy); line-height: 1.1; letter-spacing: -0.03em;">
+            Simple, transparent pricing.
+          </h1>
+          <p style="font-size: 1.15rem; color: var(--bench-slate); margin: 1.25rem 0 2rem; line-height: 1.65;">
+            No hidden hourly fees or surprise invoices. Choose the bookkeeping or fractional CFO tier that matches your company's growth stage.
+          </p>
 
-      <div class="d-inline-flex align-items-center gap-3 p-2 rounded-pill border bg-white shadow-sm">
-        <span style="font-size: 0.9rem; font-weight: 700; color: var(--bench-navy); padding-left: 0.75rem;">Monthly</span>
-        <div class="form-check form-switch m-0">
-          <input class="form-check-input" type="checkbox" role="switch" id="billingPeriodToggle" style="cursor: pointer; width: 44px; height: 22px;">
+          <!-- Billing Switch -->
+          <div class="d-inline-flex align-items-center gap-3 p-2 rounded-pill border bg-white shadow-sm mb-4">
+            <span style="font-size: 0.9rem; font-weight: 700; color: var(--bench-navy); padding-left: 0.75rem;">Monthly</span>
+            <div class="form-check form-switch m-0">
+              <input class="form-check-input" type="checkbox" role="switch" id="billingPeriodToggle" style="cursor: pointer; width: 44px; height: 22px;">
+            </div>
+            <span style="font-size: 0.9rem; font-weight: 700; color: var(--bench-navy); padding-right: 0.75rem;">
+              Annual <span class="badge bg-bench-green-subtle text-bench-green rounded-pill">Save 12%</span>
+            </span>
+          </div>
+
+          <div class="d-flex flex-wrap gap-4 pt-3 border-top" style="font-size: 0.85rem; color: var(--bench-slate); font-weight: 600;">
+            <div class="d-flex align-items-center gap-2">
+              <i data-lucide="shield-check" class="text-bench-green" style="width: 17px; height: 17px;"></i>
+              <span>30-Day Money-Back Guarantee</span>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <i data-lucide="check-circle-2" class="text-bench-green" style="width: 17px; height: 17px;"></i>
+              <span>Cancel Anytime</span>
+            </div>
+          </div>
         </div>
-        <span style="font-size: 0.9rem; font-weight: 700; color: var(--bench-navy); padding-right: 0.75rem;">
-          Annual <span class="badge bg-bench-green-subtle text-bench-green rounded-pill">Save 12%</span>
-        </span>
+
+        <div class="col-lg-6">
+          <div class="position-relative">
+            <img src="assets/images/3lsLD0DEOgCT1YAhUdBfw-hv0GlhGwYkv44hxjQDW6a7IRun6t_NNceHJuev-nA63hzmPhSrdFUutYfJgUdLx66o5.jpg" 
+                 alt="Financial calculations and growth modeling" 
+                 class="img-fluid rounded-4 shadow-lg w-100" 
+                 style="object-fit: cover; max-height: 440px;">
+
+            <div class="floating-image-badge position-absolute d-none d-sm-flex align-items-center gap-3 p-3 rounded-3 shadow-lg"
+                 style="bottom: -15px; right: 20px; background: #ffffff; border: 1px solid var(--bench-border);">
+              <div class="rounded-circle p-2 bg-bench-green text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                <i data-lucide="check" style="width: 20px; height: 20px;"></i>
+              </div>
+              <div>
+                <div style="font-size: 0.72rem; color: var(--bench-slate); font-weight: 700; text-transform: uppercase;">FLAT-FEE CERTAINTY</div>
+                <div style="font-size: 0.95rem; font-weight: 800; color: var(--bench-navy);">Zero Hidden Hourly Surcharges</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing Cards -->
-  <section class="py-5">
+  <!-- ==========================================================================
+       SECTION 02: 3 CORE PRICING TIERS
+       ========================================================================== -->
+  <section class="py-5 bg-white" style="padding: 5.5rem 0 !important;">
     <div class="container-custom">
       <div class="row g-4 align-items-stretch">
 
         <!-- Essential Bookkeeping -->
         <div class="col-lg-4">
-          <div class="card-bench-feature p-4 p-xl-5 d-flex flex-column justify-content-between">
+          <div class="card-bench-feature p-4 p-xl-5 d-flex flex-column justify-content-between h-100">
             <div>
               <div class="badge bg-bench-light text-bench-navy px-3 py-1 rounded-pill fw-bold mb-3">ESSENTIAL</div>
-              <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Bookkeeping</h3>
+              <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--bench-navy);">Bookkeeping</h3>
               <p style="color: var(--bench-slate); font-size: 0.9rem; min-height: 40px;">
                 Monthly bookkeeping with a dedicated in-house bookkeeper.
               </p>
@@ -138,8 +181,9 @@
 
               <ul class="list-unstyled d-flex flex-column gap-2" style="font-weight: 600; font-size: 0.9rem; color: var(--bench-navy);">
                 <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Dedicated personal bookkeeper</li>
-                <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Monthly financial statements</li>
+                <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Monthly financial statements (P&L, Balance Sheet)</li>
                 <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Automated merchant & bank sync</li>
+                <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Guaranteed 5-day close</li>
               </ul>
             </div>
             <a href="how-it-works.html" class="btn-bench-outline w-100 mt-4">Start with Bookkeeping</a>
@@ -148,13 +192,13 @@
 
         <!-- Bookkeeping + Tax Prep (POPULAR) -->
         <div class="col-lg-4">
-          <div class="card-bench-feature p-4 p-xl-5 d-flex flex-column justify-content-between position-relative" style="border: 2px solid var(--bench-green); box-shadow: var(--shadow-lg);">
+          <div class="card-bench-feature p-4 p-xl-5 d-flex flex-column justify-content-between position-relative h-100" style="border: 2px solid var(--bench-green); box-shadow: var(--shadow-lg);">
             <div class="position-absolute top-0 end-0 p-2 bg-bench-green text-white font-mono rounded-bottom-start" style="font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em;">
               MOST POPULAR
             </div>
             <div>
               <div class="badge bg-bench-green-subtle text-bench-green px-3 py-1 rounded-pill fw-bold mb-3">ALL-IN-ONE</div>
-              <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Bookkeeping & Tax</h3>
+              <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--bench-navy);">Bookkeeping & Tax</h3>
               <p style="color: var(--bench-slate); font-size: 0.9rem; min-height: 40px;">
                 Monthly bookkeeping plus seamless annual business tax filing by our CPAs.
               </p>
@@ -170,18 +214,19 @@
                 <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> <strong>Everything in Bookkeeping</strong></li>
                 <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Complete corporate tax return filing (1120/1065)</li>
                 <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> 1099-NEC contractor e-filing</li>
+                <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Year-round tax advisory & write-off optimization</li>
               </ul>
             </div>
-            <a href="how-it-works.html" class="btn-bench-primary w-100 mt-4">Get Started</a>
+            <a href="how-it-works.html" class="btn-bench-primary w-100 mt-4">Get Started Free</a>
           </div>
         </div>
 
         <!-- Scale Fractional CFO -->
         <div class="col-lg-4">
-          <div class="card-bench-feature p-4 p-xl-5 d-flex flex-column justify-content-between">
+          <div class="card-bench-feature p-4 p-xl-5 d-flex flex-column justify-content-between h-100">
             <div>
               <div class="badge bg-bench-light text-bench-navy px-3 py-1 rounded-pill fw-bold mb-3">GROWTH & SCALE</div>
-              <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Fractional CFO</h3>
+              <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--bench-navy);">Fractional CFO</h3>
               <p style="color: var(--bench-slate); font-size: 0.9rem; min-height: 40px;">
                 Complete finance engine with dedicated Partner CFO, runway modeling & board decks.
               </p>
@@ -197,12 +242,203 @@
                 <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> <strong>Everything in Bookkeeping & Tax</strong></li>
                 <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Dedicated Partner CFO strategy sessions</li>
                 <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> 13-week rolling cash flow & runway model</li>
+                <li class="d-flex align-items-center gap-2"><i data-lucide="check" class="text-bench-green" style="width: 18px;"></i> Board meeting decks & fundraising data rooms</li>
               </ul>
             </div>
             <a href="how-it-works.html" class="btn-bench-outline w-100 mt-4">Select Fractional CFO</a>
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 03: DETAILED PLAN FEATURE MATRIX
+       ========================================================================== -->
+  <section class="py-5 bg-bench-light" style="padding: 5.5rem 0 !important; border-top: 1px solid var(--bench-border-light);">
+    <div class="container-custom">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <div class="badge bg-bench-green-subtle text-bench-green px-3 py-1 rounded-pill fw-bold mb-2">FULL COMPARISON</div>
+        <h2 style="font-size: 2.3rem; color: var(--bench-navy);">Compare Plan Features & Inclusions</h2>
+        <p style="color: var(--bench-slate); font-size: 1.05rem;">
+          Every plan includes our secure software dashboard, bank syncing, and dedicated in-house personnel.
+        </p>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle text-center bg-white shadow-sm" style="border-color: var(--bench-border); border-radius: 12px; overflow: hidden;">
+          <thead style="background: var(--bench-bg-light);">
+            <tr>
+              <th class="text-start p-3" style="width: 40%;">Feature</th>
+              <th class="p-3" style="width: 20%;">Bookkeeping</th>
+              <th class="p-3" style="width: 20%; background: var(--bench-green-subtle); color: var(--bench-green);">Bookkeeping & Tax</th>
+              <th class="p-3" style="width: 20%;">Fractional CFO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-start p-3 fw-semibold">Dedicated Lead Bookkeeper</td>
+              <td class="p-3 text-success"><i data-lucide="check" style="width: 18px;"></i></td>
+              <td class="p-3 text-success" style="background: rgba(0, 131, 98, 0.04);"><i data-lucide="check" style="width: 18px;"></i></td>
+              <td class="p-3 text-success"><i data-lucide="check" style="width: 18px;"></i></td>
+            </tr>
+            <tr>
+              <td class="text-start p-3 fw-semibold">Guaranteed 5-Day Month-End Close</td>
+              <td class="p-3 text-success"><i data-lucide="check" style="width: 18px;"></i></td>
+              <td class="p-3 text-success" style="background: rgba(0, 131, 98, 0.04);"><i data-lucide="check" style="width: 18px;"></i></td>
+              <td class="p-3 text-success"><i data-lucide="check" style="width: 18px;"></i></td>
+            </tr>
+            <tr>
+              <td class="text-start p-3 fw-semibold">Monthly P&L, Balance Sheet & Cash Flow</td>
+              <td class="p-3 text-success"><i data-lucide="check" style="width: 18px;"></i></td>
+              <td class="p-3 text-success" style="background: rgba(0, 131, 98, 0.04);"><i data-lucide="check" style="width: 18px;"></i></td>
+              <td class="p-3 text-success"><i data-lucide="check" style="width: 18px;"></i></td>
+            </tr>
+            <tr>
+              <td class="text-start p-3 fw-semibold">Corporate Tax Prep (1120 / 1120-S / 1065)</td>
+              <td class="p-3 text-muted">—</td>
+              <td class="p-3 text-success" style="background: rgba(0, 131, 98, 0.04);"><i data-lucide="check" style="width: 18px;"></i></td>
+              <td class="p-3 text-success"><i data-lucide="check" style="width: 18px;"></i></td>
+            </tr>
+            <tr>
+              <td class="text-start p-3 fw-semibold">Contractor 1099-NEC & 1096 Filing</td>
+              <td class="p-3 text-muted">—</td>
+              <td class="p-3 text-success" style="background: rgba(0, 131, 98, 0.04);"><i data-lucide="check" style="width: 18px;"></i></td>
+              <td class="p-3 text-success"><i data-lucide="check" style="width: 18px;"></i></td>
+            </tr>
+            <tr>
+              <td class="text-start p-3 fw-semibold">13-Week Dynamic Cash Flow Forecast</td>
+              <td class="p-3 text-muted">—</td>
+              <td class="p-3 text-muted" style="background: rgba(0, 131, 98, 0.04);">Add-on</td>
+              <td class="p-3 text-success"><i data-lucide="check" style="width: 18px;"></i></td>
+            </tr>
+            <tr>
+              <td class="text-start p-3 fw-semibold">Partner-Level Fractional CFO Strategy Calls</td>
+              <td class="p-3 text-muted">—</td>
+              <td class="p-3 text-muted" style="background: rgba(0, 131, 98, 0.04);">—</td>
+              <td class="p-3 text-success"><i data-lucide="check" style="width: 18px;"></i> Monthly (1:1)</td>
+            </tr>
+            <tr>
+              <td class="text-start p-3 fw-semibold">Board Decks & Investor Data Room Support</td>
+              <td class="p-3 text-muted">—</td>
+              <td class="p-3 text-muted" style="background: rgba(0, 131, 98, 0.04);">—</td>
+              <td class="p-3 text-success"><i data-lucide="check" style="width: 18px;"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 04: SPECIALIZED ADD-ONS & CATCH-UP BOOKKEEPING
+       ========================================================================== -->
+  <section class="py-5 bg-white" style="padding: 5.5rem 0 !important;">
+    <div class="container-custom">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <div class="badge bg-bench-green-subtle text-bench-green px-3 py-1 rounded-pill fw-bold mb-2">EXPAND AS YOU GROW</div>
+        <h2 style="font-size: 2.3rem; color: var(--bench-navy);">Add-On Services & Historical Catch-Up</h2>
+        <p style="color: var(--bench-slate); font-size: 1.05rem;">
+          Behind on your books? We catch up years of unfiled transactions and deliver clean, audit-ready financials.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-bench-feature p-4 h-100">
+            <div class="feature-icon-wrap" style="background: #E8F5E9; color: #2E7D32;">
+              <i data-lucide="history" style="width: 24px; height: 24px;"></i>
+            </div>
+            <h4 style="font-size: 1.25rem; color: var(--bench-navy); margin-bottom: 0.5rem;">Catch-Up Bookkeeping</h4>
+            <p style="color: var(--bench-slate); font-size: 0.9rem; line-height: 1.6;">
+              Months or years behind on your books? We reconcile historical transactions, fix chart-of-accounts errors, and get you tax-compliant quickly.
+            </p>
+            <div class="font-mono-num fw-bold text-bench-green pt-2 border-top">Custom quote per backlog</div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-bench-feature p-4 h-100">
+            <div class="feature-icon-wrap" style="background: #E3F2FD; color: #1976D2;">
+              <i data-lucide="layers" style="width: 24px; height: 24px;"></i>
+            </div>
+            <h4 style="font-size: 1.25rem; color: var(--bench-navy); margin-bottom: 0.5rem;">Multi-Entity Consolidation</h4>
+            <p style="color: var(--bench-slate); font-size: 0.9rem; line-height: 1.6;">
+              For parent companies, holding groups, or international subsidiaries needing intercompany eliminations and consolidated statements.
+            </p>
+            <div class="font-mono-num fw-bold text-bench-green pt-2 border-top">+$150 / mo per additional entity</div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card-bench-feature p-4 h-100">
+            <div class="feature-icon-wrap" style="background: #FFF3E0; color: #E65100;">
+              <i data-lucide="dollar-sign" style="width: 24px; height: 24px;"></i>
+            </div>
+            <h4 style="font-size: 1.25rem; color: var(--bench-navy); margin-bottom: 0.5rem;">R&D Payroll Tax Credits</h4>
+            <p style="color: var(--bench-slate); font-size: 0.9rem; line-height: 1.6;">
+              Claim up to $500,000 annually against federal payroll taxes for software engineering and technical product development work.
+            </p>
+            <div class="font-mono-num fw-bold text-bench-green pt-2 border-top">Contingent on credit captured</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 05: PRICING FAQ & GUARANTEE
+       ========================================================================== -->
+  <section class="py-5 bg-bench-light" style="padding: 5.5rem 0 !important; border-top: 1px solid var(--bench-border-light);">
+    <div class="container-custom">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <div class="badge bg-bench-green-subtle text-bench-green px-3 py-1 rounded-pill fw-bold mb-2">COMMON QUESTIONS</div>
+        <h2 style="font-size: 2.3rem; color: var(--bench-navy);">Frequently Asked Questions</h2>
+        <p style="color: var(--bench-slate); font-size: 1.05rem;">
+          Everything you need to know about plans, contracts, and guarantees.
+        </p>
+      </div>
+
+      <div class="accordion accordion-flush max-w-800 mx-auto" id="pricingFaqAccordion">
+        <div class="accordion-item mb-3 rounded-3 border">
+          <h2 class="accordion-header" id="faqOne">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="color: var(--bench-navy);">
+              Are there long-term contracts? Can I cancel anytime?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="faqOne" data-bs-parent="#pricingFaqAccordion">
+            <div class="accordion-body text-secondary" style="font-size: 0.95rem; line-height: 1.6;">
+              No long-term commitments! All our monthly plans are pay-as-you-go, and you can cancel or switch tiers at any time with 30 days notice. If you opt for an annual plan, you lock in a 12% discount.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item mb-3 rounded-3 border">
+          <h2 class="accordion-header" id="faqTwo">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: var(--bench-navy);">
+              What is your 30-Day Money-Back Guarantee?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="faqTwo" data-bs-parent="#pricingFaqAccordion">
+            <div class="accordion-body text-secondary" style="font-size: 0.95rem; line-height: 1.6;">
+              We want you to feel 100% confident. If you are not completely thrilled with the accuracy of your closed books and your dedicated bookkeeper within the first 30 days, we will refund 100% of your fee—no hassle.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item mb-3 rounded-3 border">
+          <h2 class="accordion-header" id="faqThree">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: var(--bench-navy);">
+              What happens if my business grows into a higher revenue tier?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="faqThree" data-bs-parent="#pricingFaqAccordion">
+            <div class="accordion-body text-secondary" style="font-size: 0.95rem; line-height: 1.6;">
+              As your monthly expenses and transaction volume scale, your dedicated bookkeeper will review your tier with you semi-annually. You will never experience surprise billings.
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

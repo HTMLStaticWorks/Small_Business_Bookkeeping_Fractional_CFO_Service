@@ -1160,3 +1160,132 @@ html:not([data-theme="dark"]) .dataTables_wrapper .dataTables_filter label,
 [data-theme="light"] .dataTables_wrapper .dataTables_filter label {
   color: #475569 !important;
 }
+
+/* ==========================================================================
+   EXECUTIVE WELCOME BANNER (DASHBOARD PURPOSE & ONBOARDING)
+   ========================================================================== */
+.dash-welcome-banner {
+  background: linear-gradient(135deg, rgba(197, 161, 90, 0.12) 0%, rgba(23, 26, 30, 0.95) 50%, rgba(16, 185, 129, 0.08) 100%);
+  border: 1px solid rgba(197, 161, 90, 0.3);
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+.dash-welcome-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.dash-welcome-greeting {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  letter-spacing: -0.01em;
+}
+
+.dash-welcome-desc {
+  font-size: 0.95rem;
+  color: var(--dash-slate);
+  line-height: 1.6;
+  max-width: 860px;
+  margin-bottom: 1.25rem;
+}
+
+.dash-welcome-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.welcome-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--dash-border);
+  color: #E6EDF3;
+}
+
+.welcome-chip.chip-success {
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #34D399;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.welcome-chip.chip-gold {
+  border-color: rgba(197, 161, 90, 0.4);
+  color: #E0C179;
+  background: rgba(197, 161, 90, 0.1);
+}
+
+.dash-welcome-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+html:not([data-theme="dark"]) .dash-welcome-banner,
+[data-theme="light"] .dash-welcome-banner {
+  background: linear-gradient(135deg, #F0F7F4 0%, #FFFFFF 65%, #FAF5EB 100%) !important;
+  border: 1px solid #D8E5DF !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+html:not([data-theme="dark"]) .dash-welcome-greeting,
+[data-theme="light"] .dash-welcome-greeting {
+  color: #112A3D !important;
+}
+
+html:not([data-theme="dark"]) .dash-welcome-desc,
+[data-theme="light"] .dash-welcome-desc {
+  color: #475569 !important;
+}
+
+html:not([data-theme="dark"]) .welcome-chip,
+[data-theme="light"] .welcome-chip {
+  background: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #1E293B !important;
+}
+
+html:not([data-theme="dark"]) .welcome-chip.chip-success,
+[data-theme="light"] .welcome-chip.chip-success {
+  background: rgba(0, 131, 98, 0.08) !important;
+  border-color: rgba(0, 131, 98, 0.25) !important;
+  color: #008362 !important;
+}
+
+html:not([data-theme="dark"]) .welcome-chip.chip-gold,
+[data-theme="light"] .welcome-chip.chip-gold {
+  background: rgba(197, 161, 90, 0.12) !important;
+  border-color: rgba(197, 161, 90, 0.3) !important;
+  color: #8C6B2D !important;
+}
+
+@media (max-width: 768px) {
+  .dash-welcome-header {
+    flex-direction: column;
+  }
+  .dash-welcome-actions {
+    width: 100%;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+}
+
