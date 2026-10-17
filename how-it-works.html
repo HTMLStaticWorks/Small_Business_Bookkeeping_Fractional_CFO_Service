@@ -170,17 +170,19 @@
         </p>
       </div>
 
-      <!-- STEP 01: Income, Expenses, Invoices, Payments, Transactions -->
+      <!-- ====================================================================
+           STEP 01: DATA INGESTION (Income, Expenses, Invoices, Payments, Transactions)
+           ==================================================================== -->
       <div class="row g-5 align-items-center mb-5 pb-4">
-        <div class="col-lg-6">
+        <div class="col-lg-5">
           <div class="badge bg-bench-green-subtle text-bench-green px-3 py-2 rounded-pill font-mono mb-3" style="font-weight: 700;">
-            STEP 01 • DATA INGESTION
+            STEP 01 • CONTINUOUS INGESTION
           </div>
           <h3 style="font-size: 2.1rem; font-weight: 800; color: var(--bench-navy); margin-bottom: 1rem;">
             1. Connect daily income, expenses, invoices & payments
           </h3>
           <p style="color: var(--bench-slate); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
-            In just 5 minutes, securely connect your financial accounts via 256-bit encrypted read-only feeds. We automatically ingest and organize your <strong>income</strong> streams, operating <strong>expenses</strong>, outgoing vendor <strong>payments</strong>, and customer billing <strong>invoices</strong>. Every single bank and credit card <strong>transaction</strong> flows in continuously without manual exports.
+            In just 5 minutes, securely connect your bank accounts, cards, and payment processors via 256-bit encrypted read-only feeds. We automatically ingest and organize your <strong>income</strong> streams, operating <strong>expenses</strong>, outgoing vendor <strong>payments</strong>, and customer billing <strong>invoices</strong>. Every single bank and credit card <strong>transaction</strong> flows in continuously without manual spreadsheets or exports.
           </p>
 
           <div class="step-flow-badge-group">
@@ -191,22 +193,157 @@
           </div>
         </div>
 
-        <div class="col-lg-6">
-          <div class="step-visual-card">
-            <img src="assets/images/vQ2xobIn2-xt_usTcvoGTilL7k-sVVOr4AcxdUtE9A6i8niIVbIjc-GmV76U0hZuJ36lQtX8Do4GvaIyQiI1cA-oQ.jpg" alt="Reconciling Invoices, Expenses, Payments and Bank Transactions" class="step-visual-img">
-            <div class="p-3 bg-white border-top">
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="fw-bold text-bench-navy" style="font-size: 0.9rem;">Automated Ingestion: Income, Invoices & Expenses</span>
-                <span class="badge bg-bench-green text-white font-mono" style="font-size: 0.72rem;">256-BIT ENCRYPTED</span>
+        <div class="col-lg-7">
+          <!-- RELEVANT VISUAL: Multi-Feed Ledger Ingestion Console -->
+          <div class="hiw-console-card">
+            <!-- Window Titlebar -->
+            <div class="hiw-console-header">
+              <div class="hiw-window-dots">
+                <span class="hiw-dot hiw-dot-red"></span>
+                <span class="hiw-dot hiw-dot-yellow"></span>
+                <span class="hiw-dot hiw-dot-green"></span>
               </div>
+              <div class="hiw-console-title font-mono">VALENCE SYNC ENGINE • REAL-TIME FEED</div>
+              <div class="hiw-live-pill">
+                <span class="hiw-live-dot"></span>
+                <span>LIVE SYNC ACTIVE</span>
+              </div>
+            </div>
+
+            <!-- Ingestion Telemetry Stats Strip -->
+            <div class="hiw-telemetry-bar">
+              <div class="hiw-telemetry-col">
+                <div class="hiw-telemetry-label">Ingested Income</div>
+                <div class="hiw-telemetry-val text-success font-mono-num">+$42,850.00</div>
+                <div class="hiw-telemetry-sub text-success"><i data-lucide="trending-up" style="width: 11px; height: 11px;"></i> 3 channels</div>
+              </div>
+              <div class="hiw-telemetry-col">
+                <div class="hiw-telemetry-label">Operating Expenses</div>
+                <div class="hiw-telemetry-val text-danger font-mono-num">-$14,320.50</div>
+                <div class="hiw-telemetry-sub text-muted"><i data-lucide="credit-card" style="width: 11px; height: 11px;"></i> Auto-categorized</div>
+              </div>
+              <div class="hiw-telemetry-col">
+                <div class="hiw-telemetry-label">Customer Invoices</div>
+                <div class="hiw-telemetry-val text-primary font-mono-num">12 Invoices</div>
+                <div class="hiw-telemetry-sub text-primary"><i data-lucide="file-check" style="width: 11px; height: 11px;"></i> $18.2k settled</div>
+              </div>
+              <div class="hiw-telemetry-col">
+                <div class="hiw-telemetry-label">Vendor Payments</div>
+                <div class="hiw-telemetry-val text-warning font-mono-num">-$18,320.00</div>
+                <div class="hiw-telemetry-sub text-muted"><i data-lucide="check" style="width: 11px; height: 11px;"></i> Payroll clearing</div>
+              </div>
+            </div>
+
+            <!-- Live Itemized Feed: Income, Expense, Invoice, Payment, Transaction -->
+            <div class="hiw-feed-container">
+              <!-- Item 1: INCOME -->
+              <div class="hiw-feed-item">
+                <div class="hiw-feed-icon hiw-icon-income">
+                  <i data-lucide="trending-up"></i>
+                </div>
+                <div class="hiw-feed-body">
+                  <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <span class="hiw-feed-name">Stripe Merchant Settlement</span>
+                    <span class="hiw-badge hiw-badge-income">INCOME</span>
+                  </div>
+                  <div class="hiw-feed-meta">Chase Business Checking •••• 4192 &bull; SaaS Subscription Billing</div>
+                </div>
+                <div class="hiw-feed-amt text-end">
+                  <div class="hiw-val-income font-mono-num">+$24,850.00</div>
+                  <span class="hiw-status-pill hiw-status-verified"><i data-lucide="check-circle-2" style="width: 11px; height: 11px;"></i> Auto-Reconciled</span>
+                </div>
+              </div>
+
+              <!-- Item 2: INVOICE -->
+              <div class="hiw-feed-item">
+                <div class="hiw-feed-icon hiw-icon-invoice">
+                  <i data-lucide="file-text"></i>
+                </div>
+                <div class="hiw-feed-body">
+                  <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <span class="hiw-feed-name">Acme Corp &bull; Retainer #INV-2041</span>
+                    <span class="hiw-badge hiw-badge-invoice">INVOICE</span>
+                  </div>
+                  <div class="hiw-feed-meta">Accounts Receivable (A/R) &bull; Net-30 Settlement via ACH</div>
+                </div>
+                <div class="hiw-feed-amt text-end">
+                  <div class="hiw-val-invoice font-mono-num">+$18,000.00</div>
+                  <span class="hiw-status-pill hiw-status-verified"><i data-lucide="check" style="width: 11px; height: 11px;"></i> Paid & Matched</span>
+                </div>
+              </div>
+
+              <!-- Item 3: EXPENSE -->
+              <div class="hiw-feed-item">
+                <div class="hiw-feed-icon hiw-icon-expense">
+                  <i data-lucide="receipt"></i>
+                </div>
+                <div class="hiw-feed-body">
+                  <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <span class="hiw-feed-name">AWS Cloud Infrastructure</span>
+                    <span class="hiw-badge hiw-badge-expense">EXPENSE</span>
+                  </div>
+                  <div class="hiw-feed-meta">Amex Corporate Platinum •••• 8831 &bull; Technology & Hosting OpEx</div>
+                </div>
+                <div class="hiw-feed-amt text-end">
+                  <div class="hiw-val-expense font-mono-num">-$1,840.50</div>
+                  <span class="hiw-status-pill hiw-status-tax"><i data-lucide="tag" style="width: 11px; height: 11px;"></i> Categorized</span>
+                </div>
+              </div>
+
+              <!-- Item 4: PAYMENT -->
+              <div class="hiw-feed-item">
+                <div class="hiw-feed-icon hiw-icon-payment">
+                  <i data-lucide="send"></i>
+                </div>
+                <div class="hiw-feed-body">
+                  <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <span class="hiw-feed-name">Gusto Payroll Batch Disbursement</span>
+                    <span class="hiw-badge hiw-badge-payment">PAYMENT</span>
+                  </div>
+                  <div class="hiw-feed-meta">Chase Payroll Operating •••• 5520 &bull; Net Salaries & Tax Escrow</div>
+                </div>
+                <div class="hiw-feed-amt text-end">
+                  <div class="hiw-val-payment font-mono-num">-$18,320.00</div>
+                  <span class="hiw-status-pill hiw-status-verified"><i data-lucide="check-circle-2" style="width: 11px; height: 11px;"></i> Tax Reconciled</span>
+                </div>
+              </div>
+
+              <!-- Item 5: TRANSACTION -->
+              <div class="hiw-feed-item">
+                <div class="hiw-feed-icon hiw-icon-tx">
+                  <i data-lucide="arrow-right-left"></i>
+                </div>
+                <div class="hiw-feed-body">
+                  <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <span class="hiw-feed-name">Treasury Liquidity Sweep</span>
+                    <span class="hiw-badge hiw-badge-tx">TRANSACTION</span>
+                  </div>
+                  <div class="hiw-feed-meta">Operating Checking → High-Yield Reserve &bull; Internal Sweep</div>
+                </div>
+                <div class="hiw-feed-amt text-end">
+                  <div class="hiw-val-tx font-mono-num">$35,000.00</div>
+                  <span class="hiw-status-pill hiw-status-transfer"><i data-lucide="refresh-cw" style="width: 11px; height: 11px;"></i> Dual-Matched</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Console Footer -->
+            <div class="hiw-console-footer">
+              <div class="d-flex align-items-center gap-2 text-muted" style="font-size: 0.8rem;">
+                <i data-lucide="shield-check" class="text-bench-green" style="width: 16px; height: 16px;"></i>
+                <span>Synced 142 daily transactions across 8 feeds in 0.4s &bull; Plaid & Stripe 256-Bit SSL</span>
+              </div>
+              <span class="badge bg-bench-green-subtle text-bench-green font-mono" style="font-size: 0.72rem;">ZERO MANUAL ENTRY</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- STEP 02: Dedicated Financial Advisors & CPAs Take Over -->
+      <!-- ====================================================================
+           STEP 02: HUMAN EXPERTISE (Dedicated Financial Advisors & CPAs)
+           ==================================================================== -->
       <div class="row g-5 align-items-center mb-5 pb-4 flex-lg-row-reverse">
-        <div class="col-lg-6">
+        <div class="col-lg-5">
           <div class="badge bg-bench-green-subtle text-bench-green px-3 py-2 rounded-pill font-mono mb-3" style="font-weight: 700;">
             STEP 02 • HUMAN EXPERTISE
           </div>
@@ -214,33 +351,134 @@
             2. Dedicated financial advisors and CPAs take over
           </h3>
           <p style="color: var(--bench-slate); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
-            Technology handles the data feeds, but your dedicated team of <strong>financial advisors</strong>, senior bookkeepers, and licensed CPAs does the precision accounting. We categorize complex transactions, track payroll deductions, reconcile merchant processor holdbacks, and ensure strict GAAP compliance. You can direct message your team anytime.
+            Technology handles the data feeds, but your dedicated team of <strong>financial advisors</strong>, senior bookkeepers, and licensed CPAs does the precision accounting. We review complex transactions, classify software dev capitalization, reconcile processor holdbacks, and deliver ongoing CFO advisory. You can direct message your team anytime.
           </p>
 
           <div class="step-flow-badge-group">
             <span class="step-flow-badge"><i data-lucide="user-check" style="width: 14px; height: 14px;"></i> Dedicated Financial Advisors Assigned</span>
             <span class="step-flow-badge"><i data-lucide="shield-check" style="width: 14px; height: 14px;"></i> Licensed CPA Oversight & Tax Defense</span>
-            <span class="step-flow-badge"><i data-lucide="message-square" style="width: 14px; height: 14px;"></i> Direct Messaging & Strategy Calls</span>
+            <span class="step-flow-badge"><i data-lucide="message-square" style="width: 14px; height: 14px;"></i> Direct In-Portal Messaging & 1-on-1 Calls</span>
             <span class="step-flow-badge"><i data-lucide="check" style="width: 14px; height: 14px;"></i> 100% In-House American Team</span>
           </div>
         </div>
 
-        <div class="col-lg-6">
-          <div class="step-visual-card">
-            <img src="assets/images/hbydCsKTRXlTwbgxqDblweFT-aRy3er0fxtvM2_JrNTN5plHouZyxzZJVD9XiLrwrDMLE--1NHst73velGyo-sqw4.jpg" alt="Dedicated Financial Advisors and CPAs Consulting on Client Ledgers" class="step-visual-img">
-            <div class="p-3 bg-white border-top">
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="fw-bold text-bench-navy" style="font-size: 0.9rem;">Human Advisory: In-House CPAs & Financial Advisors</span>
-                <span class="badge bg-bench-green-subtle text-bench-green font-mono" style="font-size: 0.72rem;">ACTIVE ADVISOR DESK</span>
+        <div class="col-lg-7">
+          <!-- RELEVANT VISUAL: Dedicated Financial Advisors & CPA Advisory Portal -->
+          <div class="hiw-console-card">
+            <!-- Titlebar -->
+            <div class="hiw-console-header">
+              <div class="hiw-window-dots">
+                <span class="hiw-dot hiw-dot-red"></span>
+                <span class="hiw-dot hiw-dot-yellow"></span>
+                <span class="hiw-dot hiw-dot-green"></span>
               </div>
+              <div class="hiw-console-title font-mono">VALENCE ADVISORY DESK • ASSIGNED EXPERTS</div>
+              <div class="hiw-live-pill">
+                <span class="hiw-live-dot"></span>
+                <span>ADVISORS ON-CALL</span>
+              </div>
+            </div>
+
+            <!-- Assigned Financial Advisors Cards -->
+            <div class="p-3 border-bottom">
+              <div class="row g-3">
+                <!-- Financial Advisor: Marcus Vance -->
+                <div class="col-sm-6">
+                  <div class="hiw-advisor-card">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="position-relative">
+                        <img src="assets/images/founder-strategy.jpg" alt="Marcus Vance Fractional CFO" class="hiw-advisor-avatar">
+                        <span class="hiw-advisor-status-dot" title="Active Online"></span>
+                      </div>
+                      <div>
+                        <div class="hiw-advisor-name">Marcus Vance, CFA</div>
+                        <div class="hiw-advisor-role">Lead Fractional CFO</div>
+                        <div class="hiw-advisor-exp">12+ Yrs SaaS & E-comm CFO</div>
+                      </div>
+                    </div>
+                    <div class="hiw-advisor-tags mt-2">
+                      <span class="hiw-tag">Runway Modeling</span>
+                      <span class="hiw-tag">Unit Economics</span>
+                      <span class="hiw-tag">Board Decks</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CPA Advisor: Sarah Jenkins -->
+                <div class="col-sm-6">
+                  <div class="hiw-advisor-card">
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="position-relative">
+                        <img src="assets/images/executive-cfo.jpg" alt="Sarah Jenkins CPA" class="hiw-advisor-avatar">
+                        <span class="hiw-advisor-status-dot" title="Active Online"></span>
+                      </div>
+                      <div>
+                        <div class="hiw-advisor-name">Sarah Jenkins, CPA</div>
+                        <div class="hiw-advisor-role">Senior Tax & Controller</div>
+                        <div class="hiw-advisor-exp">Licensed State Board CPA #89412</div>
+                      </div>
+                    </div>
+                    <div class="hiw-advisor-tags mt-2">
+                      <span class="hiw-tag">GAAP Accrual</span>
+                      <span class="hiw-tag">Tax Strategy</span>
+                      <span class="hiw-tag">Audit Review</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Advisory Memo & Strategic Dialogue Stream -->
+            <div class="p-3 bg-light-subtle border-bottom">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="font-mono text-muted" style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px;">RECENT ADVISOR MEMOS & JOURNAL AUDITS</span>
+                <span class="badge bg-bench-green-subtle text-bench-green font-mono" style="font-size: 0.7rem;">UPDATED TODAY</span>
+              </div>
+
+              <!-- Message 1 from CFO -->
+              <div class="hiw-memo-item mb-2">
+                <div class="d-flex align-items-center justify-content-between">
+                  <span class="hiw-memo-author text-bench-navy"><i data-lucide="briefcase" style="width: 13px; height: 13px;" class="text-bench-green"></i> Marcus Vance (Fractional CFO)</span>
+                  <span class="hiw-memo-time">2 hours ago</span>
+                </div>
+                <p class="hiw-memo-text mb-0">
+                  "Completed Q3 unit economics review. LTV/CAC expanded to 4.2x. Capitalized $14.2k engineering sprint under ASC 350-40, increasing EBITDA by 180 bps."
+                </p>
+              </div>
+
+              <!-- Message 2 from CPA -->
+              <div class="hiw-memo-item">
+                <div class="d-flex align-items-center justify-content-between">
+                  <span class="hiw-memo-author text-bench-navy"><i data-lucide="shield-check" style="width: 13px; height: 13px;" class="text-bench-green"></i> Sarah Jenkins (Licensed CPA)</span>
+                  <span class="hiw-memo-time">4 hours ago</span>
+                </div>
+                <p class="hiw-memo-text mb-0">
+                  "Reconciled Stripe holdback reserve ($6,500). State sales tax liability escrow locked for Day 5 close. Zero compliance flags."
+                </p>
+              </div>
+            </div>
+
+            <!-- Advisor Actions -->
+            <div class="hiw-console-footer">
+              <div class="d-flex align-items-center gap-2 flex-wrap">
+                <a href="contact.html" class="btn btn-sm btn-bench-primary" style="padding: 0.35rem 0.85rem; font-size: 0.8rem;">
+                  <i data-lucide="phone-call" style="width: 13px; height: 13px;"></i> Book 1-on-1 CFO Strategy Call
+                </a>
+                <a href="contact.html" class="btn btn-sm btn-bench-outline" style="padding: 0.35rem 0.85rem; font-size: 0.8rem;">
+                  <i data-lucide="message-square" style="width: 13px; height: 13px;"></i> Message Advisors
+                </a>
+              </div>
+              <span class="text-muted font-mono" style="font-size: 0.75rem;">Avg Response: 42 mins</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- STEP 03: Calculators, Forecasts, Dynamic Charts & Graphs -->
+      <!-- ====================================================================
+           STEP 03: VISUAL INTELLIGENCE (Calculators, Charts & Graphs)
+           ==================================================================== -->
       <div class="row g-5 align-items-center mb-5 pb-4">
-        <div class="col-lg-6">
+        <div class="col-lg-5">
           <div class="badge bg-bench-green-subtle text-bench-green px-3 py-2 rounded-pill font-mono mb-3" style="font-weight: 700;">
             STEP 03 • VISUAL INTELLIGENCE
           </div>
@@ -248,33 +486,122 @@
             3. Explore live calculators, financial charts & graphs
           </h3>
           <p style="color: var(--bench-slate); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
-            Log in to your private client portal to visualize your company's performance. Run interactive <strong>calculators</strong> for cash runway and break-even points, evaluate burn rates, and analyze intuitive <strong>charts and graphs</strong> illustrating revenue trends, gross margins, cash flow cycles, and budget variance.
+            Log in to your private client portal to visualize your company's financial vitals in real time. Test dynamic scenarios with interactive <strong>calculators</strong> for cash runway and net burn rate, and monitor intuitive <strong>charts and graphs</strong> illustrating multi-month revenue growth, operating expense trajectories, and gross profit margins.
           </p>
 
           <div class="step-flow-badge-group">
-            <span class="step-flow-badge"><i data-lucide="calculator" style="width: 14px; height: 14px;"></i> Interactive Runway & Margin Calculators</span>
-            <span class="step-flow-badge"><i data-lucide="bar-chart-3" style="width: 14px; height: 14px;"></i> Dynamic Revenue & Expense Charts</span>
-            <span class="step-flow-badge"><i data-lucide="pie-chart" style="width: 14px; height: 14px;"></i> Cost Distribution & Margin Graphs</span>
-            <span class="step-flow-badge"><i data-lucide="sliders" style="width: 14px; height: 14px;"></i> What-If Hiring & Burn Scenarios</span>
+            <span class="step-flow-badge"><i data-lucide="calculator" style="width: 14px; height: 14px;"></i> Interactive Runway & Burn Calculators</span>
+            <span class="step-flow-badge"><i data-lucide="bar-chart-3" style="width: 14px; height: 14px;"></i> Dynamic Multi-Month Revenue Charts</span>
+            <span class="step-flow-badge"><i data-lucide="line-chart" style="width: 14px; height: 14px;"></i> Expense Trajectory & Gross Margin Graphs</span>
+            <span class="step-flow-badge"><i data-lucide="sliders" style="width: 14px; height: 14px;"></i> What-If Hiring & Capital Modeling</span>
           </div>
         </div>
 
-        <div class="col-lg-6">
-          <div class="step-visual-card">
-            <img src="assets/images/3lsLD0DEOgCT1YAhUdBfw-hv0GlhGwYkv44hxjQDW6a7IRun6t_NNceHJuev-nA63hzmPhSrdFUutYfJgUdLx66o5.jpg" alt="Financial Advisor Analyzing Calculators, Dynamic Charts and Performance Graphs" class="step-visual-img">
-            <div class="p-3 bg-white border-top">
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="fw-bold text-bench-navy" style="font-size: 0.9rem;">Visual Analytics: Live Charts, Graphs & Calculators</span>
-                <span class="badge bg-bench-green-subtle text-bench-green font-mono" style="font-size: 0.72rem;">INTERACTIVE PORTAL</span>
+        <div class="col-lg-7">
+          <!-- RELEVANT VISUAL: Interactive Calculator + Dynamic Chart & Graph -->
+          <div class="hiw-console-card">
+            <!-- Titlebar -->
+            <div class="hiw-console-header">
+              <div class="hiw-window-dots">
+                <span class="hiw-dot hiw-dot-red"></span>
+                <span class="hiw-dot hiw-dot-yellow"></span>
+                <span class="hiw-dot hiw-dot-green"></span>
               </div>
+              <div class="hiw-console-title font-mono">VALENCE INTELLIGENCE • CALCULATORS & GRAPHS</div>
+              <div class="hiw-live-pill">
+                <span class="hiw-live-dot"></span>
+                <span>INTERACTIVE ENGINE</span>
+              </div>
+            </div>
+
+            <!-- Visual Part A: Dynamic Charts and Graphs Canvas -->
+            <div class="p-3 border-bottom">
+              <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
+                <div>
+                  <span class="fw-bold text-bench-navy" style="font-size: 0.92rem;">Revenue Growth vs Operating Expenses (Graph)</span>
+                  <div class="text-muted" style="font-size: 0.75rem;">Multi-month trend with gross margin progression</div>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                  <div class="d-flex align-items-center gap-1" style="font-size: 0.72rem; color: #10B981; font-weight: 700;">
+                    <span style="display:inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10B981;"></span> Revenue (Income)
+                  </div>
+                  <div class="d-flex align-items-center gap-1" style="font-size: 0.72rem; color: #E07A5F; font-weight: 700;">
+                    <span style="display:inline-block; width: 8px; height: 8px; border-radius: 50%; background: #E07A5F;"></span> Expenses & Payments
+                  </div>
+                  <div class="d-flex align-items-center gap-1" style="font-size: 0.72rem; color: #F59E0B; font-weight: 700;">
+                    <span style="display:inline-block; width: 8px; height: 8px; border-radius: 50%; background: #F59E0B;"></span> Margin %
+                  </div>
+                </div>
+              </div>
+
+              <!-- Canvas for Chart.js -->
+              <div style="height: 180px; position: relative; width: 100%;">
+                <canvas id="howItWorksChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Visual Part B: Interactive Cash Runway Calculator -->
+            <div class="p-3 bg-light-subtle">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="p-1 rounded bg-bench-green-subtle text-bench-green">
+                    <i data-lucide="calculator" style="width: 16px; height: 16px;"></i>
+                  </div>
+                  <span class="fw-bold text-bench-navy" style="font-size: 0.88rem;">Interactive Runway Calculator</span>
+                </div>
+                <span class="badge bg-bench-green-subtle text-bench-green font-mono" style="font-size: 0.72rem;">SLIDER SIMULATOR</span>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <div class="d-flex justify-content-between mb-1" style="font-size: 0.78rem;">
+                    <span class="text-muted">Cash in Bank:</span>
+                    <strong class="font-mono-num text-bench-navy" id="hiwCashLabel">$380,000</strong>
+                  </div>
+                  <input type="range" class="form-range" id="hiwCashSlider" min="50000" max="1000000" step="10000" value="380000">
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="d-flex justify-content-between mb-1" style="font-size: 0.78rem;">
+                    <span class="text-muted">Monthly Net Burn:</span>
+                    <strong class="font-mono-num text-bench-navy" id="hiwBurnLabel">$28,000</strong>
+                  </div>
+                  <input type="range" class="form-range" id="hiwBurnSlider" min="5000" max="100000" step="1000" value="28000">
+                </div>
+              </div>
+
+              <!-- Calculator Output Ribbon -->
+              <div class="d-flex align-items-center justify-content-between p-2 mt-3 rounded-2 bg-white border">
+                <div>
+                  <span class="text-muted" style="font-size: 0.75rem;">Calculated Runway:</span>
+                  <div class="d-flex align-items-baseline gap-1">
+                    <span class="font-mono-num fw-bold text-bench-green" id="hiwRunwayResult" style="font-size: 1.5rem; line-height: 1;">13.6</span>
+                    <span class="font-mono fw-bold text-bench-navy" style="font-size: 0.85rem;">Months</span>
+                  </div>
+                </div>
+                <div class="text-end">
+                  <div class="badge bg-success-subtle text-success font-mono mb-1" id="hiwHealthBadge" style="font-size: 0.72rem; font-weight: 700;">
+                    HEALTHY RUNWAY
+                  </div>
+                  <div class="text-muted font-mono" style="font-size: 0.7rem;">CFO Cushion Verified</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Console Footer -->
+            <div class="hiw-console-footer">
+              <span class="text-muted" style="font-size: 0.78rem;">Powered by real-time accrual accounting & predictive CFO models</span>
+              <span class="badge bg-bench-navy text-white font-mono" style="font-size: 0.7rem;">UPDATED HOURLY</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- STEP 04: Day 5 Guaranteed Close & Board-Ready Statements -->
+      <!-- ====================================================================
+           STEP 04: MONTH-END CLOSE (Guaranteed 5-day close & board-ready reports)
+           ==================================================================== -->
       <div class="row g-5 align-items-center flex-lg-row-reverse">
-        <div class="col-lg-6">
+        <div class="col-lg-5">
           <div class="badge bg-bench-green-subtle text-bench-green px-3 py-2 rounded-pill font-mono mb-3" style="font-weight: 700;">
             STEP 04 • MONTH-END CLOSE
           </div>
@@ -293,14 +620,123 @@
           </div>
         </div>
 
-        <div class="col-lg-6">
-          <div class="step-visual-card">
-            <img src="assets/images/Vpl4XE83yLJ8ZIr5km82U536byawtx1R7dS2krppFojc_vTlho5HSFqivp8BTZw00anLM4RaSy-BMSCjbWTbby_kN.jpg" alt="Executive Boardroom Presentation of Monthly Financial Reports" class="step-visual-img">
-            <div class="p-3 bg-white border-top">
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="fw-bold text-bench-navy" style="font-size: 0.9rem;">Board-Ready Statements & Executive Reporting</span>
-                <span class="badge bg-bench-green text-white font-mono" style="font-size: 0.72rem;">DAY 5 CLOSED</span>
+        <div class="col-lg-7">
+          <!-- RELEVANT VISUAL: Month-End Close & Board Deliverables Package -->
+          <div class="hiw-console-card">
+            <!-- Titlebar -->
+            <div class="hiw-console-header">
+              <div class="hiw-window-dots">
+                <span class="hiw-dot hiw-dot-red"></span>
+                <span class="hiw-dot hiw-dot-yellow"></span>
+                <span class="hiw-dot hiw-dot-green"></span>
               </div>
+              <div class="hiw-console-title font-mono">VALENCE AUDIT SUITE • MONTH-END DELIVERABLES</div>
+              <div class="hiw-live-pill">
+                <span class="hiw-live-dot"></span>
+                <span>DAY 5 GUARANTEED</span>
+              </div>
+            </div>
+
+            <!-- Deliverables 4-Card Grid -->
+            <div class="p-3">
+              <div class="row g-3">
+                <!-- Deliverable 1: P&L -->
+                <div class="col-12 col-sm-6">
+                  <div class="hiw-deliverable-card">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <span class="hiw-deliverable-tag"><i data-lucide="file-spreadsheet" style="width: 12px; height: 12px;"></i> ACCRUAL P&L</span>
+                      <span class="badge bg-success-subtle text-success font-mono" style="font-size: 0.68rem;">CLOSED</span>
+                    </div>
+                    <div class="hiw-deliverable-title">Income Statement (P&L)</div>
+                    <div class="d-flex justify-content-between text-muted" style="font-size: 0.78rem;">
+                      <span>Gross Revenue:</span>
+                      <strong class="font-mono-num text-bench-navy">$248,500</strong>
+                    </div>
+                    <div class="d-flex justify-content-between text-muted" style="font-size: 0.78rem;">
+                      <span>Net Operating Income:</span>
+                      <strong class="font-mono-num text-success">+$68,400 (27.5%)</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Deliverable 2: Balance Sheet -->
+                <div class="col-12 col-sm-6">
+                  <div class="hiw-deliverable-card">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <span class="hiw-deliverable-tag"><i data-lucide="scale" style="width: 12px; height: 12px;"></i> BALANCE SHEET</span>
+                      <span class="badge bg-success-subtle text-success font-mono" style="font-size: 0.68rem;">VERIFIED</span>
+                    </div>
+                    <div class="hiw-deliverable-title">Audited Balance Sheet</div>
+                    <div class="d-flex justify-content-between text-muted" style="font-size: 0.78rem;">
+                      <span>Total Assets:</span>
+                      <strong class="font-mono-num text-bench-navy">$682,400</strong>
+                    </div>
+                    <div class="d-flex justify-content-between text-muted" style="font-size: 0.78rem;">
+                      <span>Variance:</span>
+                      <strong class="font-mono-num text-bench-green">$0.00 (Balanced)</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Deliverable 3: Cash Flow Statement -->
+                <div class="col-12 col-sm-6">
+                  <div class="hiw-deliverable-card">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <span class="hiw-deliverable-tag"><i data-lucide="arrow-down-up" style="width: 12px; height: 12px;"></i> CASH FLOW</span>
+                      <span class="badge bg-success-subtle text-success font-mono" style="font-size: 0.68rem;">RECONCILED</span>
+                    </div>
+                    <div class="hiw-deliverable-title">Statement of Cash Flows</div>
+                    <div class="d-flex justify-content-between text-muted" style="font-size: 0.78rem;">
+                      <span>Operating Cash:</span>
+                      <strong class="font-mono-num text-success">+$52,100</strong>
+                    </div>
+                    <div class="d-flex justify-content-between text-muted" style="font-size: 0.78rem;">
+                      <span>Ending Treasury:</span>
+                      <strong class="font-mono-num text-bench-navy">$527,000</strong>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Deliverable 4: Board Deck & Tax Package -->
+                <div class="col-12 col-sm-6">
+                  <div class="hiw-deliverable-card">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <span class="hiw-deliverable-tag"><i data-lucide="presentation" style="width: 12px; height: 12px;"></i> EXECUTIVE DECK</span>
+                      <span class="badge bg-primary-subtle text-primary font-mono" style="font-size: 0.68rem;">PDF & CSV</span>
+                    </div>
+                    <div class="hiw-deliverable-title">Board Presentation & Tax File</div>
+                    <div class="d-flex justify-content-between text-muted" style="font-size: 0.78rem;">
+                      <span>Presentation:</span>
+                      <strong class="text-bench-navy">18 Slide Keynote</strong>
+                    </div>
+                    <div class="d-flex justify-content-between text-muted" style="font-size: 0.78rem;">
+                      <span>Tax Filing:</span>
+                      <strong class="text-bench-green">100% Tax-Ready</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CPA Audit Stamp Sign-Off -->
+            <div class="hiw-cpa-signoff">
+              <div class="d-flex align-items-center gap-3">
+                <div class="hiw-stamp-icon">
+                  <i data-lucide="award"></i>
+                </div>
+                <div>
+                  <div class="hiw-stamp-title">CPA Audit Sign-Off Complete &bull; Zero Discrepancies</div>
+                  <div class="hiw-stamp-sub">Signed by Sarah Jenkins, CPA (#89412) & Marcus Vance (CFO) &bull; Delivered Day 4, 4:32 PM (12h early)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Console Footer -->
+            <div class="hiw-console-footer">
+              <a href="dashboard.html" class="btn btn-sm btn-bench-primary" style="padding: 0.35rem 0.85rem; font-size: 0.8rem;">
+                <i data-lucide="download" style="width: 13px; height: 13px;"></i> Download Board Package
+              </a>
+              <span class="badge bg-bench-green text-white font-mono" style="font-size: 0.72rem;">DAY 5 GUARANTEE MET</span>
             </div>
           </div>
         </div>
@@ -446,22 +882,22 @@
   <!-- ==========================================================================
        SECTION 05: RISK-FREE ONBOARDING & FREE MONTH CALL TO ACTION
        ========================================================================== -->
-  <section class="py-5" style="background: var(--bench-navy); color: #ffffff; padding: 5.5rem 0 !important;">
+  <section class="bench-cta-banner py-5" id="cta-banner">
     <div class="container-custom text-center">
       <div class="badge bg-bench-green text-white px-3 py-2 rounded-pill font-mono mb-3" style="font-weight: 700;">
         RISK-FREE 30-DAY TRIAL
       </div>
-      <h2 style="font-size: clamp(2rem, 4.5vw, 3.4rem); font-weight: 800; color: #ffffff; max-width: 820px; margin: 0 auto 1.25rem;">
+      <h2 style="font-size: clamp(2rem, 4.5vw, 3.4rem); font-weight: 800; max-width: 820px; margin: 0 auto 1.25rem;">
         Get one month of clean books done for free.
       </h2>
-      <p style="font-size: 1.15rem; color: #CBD5E1; max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.6;">
+      <p style="font-size: 1.15rem; max-width: 650px; margin: 0 auto 2.5rem; line-height: 1.6;">
         Experience what it feels like to have an entire team of dedicated bookkeepers, financial advisors, and CPAs running your financial operations.
       </p>
       <div class="d-flex flex-wrap justify-content-center gap-3">
         <a href="register.html" class="btn-bench-primary" style="padding: 1rem 2.25rem; font-size: 1.05rem;">
           Get Started Free
         </a>
-        <a href="pricing.html" class="btn-bench-outline" style="border-color: rgba(255, 255, 255, 0.3); color: #ffffff; padding: 1rem 2.25rem; font-size: 1.05rem;">
+        <a href="pricing.html" class="btn-bench-outline cta-outline-btn" style="padding: 1rem 2.25rem; font-size: 1.05rem;">
           Explore Pricing & Plans
         </a>
       </div>
@@ -488,8 +924,8 @@
             <a href="https://linkedin.com" target="_blank" class="social-icon-btn" title="LinkedIn" aria-label="LinkedIn">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
-            <a href="https://twitter.com" target="_blank" class="social-icon-btn" title="Twitter / X" aria-label="Twitter">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+            <a href="https://twitter.com" target="_blank" class="social-icon-btn" title="X (Twitter)" aria-label="X (Twitter)">
+              <svg class="icon-x" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
             <a href="https://youtube.com" target="_blank" class="social-icon-btn" title="YouTube" aria-label="YouTube">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"></path><polygon points="10 15 15 12 10 9 10 15"></polygon></svg>
@@ -540,6 +976,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

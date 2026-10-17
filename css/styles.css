@@ -48,6 +48,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -75,6 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 .text-bench-navy { color: var(--bench-navy) !important; }
 .text-bench-slate { color: var(--bench-slate) !important; }
 .bg-bench-light { background-color: var(--bench-bg-light) !important; }
+.bg-bench-green { background-color: var(--bench-green) !important; color: #ffffff !important; }
 .bg-bench-green-subtle { background-color: var(--bench-green-subtle) !important; }
 .bg-bench-navy { background-color: var(--bench-navy) !important; color: #fff; }
 
@@ -290,12 +292,16 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   justify-content: space-between;
   overflow-y: auto;
-  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
   box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .mobile-drawer.active {
   right: 0;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .drawer-nav {
@@ -842,6 +848,13 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 
+.social-icon-btn svg.icon-x {
+  fill: currentColor !important;
+  stroke: none !important;
+  width: 15px;
+  height: 15px;
+}
+
 .social-icon-btn:hover {
   background: var(--bench-green) !important;
   border-color: var(--bench-green) !important;
@@ -1019,6 +1032,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Accordions and Dropdowns */
+[data-theme="dark"] .accordion-item {
+  background-color: #13161B !important;
+  border-color: #222730 !important;
+}
+
 [data-theme="dark"] .accordion-button {
   background-color: #13161B !important;
   color: #FFFFFF !important;
@@ -1027,6 +1045,25 @@ h1, h2, h3, h4, h5, h6 {
 [data-theme="dark"] .accordion-button:not(.collapsed) {
   background-color: #181C23 !important;
   color: #34D399 !important;
+}
+
+[data-theme="dark"] .accordion-button::after {
+  filter: brightness(0) invert(1) !important;
+  opacity: 0.85;
+}
+
+[data-theme="dark"] .accordion-button:not(.collapsed)::after {
+  filter: brightness(0) saturate(100%) invert(72%) sepia(50%) saturate(548%) hue-rotate(110deg) brightness(95%) contrast(88%) !important;
+  opacity: 1;
+}
+
+[data-theme="dark"] .accordion-body {
+  background-color: #13161B !important;
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .accordion-body.text-secondary {
+  color: #94A3B8 !important;
 }
 
 [data-theme="dark"] .dropdown-item {
@@ -1246,9 +1283,9 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.7rem;
+  position: relative;
   width: 100%;
-  padding: 0.72rem 1rem;
+  padding: 0.75rem 1.25rem;
   border: 1px solid var(--bench-border);
   border-radius: 8px;
   background: #ffffff;
@@ -1260,20 +1297,35 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   margin-bottom: 0.75rem;
   box-sizing: border-box;
-  text-align: center;
 }
 
 .btn-sso .sso-icon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
 }
 
+.btn-sso .sso-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
 .btn-sso .sso-text {
+  text-align: center;
   white-space: nowrap;
+}
+
+[dir="rtl"] .btn-sso .sso-icon {
+  left: auto;
+  right: 1.25rem;
 }
 
 .btn-sso:hover {
@@ -1306,13 +1358,21 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 16px !important;
   }
   .btn-sso {
-    padding: 0.65rem 0.5rem;
+    padding: 0.65rem 0.85rem;
     font-size: 0.825rem;
-    gap: 0.5rem;
   }
   .btn-sso .sso-icon {
+    left: 0.85rem;
+    width: 18px;
+    height: 18px;
+  }
+  .btn-sso .sso-icon svg {
     width: 16px;
     height: 16px;
+  }
+  [dir="rtl"] .btn-sso .sso-icon {
+    left: auto;
+    right: 0.85rem;
   }
 }
 
@@ -1698,8 +1758,552 @@ body[dir="rtl"],
 }
 
 /* ==========================================================================
-   HOW IT WORKS VISUAL STEP WORKFLOW STYLES
+   HOW IT WORKS INTERACTIVE STEP CONSOLES & RELEVANT VISUALS
    ========================================================================== */
+.hiw-console-card {
+  background: #ffffff;
+  border: 1px solid var(--bench-border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+  position: relative;
+}
+
+.hiw-console-card:hover {
+  border-color: var(--bench-green);
+  box-shadow: 0 16px 40px rgba(0, 131, 98, 0.08);
+}
+
+.hiw-console-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.1rem;
+  background: #F8FAFC;
+  border-bottom: 1px solid var(--bench-border);
+  gap: 0.5rem;
+}
+
+.hiw-window-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hiw-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.hiw-dot-red { background-color: #EF4444; }
+.hiw-dot-yellow { background-color: #F59E0B; }
+.hiw-dot-green { background-color: #10B981; }
+
+.hiw-console-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--bench-slate);
+}
+
+.hiw-live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #10B981;
+  background: rgba(16, 185, 129, 0.12);
+  padding: 0.2rem 0.55rem;
+  border-radius: 50px;
+  font-family: monospace;
+}
+
+.hiw-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  animation: hiwPulse 2s infinite;
+}
+
+@keyframes hiwPulse {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+/* Step 1 Telemetry Bar */
+.hiw-telemetry-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--bench-border);
+  background: #FAFBFD;
+}
+
+.hiw-telemetry-col {
+  padding: 0.75rem 0.85rem;
+  border-right: 1px solid var(--bench-border);
+  text-align: left;
+}
+
+.hiw-telemetry-col:last-child {
+  border-right: none;
+}
+
+.hiw-telemetry-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--bench-slate);
+  margin-bottom: 2px;
+}
+
+.hiw-telemetry-val {
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.hiw-telemetry-sub {
+  font-size: 0.68rem;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 2px;
+}
+
+/* Step 1 Feed Items */
+.hiw-feed-container {
+  padding: 0.6rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.hiw-feed-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.15s ease;
+}
+
+.hiw-feed-item:hover {
+  background: #F8FAFC;
+  border-color: rgba(0, 131, 98, 0.25);
+  transform: translateX(2px);
+}
+
+.hiw-feed-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hiw-feed-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.hiw-icon-income { background: rgba(16, 185, 129, 0.12); color: #10B981; }
+.hiw-icon-invoice { background: rgba(59, 130, 246, 0.12); color: #3B82F6; }
+.hiw-icon-expense { background: rgba(239, 68, 68, 0.12); color: #EF4444; }
+.hiw-icon-payment { background: rgba(139, 92, 246, 0.12); color: #8B5CF6; }
+.hiw-icon-tx { background: rgba(20, 184, 166, 0.12); color: #0D9488; }
+
+.hiw-feed-body {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.hiw-feed-name {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--bench-navy);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hiw-feed-meta {
+  font-size: 0.72rem;
+  color: var(--bench-slate);
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hiw-feed-amt {
+  flex-shrink: 0;
+}
+
+.hiw-val-income { font-size: 0.9rem; font-weight: 800; color: #10B981; }
+.hiw-val-invoice { font-size: 0.9rem; font-weight: 800; color: #3B82F6; }
+.hiw-val-expense { font-size: 0.9rem; font-weight: 800; color: #EF4444; }
+.hiw-val-payment { font-size: 0.9rem; font-weight: 800; color: #8B5CF6; }
+.hiw-val-tx { font-size: 0.9rem; font-weight: 800; color: #0D9488; }
+
+.hiw-badge {
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 0.12rem 0.45rem;
+  border-radius: 4px;
+  font-family: monospace;
+  letter-spacing: 0.3px;
+}
+
+.hiw-badge-income { background: rgba(16, 185, 129, 0.15); color: #059669; }
+.hiw-badge-invoice { background: rgba(59, 130, 246, 0.15); color: #2563EB; }
+.hiw-badge-expense { background: rgba(245, 158, 11, 0.15); color: #D97706; }
+.hiw-badge-payment { background: rgba(139, 92, 246, 0.15); color: #7C3AED; }
+.hiw-badge-tx { background: rgba(20, 184, 166, 0.15); color: #0D9488; }
+
+.hiw-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.65rem;
+  font-family: monospace;
+  font-weight: 600;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  margin-top: 1px;
+}
+
+.hiw-status-verified { background: rgba(16, 185, 129, 0.1); color: #10B981; }
+.hiw-status-tax { background: rgba(245, 158, 11, 0.1); color: #D97706; }
+.hiw-status-transfer { background: rgba(20, 184, 166, 0.1); color: #0D9488; }
+
+/* Step 2 Advisor Styles */
+.hiw-advisor-card {
+  padding: 0.85rem;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid var(--bench-border);
+  height: 100%;
+  transition: var(--transition);
+}
+
+.hiw-advisor-card:hover {
+  border-color: var(--bench-green);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.hiw-advisor-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--bench-green);
+}
+
+.hiw-advisor-status-dot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background: #10B981;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.hiw-advisor-name {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--bench-navy);
+}
+
+.hiw-advisor-role {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--bench-green);
+}
+
+.hiw-advisor-exp {
+  font-size: 0.68rem;
+  color: var(--bench-slate);
+}
+
+.hiw-advisor-tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.hiw-tag {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: var(--bench-green-subtle);
+  color: var(--bench-green);
+}
+
+.hiw-memo-item {
+  padding: 0.65rem 0.8rem;
+  border-radius: 8px;
+  background: #ffffff;
+  border-left: 3px solid var(--bench-green);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.hiw-memo-author {
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.hiw-memo-time {
+  font-size: 0.68rem;
+  color: var(--bench-slate-light);
+  font-family: monospace;
+}
+
+.hiw-memo-text {
+  font-size: 0.78rem;
+  color: var(--bench-slate);
+  margin-top: 3px;
+  line-height: 1.45;
+}
+
+/* Step 4 Deliverables Styles */
+.hiw-deliverable-card {
+  padding: 0.8rem;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid var(--bench-border);
+  height: 100%;
+}
+
+.hiw-deliverable-card:hover {
+  border-color: var(--bench-green);
+}
+
+.hiw-deliverable-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  font-family: monospace;
+  color: var(--bench-slate);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hiw-deliverable-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--bench-navy);
+  margin-bottom: 0.4rem;
+}
+
+.hiw-cpa-signoff {
+  margin: 0 0.85rem 0.85rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 8px;
+  background: rgba(0, 131, 98, 0.06);
+  border: 1px solid rgba(0, 131, 98, 0.2);
+}
+
+.hiw-stamp-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bench-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hiw-stamp-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hiw-stamp-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--bench-navy);
+}
+
+.hiw-stamp-sub {
+  font-size: 0.72rem;
+  color: var(--bench-slate);
+  margin-top: 1px;
+}
+
+/* Console Footer */
+.hiw-console-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.65rem 1.1rem;
+  background: #F8FAFC;
+  border-top: 1px solid var(--bench-border);
+}
+
+/* Dark Theme Overrides for HIW Interactive Consoles */
+[data-theme="dark"] .hiw-console-card {
+  background: #13161B !important;
+  border-color: #222730 !important;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="dark"] .hiw-console-header,
+[data-theme="dark"] .hiw-console-footer {
+  background: #171C23 !important;
+  border-color: #222730 !important;
+}
+
+[data-theme="dark"] .hiw-console-title {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .hiw-telemetry-bar {
+  background: #0E1115 !important;
+  border-color: #222730 !important;
+}
+
+[data-theme="dark"] .hiw-telemetry-col {
+  border-color: #222730 !important;
+}
+
+[data-theme="dark"] .hiw-telemetry-label {
+  color: #64748B !important;
+}
+
+[data-theme="dark"] .hiw-feed-item {
+  background: #171C23 !important;
+  border-color: #222730 !important;
+}
+
+[data-theme="dark"] .hiw-feed-item:hover {
+  background: #1D232C !important;
+  border-color: var(--bench-green) !important;
+}
+
+[data-theme="dark"] .hiw-feed-name {
+  color: #F8FAFC !important;
+}
+
+[data-theme="dark"] .hiw-feed-meta {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .hiw-advisor-card {
+  background: #171C23 !important;
+  border-color: #222730 !important;
+}
+
+[data-theme="dark"] .hiw-advisor-card:hover {
+  background: #1D232C !important;
+}
+
+[data-theme="dark"] .hiw-advisor-name {
+  color: #F8FAFC !important;
+}
+
+[data-theme="dark"] .hiw-advisor-exp {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .hiw-tag {
+  background: rgba(0, 131, 98, 0.25) !important;
+  color: #34D399 !important;
+}
+
+[data-theme="dark"] .hiw-memo-item {
+  background: #171C23 !important;
+  border-left-color: #34D399 !important;
+}
+
+[data-theme="dark"] .hiw-memo-author {
+  color: #F8FAFC !important;
+}
+
+[data-theme="dark"] .hiw-memo-text {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .hiw-deliverable-card {
+  background: #171C23 !important;
+  border-color: #222730 !important;
+}
+
+[data-theme="dark"] .hiw-deliverable-title {
+  color: #F8FAFC !important;
+}
+
+[data-theme="dark"] .hiw-cpa-signoff {
+  background: rgba(0, 131, 98, 0.12) !important;
+  border-color: rgba(52, 211, 153, 0.3) !important;
+}
+
+[data-theme="dark"] .hiw-stamp-title {
+  color: #34D399 !important;
+}
+
+[data-theme="dark"] .hiw-stamp-sub {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .bg-light-subtle {
+  background-color: #0E1115 !important;
+}
+
+/* Mobile 360 Optimizations */
+@media (max-width: 576px) {
+  .hiw-telemetry-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hiw-telemetry-col:nth-child(2) {
+    border-right: none;
+  }
+  .hiw-telemetry-col:nth-child(1),
+  .hiw-telemetry-col:nth-child(2) {
+    border-bottom: 1px solid var(--bench-border);
+  }
+  [data-theme="dark"] .hiw-telemetry-col:nth-child(1),
+  [data-theme="dark"] .hiw-telemetry-col:nth-child(2) {
+    border-bottom-color: #222730 !important;
+  }
+  .hiw-feed-item {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .hiw-feed-amt {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px dashed rgba(0,0,0,0.06);
+    padding-top: 0.35rem;
+    margin-top: 0.15rem;
+  }
+  [data-theme="dark"] .hiw-feed-amt {
+    border-top-color: #222730;
+  }
+}
+
 .step-visual-card {
   background: #ffffff;
   border: 1px solid var(--bench-border);
@@ -1797,6 +2401,233 @@ body[dir="rtl"],
   background: rgba(0, 131, 98, 0.15);
   border-color: rgba(0, 131, 98, 0.35);
   color: #34D399;
+}
+
+/* ==========================================================================
+   SECTION 05: FOUNDER MASTERCLASSES & CFO OFFICE HOURS (MOBILE 360 OPTIMIZATIONS)
+   ========================================================================== */
+.cfo-office-card {
+  height: auto;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid var(--bench-border);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.cfo-office-card:hover {
+  border-color: var(--bench-green);
+  box-shadow: var(--shadow-md);
+}
+
+.cfo-card-icon {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bench-green-subtle);
+  color: var(--bench-green);
+}
+
+.cfo-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--bench-navy);
+}
+
+.cfo-card-time {
+  font-size: 0.85rem;
+  color: var(--bench-slate);
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.cfo-card-footer {
+  border-top: 1px solid var(--bench-border-light);
+}
+
+@media (max-width: 768px) {
+  #founder-masterclasses {
+    padding: 3.5rem 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #founder-masterclasses {
+    padding: 3rem 0 !important;
+  }
+  .cfo-office-card {
+    padding: 1.25rem !important;
+  }
+  .cfo-card-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+  .cfo-card-icon i,
+  .cfo-card-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  .cfo-card-title {
+    font-size: 0.975rem !important;
+  }
+  .cfo-card-time {
+    font-size: 0.8rem !important;
+  }
+  .cfo-card-footer {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+  }
+  .cfo-card-footer .badge {
+    align-self: flex-start;
+    padding: 0.45rem 0.85rem !important;
+    font-size: 0.725rem !important;
+  }
+  .cfo-card-footer .btn-bench-primary {
+    width: 100% !important;
+    text-align: center;
+    justify-content: center;
+    padding: 0.7rem 1rem !important;
+    font-size: 0.9rem !important;
+  }
+  .masterclass-thumbnail {
+    height: 200px;
+  }
+}
+
+/* Dark Theme Overrides for CFO Office Hours Card */
+[data-theme="dark"] .cfo-office-card {
+  background: #13161B !important;
+  border-color: #222730 !important;
+}
+
+[data-theme="dark"] .cfo-card-title {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .cfo-card-time {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .cfo-card-footer {
+  border-color: #222730 !important;
+}
+
+/* ==========================================================================
+   SECTION: CALL TO ACTION BANNER (ABOVE FOOTER) & NIGHT THEME CONTRAST FIX
+   ========================================================================== */
+.bench-cta-banner {
+  background: #112A3D;
+  background: linear-gradient(135deg, #112A3D 0%, #17384E 100%) !important;
+  color: #FFFFFF !important;
+  padding: 5rem 0 !important;
+  position: relative;
+}
+
+.bench-cta-banner h2 {
+  color: #FFFFFF !important;
+}
+
+.bench-cta-banner p {
+  color: #CBD5E1 !important;
+}
+
+.bench-cta-banner .cta-outline-btn {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  color: #FFFFFF !important;
+  background: transparent !important;
+  transition: var(--transition);
+}
+
+.bench-cta-banner .cta-outline-btn:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+/* Night Theme (Pure Deep Black Palette #08090A) Contrast Fix */
+[data-theme="dark"] .bench-cta-banner {
+  background: #08090A !important;
+  background-color: #08090A !important;
+  border-top: 1px solid #1E232B !important;
+  border-bottom: 1px solid #1E232B !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .bench-cta-banner h2 {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .bench-cta-banner p {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .bench-cta-banner .cta-outline-btn {
+  border-color: #2D3748 !important;
+  background: #13161B !important;
+  color: #E2E8F0 !important;
+}
+
+[data-theme="dark"] .bench-cta-banner .cta-outline-btn:hover {
+  border-color: var(--bench-green) !important;
+  background: #181C23 !important;
+  color: #FFFFFF !important;
+}
+
+@media (max-width: 480px) {
+  .bench-cta-banner {
+    padding: 3.5rem 0 !important;
+  }
+  .bench-cta-banner .d-flex.flex-wrap {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .bench-cta-banner .btn-bench-primary,
+  .bench-cta-banner .cta-outline-btn {
+    width: 100% !important;
+    text-align: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
+/* ==========================================================================
+   HOMEPAGE 2: TELEMETRY & PROVEN IMPACT SECTIONS (NIGHT THEME CONTRAST FIX)
+   ========================================================================== */
+.section-h2-telemetry,
+.section-h2-impact {
+  background-color: #FFFFFF;
+}
+
+[data-theme="dark"] .section-h2-telemetry,
+[data-theme="dark"] .section-h2-impact {
+  background-color: #08090A !important;
+  border-top: 1px solid #1E232B !important;
+  border-bottom: 1px solid #1E232B !important;
+}
+
+[data-theme="dark"] .section-h2-telemetry h2,
+[data-theme="dark"] .section-h2-impact h2,
+[data-theme="dark"] .section-h2-impact h3 {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .section-h2-telemetry p,
+[data-theme="dark"] .section-h2-impact p {
+  color: #94A3B8 !important;
+}
+
+[data-theme="dark"] .section-h2-impact .badge.bg-dark {
+  background-color: #17191B !important;
+  border: 1px solid #2B3037 !important;
+  color: #E2E8F0 !important;
 }
 
 

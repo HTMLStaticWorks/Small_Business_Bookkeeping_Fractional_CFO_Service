@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHealthAuditModal();
   initCloseTrackerInteraction();
   initResourceCalculators();
+  initHowItWorksVisuals();
 });
 
 /**
@@ -408,6 +409,9 @@ function applyTheme(theme) {
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();
   }
+
+  // Dispatch theme change event for charts
+  window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
 }
 
 function applyRTL(dir) {
@@ -506,5 +510,166 @@ function initResourceCalculators() {
     bmArr.addEventListener('input', updateBm);
   }
 }
+
+/**
+ * 12. How It Works Interactive Visuals (Runway Calculator & Multi-Metric Chart/Graph)
+ */
+function initHowItWorksVisuals() {
+  // A. Interactive Cash Runway Calculator
+  const cashSlider = document.getElementById('hiwCashSlider');
+  const burnSlider = document.getElementById('hiwBurnSlider');
+  const cashLabel = document.getElementById('hiwCashLabel');
+  const burnLabel = document.getElementById('hiwBurnLabel');
+  const runwayResult = document.getElementById('hiwRunwayResult');
+  const healthBadge = document.getElementById('hiwHealthBadge');
+
+  if (cashSlider && burnSlider) {
+    function updateHiwCalculator() {
+      const cash = parseFloat(cashSlider.value) || 0;
+      const burn = parseFloat(burnSlider.value) || 1;
+      const months = (cash / burn).toFixed(1);
+
+      if (cashLabel) cashLabel.textContent = `$${cash.toLocaleString()}`;
+      if (burnLabel) burnLabel.textContent = `$${burn.toLocaleString()}`;
+      if (runwayResult) runwayResult.textContent = months;
+
+      if (healthBadge) {
+        if (months >= 18) {
+          healthBadge.textContent = 'EXCELLENT RUNWAY';
+          healthBadge.className = 'badge bg-success-subtle text-success font-mono mb-1';
+        } else if (months >= 10) {
+          healthBadge.textContent = 'HEALTHY RUNWAY';
+          healthBadge.className = 'badge bg-success-subtle text-success font-mono mb-1';
+        } else if (months >= 6) {
+          healthBadge.textContent = 'MODERATE RUNWAY';
+          healthBadge.className = 'badge bg-warning-subtle text-warning font-mono mb-1';
+        } else {
+          healthBadge.textContent = 'CRITICAL (CFO REVIEW)';
+          healthBadge.className = 'badge bg-danger-subtle text-danger font-mono mb-1';
+        }
+      }
+    }
+
+    cashSlider.addEventListener('input', updateHiwCalculator);
+    burnSlider.addEventListener('input', updateHiwCalculator);
+    updateHiwCalculator();
+  }
+
+  // B. Dynamic Performance Chart & Graphs (Revenue, Expenses & Gross Margin)
+  const chartCanvas = document.getElementById('howItWorksChart');
+  if (chartCanvas && typeof Chart !== 'undefined') {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const tickColor = isDark ? '#94A3B8' : '#64748B';
+    const gridColor = isDark ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0, 0, 0, 0.05)';
+
+    const ctx = chartCanvas.getContext('2d');
+    const hiwChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct (Proj)'],
+        datasets: [
+          {
+            label: 'Income / Revenue',
+            data: [135000, 148000, 162000, 178000, 194000, 210000, 235000],
+            borderColor: '#10B981',
+            backgroundColor: 'rgba(16, 185, 129, 0.08)',
+            fill: true,
+            borderWidth: 2.5,
+            tension: 0.35,
+            pointRadius: 3,
+            pointBackgroundColor: '#10B981',
+            yAxisID: 'y'
+          },
+          {
+            label: 'Expenses & Payments',
+            data: [92000, 96000, 104000, 108000, 114000, 119000, 124000],
+            borderColor: '#E07A5F',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            borderDash: [4, 4],
+            tension: 0.35,
+            pointRadius: 3,
+            pointBackgroundColor: '#E07A5F',
+            yAxisID: 'y'
+          },
+          {
+            label: 'Gross Margin %',
+            data: [68, 70, 71, 73, 75, 76, 78],
+            borderColor: '#F59E0B',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            tension: 0.35,
+            pointRadius: 3,
+            pointBackgroundColor: '#F59E0B',
+            yAxisID: 'y1'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: {
+          mode: 'index',
+          intersect: false
+        },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#13161B',
+            titleColor: '#FFFFFF',
+            bodyColor: '#E2E8F0',
+            borderColor: '#222730',
+            borderWidth: 1,
+            padding: 8,
+            callbacks: {
+              label: function(context) {
+                if (context.dataset.yAxisID === 'y1') {
+                  return ` Margin: ${context.parsed.y}%`;
+                }
+                return ` ${context.dataset.label}: $${context.parsed.y.toLocaleString()}`;
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: { color: tickColor, font: { size: 10 } }
+          },
+          y: {
+            type: 'linear',
+            display: true,
+            position: 'left',
+            grid: { color: gridColor },
+            ticks: {
+              color: tickColor,
+              font: { size: 9 },
+              callback: (v) => `$${v / 1000}k`
+            }
+          },
+          y1: {
+            type: 'linear',
+            display: false,
+            position: 'right',
+            min: 50,
+            max: 100
+          }
+        }
+      }
+    });
+
+    // Theme change listener for chart axis colors
+    window.addEventListener('themeChanged', () => {
+      const darkNow = document.documentElement.getAttribute('data-theme') === 'dark';
+      const c = darkNow ? '#94A3B8' : '#64748B';
+      const g = darkNow ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0, 0, 0, 0.05)';
+      hiwChart.options.scales.x.ticks.color = c;
+      hiwChart.options.scales.y.ticks.color = c;
+      hiwChart.options.scales.y.grid.color = g;
+      hiwChart.update();
+    });
+  }
+}
+
 
 
